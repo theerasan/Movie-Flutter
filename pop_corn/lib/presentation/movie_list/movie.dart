@@ -6,6 +6,7 @@ class Movie {
     required this.isFavorite,
     required this.rating,
     required this.releaseDate,
+    required this.isAdult,
   });
 
   final num id;
@@ -14,4 +15,5 @@ class Movie {
   final bool isFavorite;
   final double rating;
   final String releaseDate;
+  final bool isAdult;
 }
