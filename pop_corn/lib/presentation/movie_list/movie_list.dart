@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pop_corn/presentation/movie_list/movie.dart';
+import 'package:pop_corn/routing/routes.dart';
 
 class MovieList extends StatefulWidget {
 
@@ -16,9 +18,16 @@ class MovieList extends StatefulWidget {
 class _MovieListState extends State<MovieList> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount:  widget.movies.length,
-      itemBuilder: (ctx, index) => Text(widget.movies[index].title)
+    return Scaffold(
+      body: ListView.builder(
+        itemCount:  widget.movies.length,
+        itemBuilder: (ctx, index) => OutlinedButton(
+            onPressed: () {
+              context.push(Routes.movieDetailWithId(widget.movies[index].id));
+            },
+            child: Text(widget.movies[index].title)
+        ),
+      ),
     );
   }
 }
