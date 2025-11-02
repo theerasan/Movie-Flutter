@@ -27,26 +27,36 @@ class _MovieListState extends State<MovieList> {
   @override
   Widget build(BuildContext context) {
     final movies = widget.viewModel.movies;
+
     final appBar = AppBar(
       title: Text('Movie'),
       centerTitle: true,
     );
 
+    final width = MediaQuery.of(context).size.width;
+    var column = 1;
+    if (width > 600 ) {
+      column = 2;
+    }
+
     return Scaffold(
       appBar: appBar,
-      body: ListView.builder(
-          padding: EdgeInsets.all(16),
-          itemCount: movies.length,
-          itemBuilder: (ctx, index) {
-            final movie = movies[index];
-            return MovieCard(
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: column,
+            childAspectRatio: width / column / 155
+        ),
+        itemCount: movies.length,
+        itemBuilder: (BuildContext context, int index) {
+          final movie = movies[index];
+          return MovieCard(
               movie: movie,
               onClickMovieItem: () {
                 _onClickMovieItem(movie.id);
               }
-            );
-          }
-        ),
-      );
+          );
+        }
+      )
+    );
   }
 }
