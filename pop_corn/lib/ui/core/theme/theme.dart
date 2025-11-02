@@ -3,27 +3,37 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pop_corn/ui/tag_chip.dart';
 import 'colors.dart';
 
 abstract final class AppTheme {
-  static const _textTheme = TextTheme(
-    headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
-    headlineSmall: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-    titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-    bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-    bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-    bodySmall: TextStyle(
+  static final _textTheme = TextTheme(
+    headlineLarge: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.w500,
+        fontFamily: GoogleFonts.montserrat().fontFamily
+    ),
+    headlineSmall: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        fontFamily: GoogleFonts.montserrat().fontFamily
+    ),
+    titleMedium: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+    bodyLarge: const TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+    bodyMedium: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+    bodySmall: const TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w400,
       color: AppColors.grey3,
     ),
     labelSmall: TextStyle(
-      fontSize: 10,
+      fontSize: 12,
       fontWeight: FontWeight.w500,
       color: AppColors.grey3,
+        fontFamily: GoogleFonts.poppins().fontFamily
     ),
-    labelLarge: TextStyle(
+    labelLarge: const TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
       color: AppColors.grey3,

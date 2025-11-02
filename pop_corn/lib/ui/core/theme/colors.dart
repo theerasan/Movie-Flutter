@@ -5,16 +5,22 @@
 import 'package:flutter/material.dart';
 
 abstract final class AppColors {
-  static const black1 = Color(0xFF101010);
+  static const black1 = Color(0xFF171725);
+  static const softBlack = Color(0xFF252836);
   static const white1 = Color(0xFFFFF7FA);
-  static const grey1 = Color(0xFFF2F2F2);
-  static const grey2 = Color(0xFF4D4D4D);
-  static const grey3 = Color(0xFFA4A4A4);
+  static const grey1 = Color(0xFFF1F1F5);
+  static const grey2 = Color(0xFF92929D);
+  static const grey3 = Color(0xFF696974);
   static const whiteTransparent = Color(
     0x4DFFFFFF,
   ); // Figma rgba(255, 255, 255, 0.3)
-  static const blackTransparent = Color(0x4D000000);
-  static const red1 = Color(0xFFE74C3C);
+  static const blackTransparent = Color(0x4D171725);
+  static const danger = Color(0xFFFF7256);
+  static const warn = Color(0xFFFF8700);
+  static const star = Color(0xFFFFB734);
+  static const accept = Color(0xFF22B07D);
+  static const info = Color(0xFF12CDD9);
+  static const favColor = Color(0xFFF4649E);
 
   static const lightColorScheme = ColorScheme(
     brightness: Brightness.light,
@@ -25,7 +31,7 @@ abstract final class AppColors {
     surface: Colors.white,
     onSurface: AppColors.black1,
     error: Colors.white,
-    onError: Colors.red,
+    onError: danger,
   );
 
   static const darkColorScheme = ColorScheme(
@@ -36,7 +42,7 @@ abstract final class AppColors {
     onSecondary: AppColors.black1,
     surface: AppColors.black1,
     onSurface: Colors.white,
-    error: Colors.black,
-    onError: AppColors.red1,
+    error: AppColors.softBlack,
+    onError: AppColors.danger,
   );
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pop_corn/presentation/movie_list/movie.dart';
+import 'package:pop_corn/ui/core/theme/colors.dart';
+import 'package:pop_corn/ui/rate_label.dart';
 
 class MovieCard extends StatefulWidget {
   const MovieCard({
@@ -28,24 +30,62 @@ class _MovieCardState extends State<MovieCard> {
       child: InkWell(
         onTap: widget.onClickMovieItem,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               flex: 3,
-              child:Image.network(widget.movie.posterUrl),
+              child: FadeInImage(
+                image: NetworkImage(widget.movie.posterUrl),
+                placeholder: const AssetImage('images/poster_placeholder.png'),
+              ),
             ),
+            SizedBox(width: 16),
             Expanded(
               flex: 7,
               child: Column(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(icon)
-                    ),
-                    Text(widget.movie.title),
-                    Text(widget.movie.releaseDate),
-                  ]
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: SizedBox(
+                          height: 70,
+                          child: Text(
+                            widget.movie.title,
+                            style: Theme.of(context).textTheme.headlineSmall,
+                            maxLines: 2,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      RateLabel(isAdult: widget.movie.isAdult),
+                      SizedBox(width: 8,),
+                      Icon(Icons.star, size: 16, color: AppColors.star),
+                      Text(widget.movie.rating.toString(), style: Theme.of(context).textTheme.labelSmall?.copyWith(color: AppColors.star)),
+                    ],
+                  ),
+                  SizedBox(height: 12,),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(Icons.calendar_today_rounded, color: AppColors.grey3, size: 16),
+                      SizedBox(width: 8),
+                      Text(widget.movie.releaseDate, style: Theme.of(context).textTheme.labelSmall),
+                    ],
+                  ),
+                ]
               ),
             ),
+            IconButton(
+                onPressed: () {},
+                icon: Icon(icon, color: AppColors.favColor,)
+            )
           ],
         ),
       )
