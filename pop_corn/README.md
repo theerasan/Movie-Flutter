@@ -17,7 +17,18 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Run the project
 Make sure you run emulator on your device
+
+### development environment
+This environment going to get the data from `/assets/*.json` files, not require network connection will contains only sample data
 ```bash 
 $ cd popcorn
 $ flutter run --target lib/main_development.dart
 ```
+
+### staging environment
+This environment going to get the data from `themoviedb` api, require network connection
+```bash 
+$ cd popcorn
+$ flutter run --target lib/main_statging.dart
+```
+
