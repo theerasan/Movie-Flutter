@@ -1,0 +1,70 @@
+{
+  "dates": {
+    "maximum": "2025-11-05",
+    "minimum": "2025-09-24"
+  },
+  "page": 1,
+  "total_pages": 2,
+  "total_results": 6730,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/kHOfxq7cMTXyLbj0UmdoGhT540O.jpg",
+      "genre_ids": [
+        878,
+        28,
+        35
+      ],
+      "id": 507244,
+      "original_language": "en",
+      "original_title": "Afterburn",
+      "overview": "Set against the backdrop of a postapocalyptic Earth whose Eastern Hemisphere was destroyed by a massive solar flare, leaving what life remains mutated from radiation and fallout. The story revolves around a group of treasure hunters who extract such objects as the Mona Lisa, the Rosetta Stone and the Crown Jewels while facing rival hunters, mutants and pirates.",
+      "popularity": 357.8025,
+      "poster_path": "/xR0IhVBjbNU34b8erhJCgRbjXo3.jpg",
+      "release_date": "2025-08-20",
+      "title": "Afterburn",
+      "video": false,
+      "vote_average": 6.88,
+      "vote_count": 92
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7QirCB1o80NEFpQGlQRZerZbQEp.jpg",
+      "genre_ids": [
+        10749,
+        18
+      ],
+      "id": 1156594,
+      "original_language": "es",
+      "original_title": "Culpa nuestra",
+      "overview": "Jenna and Lion's wedding brings about the long-awaited reunion between Noah and Nick after their breakup. Nick's inability to forgive Noah stands as an insurmountable barrier. He, heir to his grandfather's businesses, and she, starting her professional life, resist fueling a flame that's still alive. But now that their paths have crossed again, will love be stronger than resentment?",
+      "popularity": 209.1102,
+      "poster_path": "/yzqHt4m1SeY9FbPrfZ0C2Hi9x1s.jpg",
+      "release_date": "2025-10-15",
+      "title": "Our Fault",
+      "video": false,
+      "vote_average": 7.571,
+      "vote_count": 456
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qcDDn7WeKBenM4nLlOPXAeJ4hpg.jpg",
+      "genre_ids": [
+        53,
+        28,
+        12
+      ],
+      "id": 1280450,
+      "original_language": "en",
+      "original_title": "Stolen Girl",
+      "overview": "In 1993, Maureen’s six-year-old daughter Amina is snuck out of the country by her ex-husband, Karim. After years of unsuccessful attempts to find her, Maureen intersects with a professional retriever of internationally abducted children who promises to help her find Amina in exchange for her collaboration.",
+      "popularity": 191.6942,
+      "poster_path": "/fZlNXEHZsBp7unqw009MeBbMv87.jpg",
+      "release_date": "2025-09-04",
+      "title": "Stolen Girl",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 61
+    }
+  ]
+}
