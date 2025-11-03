@@ -1,0 +1,90 @@
+{
+  "dates": {
+    "maximum": "2025-11-05",
+    "minimum": "2025-09-24"
+  },
+  "page": 2,
+  "total_pages": 2,
+  "total_results": 6730,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/pmDPp0RLfDCGzXKfMoAGbgfVECH.jpg",
+      "genre_ids": [
+        28,
+        35,
+        878
+      ],
+      "id": 338969,
+      "original_language": "en",
+      "original_title": "The Toxic Avenger Unrated",
+      "overview": "When a downtrodden janitor, Winston Gooze, is exposed to a catastrophic toxic accident, he’s transformed into a new kind of hero: The Toxic Avenger. Now, Toxie must rise from outcast to savior, taking on ruthless corporate overlords and corrupt forces who threaten his son, his friends, and his community.",
+      "popularity": 125.8125,
+      "poster_path": "/sIonGSpGNtH72OzbJllPOEMNjVU.jpg",
+      "release_date": "2025-08-28",
+      "title": "The Toxic Avenger Unrated",
+      "video": false,
+      "vote_average": 6.345,
+      "vote_count": 165
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cc48kfehVAkgG73BsPcFLMoxa8h.jpg",
+      "genre_ids": [
+        9648,
+        53,
+        80,
+        18
+      ],
+      "id": 1272166,
+      "original_language": "en",
+      "original_title": "Ballad of a Small Player",
+      "overview": "Amid the glittering casinos of Macau, a gambler running from his past — and his debts — becomes fascinated by an enigmatic woman at the baccarat table.",
+      "popularity": 103.9119,
+      "poster_path": "/yiXpXNiBWENaSJmdKfoT5DU0bL4.jpg",
+      "release_date": "2025-10-15",
+      "title": "Ballad of a Small Player",
+      "video": false,
+      "vote_average": 6.016,
+      "vote_count": 95
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/Q2OajDi2kcO6yErb1IAyVDTKMs.jpg",
+      "genre_ids": [
+        27,
+        9648
+      ],
+      "id": 1078605,
+      "original_language": "en",
+      "original_title": "Weapons",
+      "overview": "When all but one child from the same class mysteriously vanish on the same night at exactly the same time, a community is left questioning who or what is behind their disappearance.",
+      "popularity": 101.0637,
+      "poster_path": "/cpf7vsRZ0MYRQcnLWteD5jK9ymT.jpg",
+      "release_date": "2025-08-04",
+      "title": "Weapons",
+      "video": false,
+      "vote_average": 7.345,
+      "vote_count": 2195
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ax2qCKU6tUhdkStiCnrDdXKA5xC.jpg",
+      "genre_ids": [
+        28,
+        12
+      ],
+      "id": 1086910,
+      "original_language": "en",
+      "original_title": "The Lost Princess",
+      "overview": "After an Ayahuasca vision transports him to a haunted castle, Alec meets Hanna who tales him the story of her mother's forced marriage and how the forbidden passion with her father was in danger when the princess pregnancy became obvious",
+      "popularity": 98.8044,
+      "poster_path": "/31S2ISsDtbnxb0kuXZl1SxSMD0K.jpg",
+      "release_date": "2025-10-16",
+      "title": "The Lost Princess",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 33
+    }
+  ]
+}
