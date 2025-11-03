@@ -1,7 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:pop_corn/domain/use_case/movie/movie_use_case.dart';
 import 'package:pop_corn/presentation/movie_list/movie.dart';
 
 class MovieListViewModel extends ChangeNotifier {
+
+  MovieListViewModel({required this.useCase});
+
+  final MovieUseCase useCase;
   final List<Movie> movies = [
     Movie(
       id: 507244,
@@ -85,6 +90,10 @@ class MovieListViewModel extends ChangeNotifier {
       isAdult: false,
     )
   ];
+
+  void onEnterScreen() {
+    useCase.log();
+  }
 
   void loadMore() {
     print("load more");

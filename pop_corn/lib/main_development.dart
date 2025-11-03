@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:pop_corn/config/dependencies.dart';
 import 'package:pop_corn/main.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   Logger.root.level = Level.ALL;
-  runApp(PopcornApp());
+  runApp(MultiProvider(providers: providersLocal, child: const PopcornApp()));
 }
