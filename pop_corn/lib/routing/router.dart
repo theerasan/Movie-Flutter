@@ -1,12 +1,13 @@
 import 'package:go_router/go_router.dart';
-import 'package:pop_corn/presentation/movie_detail/movie_detail.dart';
+import 'package:pop_corn/presentation/movie_detail/movie_detail_screen.dart';
+import 'package:pop_corn/presentation/movie_detail/movie_detail_viewmodel.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:pop_corn/routing/routes.dart';
 import 'package:provider/provider.dart';
 
 GoRouter router() => GoRouter(
-    initialLocation: Routes.movieList,
+    initialLocation: Routes.movieList, //Routes.movieDetailWithId(1328803),
     routes: [
       GoRoute(
         path: Routes.movieList,
@@ -18,7 +19,9 @@ GoRouter router() => GoRouter(
         path: Routes.movieDetail,
         builder: (context, state) {
           final id = int.parse(state.pathParameters['id']!);
-          return MovieDetail(id: id);
+          final viewModel = Provider.of<MovieDetailViewModel>(context);
+          viewModel.setId = id;
+          return MovieDetailScreen(viewModel: viewModel);
         }
       )
     ]

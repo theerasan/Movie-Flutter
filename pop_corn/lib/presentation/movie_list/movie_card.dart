@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pop_corn/domain/model/movie.dart';
+import 'package:pop_corn/ui/release_date_label.dart';
+import 'package:pop_corn/ui/vote_label.dart';
 import 'package:pop_corn/ui/core/theme/colors.dart';
 import 'package:pop_corn/ui/rate_label.dart';
 
@@ -46,17 +48,7 @@ class _MovieCardState extends State<MovieCard> {
     children: [
       RateLabel(isAdult: widget.movie.isAdult),
       SizedBox(width: 8,),
-      Icon(Icons.star, size: 16, color: AppColors.star),
-      Text(widget.movie.rating.toString(), style: Theme.of(context).textTheme.labelSmall?.copyWith(color: AppColors.star)),
-    ],
-  );
-
-  late final releaseDate = Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Icon(Icons.calendar_today_rounded, color: AppColors.grey3, size: 16),
-      SizedBox(width: 8),
-      Text(widget.movie.releaseDate, style: Theme.of(context).textTheme.labelSmall),
+      VoteLabel(rating: widget.movie.rating)
     ],
   );
 
@@ -92,7 +84,7 @@ class _MovieCardState extends State<MovieCard> {
                       children: [
                         ratingAndVote,
                         SizedBox(height: 12,),
-                        releaseDate,
+                        ReleaseDateLabel(releaseDate: widget.movie.releaseDate,),
                         SizedBox(height: 16,)
                       ],
                     )
