@@ -6,4 +6,8 @@ class MoviePageData {
   final List<Movie> movies;
   final int page;
   final int maxPage;
+
+  bool hasNextPage() {
+    return page < maxPage;
+  }
 }

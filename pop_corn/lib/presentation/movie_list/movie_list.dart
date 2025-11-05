@@ -59,20 +59,20 @@ class _MovieListState extends State<MovieList> {
 
     return Scaffold(
       appBar: appBar,
-      body: ListenableBuilder(listenable: widget.viewModel.movies, builder: (context, _) {
+      body: ListenableBuilder(listenable: widget.viewModel.lceElement, builder: (context, _) {
         return movieListBody(width, column);
       })
     );
   }
 
   Widget movieListBody(double width, int column) {
-    final movie = widget.viewModel.movies;
-    if (widget.viewModel.movies.loading) {
+    final movie = widget.viewModel.lceElement;
+    if (widget.viewModel.lceElement.loading && widget.viewModel.lceElement.result == null) {
       return const Center(
         child: CircularProgressIndicator(),
       );
     } else {
-      final result = widget.viewModel.movies.result;
+      final result = widget.viewModel.lceElement.result;
       if (result != null) {
         return movieList(width, column, result, movie);
       }
@@ -86,25 +86,37 @@ class _MovieListState extends State<MovieList> {
     return ListenableBuilder(
       listenable: widget.viewModel,
       builder: (context, _) {
-        return GridView.builder(
-            controller: _scrollController,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: column,
-                childAspectRatio: width / column / 155
+        return Column(
+          children: [
+            Expanded(
+              child: GridView.builder(
+                controller: _scrollController,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: column,
+                    childAspectRatio: width / column / 155
+                ),
+                itemCount: movies.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final movie = movies[index];
+                  return MovieCard(
+                    movie: movie,
+                    onClickMovieItem: () {
+                      _onClickMovieItem(movie.id);
+                    },
+                    onClickFavorite: () {
+                      _onClickFavorite(movie);
+                    },
+                  );
+                }
+              )
             ),
-            itemCount: movies.length,
-            itemBuilder: (BuildContext context, int index) {
-              final movie = movies[index];
-              return MovieCard(
-                movie: movie,
-                onClickMovieItem: () {
-                  _onClickMovieItem(movie.id);
-                },
-                onClickFavorite: () {
-                  _onClickFavorite(movie);
-                },
-              );
-            }
+            if (moviePage.loading)
+              const Center(
+                child: Padding(padding: EdgeInsets.all(24.0),
+                  child: CircularProgressIndicator(),
+                )
+              ),
+          ],
         );
       },
     );
