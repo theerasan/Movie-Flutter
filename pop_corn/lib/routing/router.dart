@@ -8,23 +8,20 @@ import 'package:pop_corn/routing/routes.dart';
 import 'package:provider/provider.dart';
 
 GoRouter router() => GoRouter(
-  initialLocation: Routes.movieList,
-  routes: [
-    GoRoute(
-      path: Routes.movieList,
-      builder: (context, state) {
-        final viewModel = MovieListViewModel(
-          movieUseCase: context.read<MovieUseCase>()
-        );
-        return MovieList(viewModel: viewModel);
-      },
-    ),
-    GoRoute(
-      path: Routes.movieDetail,
-      builder: (context, state) {
-        final id = int.parse(state.pathParameters['id']!);
-        return MovieDetail(id: id);
-      }
-    )
-  ]
+    initialLocation: Routes.movieList,
+    routes: [
+      GoRoute(
+        path: Routes.movieList,
+        builder: (context, state) {
+          return MovieList(viewModel: Provider.of<MovieListViewModel>(context));
+        },
+      ),
+      GoRoute(
+        path: Routes.movieDetail,
+        builder: (context, state) {
+          final id = int.parse(state.pathParameters['id']!);
+          return MovieDetail(id: id);
+        }
+      )
+    ]
 );
