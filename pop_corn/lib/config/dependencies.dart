@@ -11,6 +11,7 @@ import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case_impl.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_list_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_list_use_case_impl.dart';
+import 'package:pop_corn/presentation/movie_detail/movie_detail_viewmodel.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -27,7 +28,8 @@ List<SingleChildWidget> _sharedProviders = [
     create: (ctx) => MovieListUseCaseImpl(repo: ctx.read(), mapper: ctx.read(), favoriteStorage: ctx.read()),
   ),
   Provider<MovieFavoriteUseCase>(create: (ctx) => MovieFavoriteUseCaseImpl(storage: ctx.read())),
-  ChangeNotifierProvider<MovieListViewModel>(create: (ctx) => MovieListViewModel(movieUseCase: ctx.read(), movieFavoriteUseCase: ctx.read()))
+  ChangeNotifierProvider<MovieListViewModel>(create: (ctx) => MovieListViewModel(movieUseCase: ctx.read(), movieFavoriteUseCase: ctx.read())),
+  ChangeNotifierProvider<MovieDetailViewModel>(create: (ctx) => MovieDetailViewModel(favoriteUseCase: ctx.read()))
 ];
 
 /// Provide for remote

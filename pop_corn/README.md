@@ -29,6 +29,6 @@ $ flutter run --target lib/main_development.dart
 This environment going to get the data from `themoviedb` api, require network connection
 ```bash 
 $ cd popcorn
-$ flutter run --target lib/main_statging.dart
+$ flutter run --target lib/main_staging.dart
 ```
 
