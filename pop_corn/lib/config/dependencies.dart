@@ -4,24 +4,30 @@ import 'package:pop_corn/data/repository/movie_repository_impl.dart';
 import 'package:pop_corn/data/services/local_movie_service.dart';
 import 'package:pop_corn/data/services/movie_service.dart';
 import 'package:pop_corn/data/services/remote_movie_service.dart';
+import 'package:pop_corn/data/storage/favorite_share_pref_storage.dart';
+import 'package:pop_corn/data/storage/favorite_storage.dart';
 import 'package:pop_corn/domain/mapper/movie_dto_to_movie_page_data_mapper.dart';
-import 'package:pop_corn/domain/use_case/movie/movie_use_case.dart';
-import 'package:pop_corn/domain/use_case/movie/movie_use_case_impl.dart';
+import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
+import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case_impl.dart';
+import 'package:pop_corn/domain/use_case/movie/movie_list_use_case.dart';
+import 'package:pop_corn/domain/use_case/movie/movie_list_use_case_impl.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
 /// Shared providers for all configurations.
 List<SingleChildWidget> _sharedProviders = [
+  Provider<FavoriteStorage>(create: (ctx) => FavoriteSharePrefStorage()),
   Provider(create: (ctx) => AssetsUrlConfig()),
   Provider(create: (ctx) => MovieDTOToMoviePageDataMapper(config: ctx.read())),
   Provider<MovieRepository>(
     create: (ctx) => MovieRepositoryImpl(service: ctx.read()),
   ),
-  Provider<MovieUseCase>(
-    create: (ctx) => MovieUseCaseImpl(repo: ctx.read(), mapper: ctx.read()),
+  Provider<MovieListUseCase>(
+    create: (ctx) => MovieListUseCaseImpl(repo: ctx.read(), mapper: ctx.read(), favoriteStorage: ctx.read()),
   ),
-  ChangeNotifierProvider<MovieListViewModel>(create: (ctx) => MovieListViewModel(movieUseCase: ctx.read()))
+  Provider<MovieFavoriteUseCase>(create: (ctx) => MovieFavoriteUseCaseImpl(storage: ctx.read())),
+  ChangeNotifierProvider<MovieListViewModel>(create: (ctx) => MovieListViewModel(movieUseCase: ctx.read(), movieFavoriteUseCase: ctx.read()))
 ];
 
 /// Provide for remote

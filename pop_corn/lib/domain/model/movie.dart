@@ -12,7 +12,7 @@ class Movie {
   final num id;
   final String title;
   final String posterUrl;
-  final bool isFavorite;
+  bool isFavorite;
   final double rating;
   final String releaseDate;
   final bool isAdult;

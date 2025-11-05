@@ -8,7 +8,7 @@ class MovieDTOToMoviePageDataMapper {
 
   MovieDTOToMoviePageDataMapper({required this.config});
 
-  MoviePageData map(MovieListDTO dto) {
+  MoviePageData map(MovieListDTO dto, List<String> favoriteList) {
     return MoviePageData(
       page: dto.page,
       maxPage: dto.lastPage,
@@ -16,7 +16,7 @@ class MovieDTOToMoviePageDataMapper {
         id: m.id,
         title: m.title,
         posterUrl: config.posterBaseUrl + m.posterPath,
-        isFavorite: false,
+        isFavorite: favoriteList.contains(m.id.toString()),
         rating: m.voteAverage,
         releaseDate: m.releaseDate,
         isAdult: m.adult,
