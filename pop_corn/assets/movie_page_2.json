@@ -9,82 +9,120 @@
   "results": [
     {
       "adult": false,
-      "backdrop_path": "/pmDPp0RLfDCGzXKfMoAGbgfVECH.jpg",
+      "backdrop_path": "/nIX9kqNNe4ERx3wg3TuzRa2deAM.jpg",
       "genre_ids": [
         28,
-        35,
-        878
+        53,
+        80
       ],
-      "id": 338969,
+      "id": 1054867,
       "original_language": "en",
-      "original_title": "The Toxic Avenger Unrated",
-      "overview": "When a downtrodden janitor, Winston Gooze, is exposed to a catastrophic toxic accident, he’s transformed into a new kind of hero: The Toxic Avenger. Now, Toxie must rise from outcast to savior, taking on ruthless corporate overlords and corrupt forces who threaten his son, his friends, and his community.",
-      "popularity": 125.8125,
-      "poster_path": "/sIonGSpGNtH72OzbJllPOEMNjVU.jpg",
-      "release_date": "2025-08-28",
-      "title": "The Toxic Avenger Unrated",
+      "original_title": "One Battle After Another",
+      "overview": "Washed-up revolutionary Bob exists in a state of stoned paranoia, surviving off-grid with his spirited, self-reliant daughter, Willa. When his evil nemesis resurfaces after 16 years and she goes missing, the former radical scrambles to find her, father and daughter both battling the consequences of his past.",
+      "popularity": 45.8111,
+      "poster_path": "/xXAfckL5iXiEQxrPOAFtAIvkOEx.jpg",
+      "release_date": "2025-09-23",
+      "title": "One Battle After Another",
       "video": false,
-      "vote_average": 6.345,
-      "vote_count": 165
+      "vote_average": 7.733,
+      "vote_count": 1086
     },
     {
       "adult": false,
-      "backdrop_path": "/cc48kfehVAkgG73BsPcFLMoxa8h.jpg",
+      "backdrop_path": "/zLg8KveLtTZ3N3SLoE68SYGYQFo.jpg",
       "genre_ids": [
-        9648,
-        53,
-        80,
+        18,
+        10749
+      ],
+      "id": 1549512,
+      "original_language": "tl",
+      "original_title": "Nympho",
+      "overview": "Details here",
+      "popularity": 56.7967,
+      "poster_path": "/k9T7J44QFPJPf6CluITKxOZbiNg.jpg",
+      "release_date": "2025-11-07",
+      "title": "Nympho",
+      "video": false,
+      "vote_average": 0.0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8btfz81bOJ2lC7cujYBTw03wzg3.jpg",
+      "genre_ids": [
+        16,
+        14,
+        12,
+        28
+      ],
+      "id": 980477,
+      "original_language": "zh",
+      "original_title": "哪吒之魔童闹海",
+      "overview": "After a catastrophic event leaves their bodies destroyed, Ne Zha and Ao Bing are granted a fragile second chance at life. As tensions rise between the dragon clans and celestial forces, the two must undergo a series of perilous trials that will test their bond, challenge their identities, and decide the fate of both mortals and immortals.",
+      "popularity": 44.4995,
+      "poster_path": "/cb5NyNrqiCNNoDkA8FfxHAtypdG.jpg",
+      "release_date": "2025-01-29",
+      "title": "Ne Zha 2",
+      "video": false,
+      "vote_average": 8.008,
+      "vote_count": 431
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4TOVar1q5KfUpe1pZOkYqjBOLyI.jpg",
+      "genre_ids": [
+        36,
         18
       ],
-      "id": 1272166,
+      "id": 760329,
       "original_language": "en",
-      "original_title": "Ballad of a Small Player",
-      "overview": "Amid the glittering casinos of Macau, a gambler running from his past — and his debts — becomes fascinated by an enigmatic woman at the baccarat table.",
-      "popularity": 103.9119,
-      "poster_path": "/yiXpXNiBWENaSJmdKfoT5DU0bL4.jpg",
-      "release_date": "2025-10-15",
-      "title": "Ballad of a Small Player",
+      "original_title": "The Smashing Machine",
+      "overview": "In the late 1990s, up-and-coming mixed martial artist Mark Kerr aspires to become the greatest fighter in the world. However, he must also battle his opiod dependence and a volatile relationship with his girlfriend Dawn.",
+      "popularity": 46.6028,
+      "poster_path": "/mPuBDGrVIBGOymBxR6rO3iIvBSe.jpg",
+      "release_date": "2025-10-01",
+      "title": "The Smashing Machine",
       "video": false,
-      "vote_average": 6.016,
-      "vote_count": 95
+      "vote_average": 6.376,
+      "vote_count": 101
     },
     {
       "adult": false,
-      "backdrop_path": "/Q2OajDi2kcO6yErb1IAyVDTKMs.jpg",
+      "backdrop_path": "/y47aBf7GFdcwtdmCxEis14hPZS4.jpg",
       "genre_ids": [
         27,
-        9648
+        53
       ],
-      "id": 1078605,
+      "id": 1422096,
       "original_language": "en",
-      "original_title": "Weapons",
-      "overview": "When all but one child from the same class mysteriously vanish on the same night at exactly the same time, a community is left questioning who or what is behind their disappearance.",
-      "popularity": 101.0637,
-      "poster_path": "/cpf7vsRZ0MYRQcnLWteD5jK9ymT.jpg",
-      "release_date": "2025-08-04",
-      "title": "Weapons",
+      "original_title": "Good Boy",
+      "overview": "A loyal dog moves to a rural family home with his owner Todd, only to discover supernatural forces lurking in the shadows. As dark entities threaten his human companion, the brave pup must fight to protect the one he loves most.",
+      "popularity": 39.3756,
+      "poster_path": "/pvMHRi09ur2L1drXh2dXFtuMFgl.jpg",
+      "release_date": "2025-10-01",
+      "title": "Good Boy",
       "video": false,
-      "vote_average": 7.345,
-      "vote_count": 2195
+      "vote_average": 6.865,
+      "vote_count": 237
     },
     {
       "adult": false,
-      "backdrop_path": "/ax2qCKU6tUhdkStiCnrDdXKA5xC.jpg",
+      "backdrop_path": "/mEW9XMgYDO6U0MJcIRqRuSwjzN5.jpg",
       "genre_ids": [
         28,
-        12
+        53
       ],
-      "id": 1086910,
+      "id": 1007734,
       "original_language": "en",
-      "original_title": "The Lost Princess",
-      "overview": "After an Ayahuasca vision transports him to a haunted castle, Alec meets Hanna who tales him the story of her mother's forced marriage and how the forbidden passion with her father was in danger when the princess pregnancy became obvious",
-      "popularity": 98.8044,
-      "poster_path": "/31S2ISsDtbnxb0kuXZl1SxSMD0K.jpg",
-      "release_date": "2025-10-16",
-      "title": "The Lost Princess",
+      "original_title": "Nobody 2",
+      "overview": "Former assassin Hutch Mansell takes his family on a nostalgic vacation to a small-town theme park, only to be pulled back into violence when they clash with a corrupt operator, a crooked sheriff, and a ruthless crime boss.",
+      "popularity": 46.7868,
+      "poster_path": "/xGLoqM9peusKQeuwlSw2Qlhx740.jpg",
+      "release_date": "2025-08-13",
+      "title": "Nobody 2",
       "video": false,
-      "vote_average": 6.4,
-      "vote_count": 33
+      "vote_average": 7.08,
+      "vote_count": 904
     }
   ]
 }

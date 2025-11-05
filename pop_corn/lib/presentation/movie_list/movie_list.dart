@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pop_corn/domain/model/movie.dart';
 import 'package:pop_corn/domain/model/movie_page_data.dart';
 import 'package:pop_corn/presentation/movie_list/movie_card.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
@@ -37,6 +38,10 @@ class _MovieListState extends State<MovieList> {
 
   void _onClickMovieItem(num id) {
     context.push(Routes.movieDetailWithId(id));
+  }
+
+  void _onClickFavorite(Movie movie) {
+    widget.viewModel.onClickFavorite(movie);
   }
 
   @override
@@ -91,10 +96,13 @@ class _MovieListState extends State<MovieList> {
             itemBuilder: (BuildContext context, int index) {
               final movie = movies[index];
               return MovieCard(
-                  movie: movie,
-                  onClickMovieItem: () {
-                    _onClickMovieItem(movie.id);
-                  }
+                movie: movie,
+                onClickMovieItem: () {
+                  _onClickMovieItem(movie.id);
+                },
+                onClickFavorite: () {
+                  _onClickFavorite(movie);
+                },
               );
             }
         );

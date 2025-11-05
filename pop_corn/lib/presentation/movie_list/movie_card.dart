@@ -8,10 +8,12 @@ class MovieCard extends StatefulWidget {
     super.key,
     required this.movie,
     required this.onClickMovieItem,
+    required this.onClickFavorite,
   });
 
   final Movie movie;
   final Function() onClickMovieItem;
+  final Function() onClickFavorite;
 
   @override
   State<MovieCard> createState() => _MovieCardState();
@@ -98,7 +100,7 @@ class _MovieCardState extends State<MovieCard> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: widget.onClickFavorite,
                 icon: Icon(icon, color: AppColors.favColor,)
               )
             ],
