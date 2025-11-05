@@ -15,12 +15,10 @@ class LCEElement<T> extends ChangeNotifier {
     _result = result;
     _loading = false;
     _error = false;
-    print('update funtion');
     notifyListeners();
   }
 
   void updateResult(Future<Result<T>> future) {
-    print('update result');
     future.then((result) {
       switch (result) {
         case Success<T>():

@@ -7,6 +7,7 @@ import 'package:pop_corn/data/services/remote_movie_service.dart';
 import 'package:pop_corn/domain/mapper/movie_dto_to_movie_page_data_mapper.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_use_case_impl.dart';
+import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -20,6 +21,7 @@ List<SingleChildWidget> _sharedProviders = [
   Provider<MovieUseCase>(
     create: (ctx) => MovieUseCaseImpl(repo: ctx.read(), mapper: ctx.read()),
   ),
+  ChangeNotifierProvider<MovieListViewModel>(create: (ctx) => MovieListViewModel(movieUseCase: ctx.read()))
 ];
 
 /// Provide for remote

@@ -15,7 +15,6 @@ class MovieListViewModel extends ChangeNotifier {
 
   void onEnterScreen() {
     movieUseCase.log();
-    print('onEnterScreen');
     movies.updateResult(movieUseCase.getMovies());
   }
 

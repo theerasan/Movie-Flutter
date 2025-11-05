@@ -1,16 +1,10 @@
-import 'dart:ffi';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pop_corn/domain/model/movie.dart';
 import 'package:pop_corn/domain/model/movie_page_data.dart';
 import 'package:pop_corn/presentation/movie_list/movie_card.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:pop_corn/routing/routes.dart';
 import 'package:pop_corn/ui/lce_element.dart';
-import 'package:pop_corn/util/result.dart';
-import 'package:provider/provider.dart';
 
 class MovieList extends StatefulWidget {
 
@@ -105,23 +99,6 @@ class _MovieListState extends State<MovieList> {
             }
         );
       },
-      );
-
-
-
-
-    // return ListenableBuilder(
-    //   listenable: widget.viewModel.movies,
-    //   builder: (context, _) {
-    //
-    //   },
-    // );
-  }
-
-  void onEnterScreen() async {
-    Future.delayed(const Duration(microseconds: 5000), () {
-      widget.viewModel.onEnterScreen();
-    });
-
+    );
   }
 }
