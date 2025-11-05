@@ -6,13 +6,7 @@ import 'package:pop_corn/util/result.dart';
 class MovieRepositoryImpl implements MovieRepository {
 
   final MovieService service;
-
   const MovieRepositoryImpl({required this.service});
-
-  @override
-  void log() {
-    service.log();
-  }
 
   @override
   Future<Result<MovieListDTO>> getMovies(int page) async {

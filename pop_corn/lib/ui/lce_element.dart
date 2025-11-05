@@ -41,6 +41,7 @@ class LCEElement<T> extends ChangeNotifier {
 
   void _showError() {
     _error = true;
+    _loading = false;
     notifyListeners();
   }
 
