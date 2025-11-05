@@ -6,9 +6,13 @@ import 'package:pop_corn/data/model/movie_list/movie_list_dto.dart';
 import 'package:pop_corn/data/services/movie_service.dart';
 
 class LocalMovieService implements MovieService {
-  @override
-  void log() {
-    print('This is local service');
+
+  static final MovieService _instance = LocalMovieService._internal();
+
+  LocalMovieService._internal();
+
+  factory LocalMovieService() {
+    return _instance as LocalMovieService;
   }
 
   Future<MovieListDTO> getMovies(int page) async {

@@ -19,11 +19,6 @@ class MovieListUseCaseImpl implements MovieListUseCase {
   var _maxPage = 1;
 
   @override
-  void log() {
-    repo.log();
-  }
-
-  @override
   Future<Result<MoviePageData>> getMovies() async {
     var data = await Future.wait([
       repo.getMovies(_page),
@@ -45,6 +40,7 @@ class MovieListUseCaseImpl implements MovieListUseCase {
           movies: _movies
         ));
       case Error<MovieListDTO>():
+        print('error in use case');
         return Result.error(result.error);
     }
   }

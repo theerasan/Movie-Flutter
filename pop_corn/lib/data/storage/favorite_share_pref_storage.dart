@@ -5,6 +5,15 @@ class FavoriteSharePrefStorage extends FavoriteStorage {
 
   late final String _key = '_favorite';
 
+  // Make Storage as Singleton
+  static final FavoriteStorage _instance = FavoriteSharePrefStorage._internal();
+
+  factory FavoriteSharePrefStorage() {
+    return _instance as FavoriteSharePrefStorage;
+  }
+
+  FavoriteSharePrefStorage._internal();
+
   @override
   Future<bool> addToFavorite(num id) async {
     var result = await Future.wait([

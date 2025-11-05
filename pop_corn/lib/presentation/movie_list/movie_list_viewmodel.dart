@@ -15,11 +15,11 @@ class MovieListViewModel extends ChangeNotifier {
   MovieListViewModel({required this.movieUseCase, required this.movieFavoriteUseCase});
 
   void onEnterScreen() {
-    movieUseCase.log();
     lceElement.updateResult(movieUseCase.getMovies());
   }
 
   void loadMore() {
+    print('load more...');
     var pageData = (lceElement.result as MoviePageData);
     if (pageData.hasNextPage()) {
       lceElement.showLoading();
