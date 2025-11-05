@@ -14,12 +14,6 @@ class MovieFavoriteUseCaseImpl extends MovieFavoriteUseCase {
   }
 
   @override
-  List<int> getFavorite() {
-    // TODO: implement getFavorite
-    throw UnimplementedError();
-  }
-
-  @override
   void removeFromFavorite(num id) {
     storage.removeFromFavorite(id);
   }
