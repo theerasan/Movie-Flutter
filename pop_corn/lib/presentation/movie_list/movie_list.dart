@@ -1,10 +1,16 @@
+import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pop_corn/domain/model/movie.dart';
+import 'package:pop_corn/domain/model/movie_page_data.dart';
 import 'package:pop_corn/presentation/movie_list/movie_card.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:pop_corn/routing/routes.dart';
+import 'package:pop_corn/ui/lce_element.dart';
+import 'package:pop_corn/util/result.dart';
+import 'package:provider/provider.dart';
 
 class MovieList extends StatefulWidget {
 
@@ -30,17 +36,17 @@ class _MovieListState extends State<MovieList> {
         widget.viewModel.loadMore();
       }
     });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.viewModel.onEnterScreen();
+    });
   }
 
   void _onClickMovieItem(num id) {
     context.push(Routes.movieDetailWithId(id));
   }
 
-
   @override
   Widget build(BuildContext context) {
-    final movies = widget.viewModel.movies;
-
     final appBar = AppBar(
       title: Text('Movie'),
       centerTitle: true,
@@ -54,10 +60,34 @@ class _MovieListState extends State<MovieList> {
 
     return Scaffold(
       appBar: appBar,
-      body: ListenableBuilder(
-        listenable: widget.viewModel,
-        builder: (context, _) {
-          return GridView.builder(
+      body: ListenableBuilder(listenable: widget.viewModel.movies, builder: (context, _) {
+        return movieListBody(width, column);
+      })
+    );
+  }
+
+  Widget movieListBody(double width, int column) {
+    final movie = widget.viewModel.movies;
+    if (widget.viewModel.movies.loading) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    } else {
+      final result = widget.viewModel.movies.result;
+      if (result != null) {
+        return movieList(width, column, result, movie);
+      }
+
+      return Text('error');
+    }
+  }
+
+  Widget movieList(double width, int column, MoviePageData moviePageData, LCEElement<MoviePageData> moviePage) {
+    final movies = moviePageData.movies;
+    return ListenableBuilder(
+      listenable: widget.viewModel,
+      builder: (context, _) {
+        return GridView.builder(
             controller: _scrollController,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: column,
@@ -73,9 +103,25 @@ class _MovieListState extends State<MovieList> {
                   }
               );
             }
-          );
-        },
-      )
-    );
+        );
+      },
+      );
+
+
+
+
+    // return ListenableBuilder(
+    //   listenable: widget.viewModel.movies,
+    //   builder: (context, _) {
+    //
+    //   },
+    // );
+  }
+
+  void onEnterScreen() async {
+    Future.delayed(const Duration(microseconds: 5000), () {
+      widget.viewModel.onEnterScreen();
+    });
+
   }
 }

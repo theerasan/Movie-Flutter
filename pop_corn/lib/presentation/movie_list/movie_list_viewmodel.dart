@@ -1,131 +1,26 @@
 import 'package:flutter/cupertino.dart';
+import 'package:pop_corn/domain/model/movie_page_data.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_use_case.dart';
-import 'package:pop_corn/presentation/movie_list/movie.dart';
+import 'package:pop_corn/domain/model/movie.dart';
+import 'package:pop_corn/ui/lce_element.dart';
+import 'package:pop_corn/util/result.dart';
 
 class MovieListViewModel extends ChangeNotifier {
 
-  MovieListViewModel({required this.useCase});
+  final MovieUseCase movieUseCase;
+  LCEElement<MoviePageData> movies = LCEElement();
+  bool isLoadMore = false;
 
-  final MovieUseCase useCase;
-  final List<Movie> movies = [
-    Movie(
-      id: 507244,
-      title: 'Afterburn',
-      posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/kHOfxq7cMTXyLbj0UmdoGhT540O.jpg',
-      isFavorite: false,
-      rating: 6.747,
-      releaseDate: '2025-08-20',
-      isAdult: false
-    ),
-    Movie(
-      id: 1280450,
-      title: 'Stolen Girl',
-      posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/fZlNXEHZsBp7unqw009MeBbMv87.jpg',
-      isFavorite: false,
-      rating: 6.44,
-      releaseDate: '2025-09-04',
-      isAdult: false
-    ),
-    Movie(
-      id: 1290159,
-      title: 'A House of Dynamite: Wrath of Sinners',
-      posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/AiJ8L90ftPAwVf3SDx7Fj9IMZoy.jpg',
-      isFavorite: true,
-      rating: 7.5,
-      releaseDate: '2025-10-02',
-      isAdult: false
-    ),
-    Movie(
-      id: 507244,
-      title: 'Afterburn',
-      posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/kHOfxq7cMTXyLbj0UmdoGhT540O.jpg',
-      isFavorite: false,
-      rating: 6.747,
-      releaseDate: '2025-08-20',
-      isAdult: false,
-    ),
-    Movie(
-      id: 1280450,
-      title: 'Stolen Girl',
-      posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/fZlNXEHZsBp7unqw009MeBbMv87.jpg',
-      isFavorite: false,
-      rating: 6.44,
-      releaseDate: '2025-09-04',
-      isAdult: true,
-    ),
-    Movie(
-      id: 1290159,
-      title: 'A House of Dynamite',
-      posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/AiJ8L90ftPAwVf3SDx7Fj9IMZoy.jpg',
-      isFavorite: true,
-      rating: 7.5,
-      releaseDate: '2025-10-02',
-      isAdult: false,
-    ),
-    Movie(
-      id: 507244,
-      title: 'Afterburn',
-      posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/kHOfxq7cMTXyLbj0UmdoGhT540O.jpg',
-      isFavorite: false,
-      rating: 6.747,
-      releaseDate: '2025-08-20',
-      isAdult: false,
-    ),
-    Movie(
-      id: 1280450,
-      title: 'Stolen Girl',
-      posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/fZlNXEHZsBp7unqw009MeBbMv87.jpg',
-      isFavorite: false,
-      rating: 6.44,
-      releaseDate: '2025-09-04',
-      isAdult: false,
-    ),
-    Movie(
-      id: 1290159,
-      title: 'A House of Dynamite',
-      posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/AiJ8L90ftPAwVf3SDx7Fj9IMZoy.jpg',
-      isFavorite: true,
-      rating: 7.5,
-      releaseDate: '2025-10-02',
-      isAdult: false,
-    )
-  ];
+  MovieListViewModel({required this.movieUseCase});
 
   void onEnterScreen() {
-    useCase.log();
+    movieUseCase.log();
+    print('onEnterScreen');
+    movies.updateResult(movieUseCase.getMovies());
   }
 
   void loadMore() {
     print("load more");
-    movies.addAll([
-      Movie(
-        id: 507243,
-        title: 'Afterburn',
-        posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/kHOfxq7cMTXyLbj0UmdoGhT540O.jpg',
-        isFavorite: false,
-        rating: 6.747,
-        releaseDate: '2025-08-20',
-        isAdult: false,
-      ),
-      Movie(
-        id: 1280450,
-        title: 'Stolen Girl',
-        posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/fZlNXEHZsBp7unqw009MeBbMv87.jpg',
-        isFavorite: false,
-        rating: 6.44,
-        releaseDate: '2025-09-04',
-        isAdult: false,
-      ),
-      Movie(
-        id: 1290159,
-        title: 'A House of Dynamite',
-        posterUrl: 'https://media.themoviedb.org/t/p/w220_and_h330_face/AiJ8L90ftPAwVf3SDx7Fj9IMZoy.jpg',
-        isFavorite: true,
-        rating: 7.5,
-        releaseDate: '2025-10-02',
-        isAdult: false,
-      )
-    ]);
-    notifyListeners();
+    movies.updateResult(movieUseCase.loadMoreMovies());
   }
 }

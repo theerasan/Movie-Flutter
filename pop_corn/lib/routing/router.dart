@@ -14,9 +14,8 @@ GoRouter router() => GoRouter(
       path: Routes.movieList,
       builder: (context, state) {
         final viewModel = MovieListViewModel(
-          useCase: context.read<MovieUseCase>()
+          movieUseCase: context.read<MovieUseCase>()
         );
-        viewModel.onEnterScreen();
         return MovieList(viewModel: viewModel);
       },
     ),

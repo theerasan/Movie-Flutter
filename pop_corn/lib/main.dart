@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pop_corn/presentation/movie_list/movie.dart';
+import 'package:pop_corn/domain/model/movie.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list.dart';
 import 'package:pop_corn/routing/router.dart';
 import 'package:pop_corn/ui/core/theme/theme.dart';

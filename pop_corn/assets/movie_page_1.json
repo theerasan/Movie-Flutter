@@ -65,6 +65,145 @@
       "video": false,
       "vote_average": 6.5,
       "vote_count": 61
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/82lM4GJ9uuNvNDOEpxFy77uv4Ak.jpg",
+      "genre_ids": [
+        28,
+        878,
+        12
+      ],
+      "id": 1242898,
+      "original_language": "en",
+      "original_title": "Predator: Badlands",
+      "overview": "Cast out from his clan, a young Predator finds an unlikely ally in a damaged android and embarks on a treacherous journey in search of the ultimate adversary.",
+      "popularity": 109.8495,
+      "poster_path": "/ef2QSeBkrYhAdfsWGXmp0lvH0T1.jpg",
+      "release_date": "2025-11-05",
+      "title": "Predator: Badlands",
+      "video": false,
+      "vote_average": 6.125,
+      "vote_count": 16
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cNmGq1bfUDhrZEHvJ77zwiWfoNA.jpg",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "id": 1306525,
+      "original_language": "id",
+      "original_title": "Abadi Nan Jaya",
+      "overview": "An elixir unleashes the undead in a village. A family at odds with one another must unite and fight to survive as their hometown collapses.",
+      "popularity": 91.3854,
+      "poster_path": "/hQYEkXiAcgzQkr4aqLxWpNUFvN5.jpg",
+      "release_date": "2025-10-22",
+      "title": "The Elixir",
+      "video": false,
+      "vote_average": 5.996,
+      "vote_count": 112
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/en0NbTEjf3qKokHvwGeaq9DBPIP.jpg",
+      "genre_ids": [
+        14,
+        18,
+        12
+      ],
+      "id": 1571470,
+      "original_language": "en",
+      "original_title": "The Rats: A Witcher Tale",
+      "overview": "To pull off a daring heist, a gang of six misfit outlaws will have to do something they've never done before: trust each other — and a washed-up Witcher.",
+      "popularity": 121.6171,
+      "poster_path": "/5Gr4amaB1xxeYAEMOdrVutaWwgz.jpg",
+      "release_date": "2025-10-29",
+      "title": "The Rats: A Witcher Tale",
+      "video": false,
+      "vote_average": 4.942,
+      "vote_count": 43
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cc48kfehVAkgG73BsPcFLMoxa8h.jpg",
+      "genre_ids": [
+        9648,
+        53,
+        80,
+        18
+      ],
+      "id": 1272166,
+      "original_language": "en",
+      "original_title": "Ballad of a Small Player",
+      "overview": "Amid the glittering casinos of Macau, a gambler running from his past — and his debts — becomes fascinated by an enigmatic woman at the baccarat table.",
+      "popularity": 88.214,
+      "poster_path": "/yiXpXNiBWENaSJmdKfoT5DU0bL4.jpg",
+      "release_date": "2025-10-15",
+      "title": "Ballad of a Small Player",
+      "video": false,
+      "vote_average": 5.97,
+      "vote_count": 117
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bWF5ImUscXXYia8owpm8coadR4m.jpg",
+      "genre_ids": [
+        28,
+        27,
+        10752
+      ],
+      "id": 1257009,
+      "original_language": "en",
+      "original_title": "Primitive War",
+      "overview": "During the Vietnam War, a recon unit ventures to an isolated jungle valley to uncover the fate of a missing platoon. They soon find themselves in a fight for their lives against an unexpected enemy — prehistoric dinosaurs.",
+      "popularity": 90.2663,
+      "poster_path": "/nWBqU5YXmDVJWWEDJ4u3ZSseNVL.jpg",
+      "release_date": "2025-08-21",
+      "title": "Primitive War",
+      "video": false,
+      "vote_average": 6.836,
+      "vote_count": 149
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ax2qCKU6tUhdkStiCnrDdXKA5xC.jpg",
+      "genre_ids": [
+        28,
+        12
+      ],
+      "id": 1086910,
+      "original_language": "en",
+      "original_title": "The Lost Princess",
+      "overview": "After an Ayahuasca vision transports him to a haunted castle, Alec meets Hanna who tales him the story of her mother's forced marriage and how the forbidden passion with her father was in danger when the princess pregnancy became obvious",
+      "popularity": 86.7913,
+      "poster_path": "/31S2ISsDtbnxb0kuXZl1SxSMD0K.jpg",
+      "release_date": "2025-10-16",
+      "title": "The Lost Princess",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 33
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cKZcDKawR79igCgDMSXlpkn8hLR.jpg",
+      "genre_ids": [
+        18,
+        53,
+        10749
+      ],
+      "id": 997113,
+      "original_language": "en",
+      "original_title": "Hedda",
+      "overview": "Hedda Gabler finds herself torn between the lingering ache of a past love and the quiet suffocation of her present life. Over the course of one charged night, long-repressed desires and hidden tensions erupt—pulling her and everyone around her into a spiral of manipulation, passion, and betrayal.",
+      "popularity": 84.7781,
+      "poster_path": "/ecflk7AZf0ij205yDswjlvdxlCO.jpg",
+      "release_date": "2025-10-22",
+      "title": "Hedda",
+      "video": false,
+      "vote_average": 5.041,
+      "vote_count": 37
     }
   ]
 }
