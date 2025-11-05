@@ -4,24 +4,27 @@ import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_list_use_case.dart';
 import 'package:pop_corn/domain/model/movie.dart';
 import 'package:pop_corn/ui/lce_element.dart';
-import 'package:pop_corn/util/result.dart';
 
 class MovieListViewModel extends ChangeNotifier {
 
   final MovieListUseCase movieUseCase;
   final MovieFavoriteUseCase movieFavoriteUseCase;
-  LCEElement<MoviePageData> movies = LCEElement();
+  LCEElement<MoviePageData> lceElement = LCEElement();
   bool isLoadMore = false;
 
   MovieListViewModel({required this.movieUseCase, required this.movieFavoriteUseCase});
 
   void onEnterScreen() {
     movieUseCase.log();
-    movies.updateResult(movieUseCase.getMovies());
+    lceElement.updateResult(movieUseCase.getMovies());
   }
 
   void loadMore() {
-    movies.updateResult(movieUseCase.loadMoreMovies());
+    var pageData = (lceElement.result as MoviePageData);
+    if (pageData.hasNextPage()) {
+      lceElement.showLoading();
+      lceElement.updateResult(movieUseCase.loadMoreMovies());
+    }
   }
 
   void onClickFavorite(Movie movie) {
@@ -34,9 +37,9 @@ class MovieListViewModel extends ChangeNotifier {
   }
 
   void _toggleFavorite(Movie movie) {
-    var movieList = (movies.result as MoviePageData);
-    var index = movieList.movies.indexWhere((element) => element.id == movie.id);
-    movieList.movies[index].isFavorite = !movie.isFavorite;
+    var pageData = (lceElement.result as MoviePageData);
+    var index = pageData.movies.indexWhere((element) => element.id == movie.id);
+    pageData.movies[index].isFavorite = !movie.isFavorite;
     notifyListeners();
   }
 }

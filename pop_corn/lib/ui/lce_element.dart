@@ -34,11 +34,8 @@ class LCEElement<T> extends ChangeNotifier {
     });
   }
 
-  void showLoading(bool clearData) {
+  void showLoading() {
     _loading = true;
-    if (clearData) {
-      _result = null;
-    }
     notifyListeners();
   }
 
@@ -47,7 +44,6 @@ class LCEElement<T> extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Clear last action result
   void clearResult() {
     _result = null;
     notifyListeners();
