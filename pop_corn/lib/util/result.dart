@@ -11,13 +11,13 @@ sealed class Result<T> {
 
 /// Subclass of Result for values
 final class Success<T> extends Result<T> {
-  const Success._(this.value);
+  const Success._(this.data);
 
   /// Returned value in result
-  final T value;
+  final T data;
 
   @override
-  String toString() => 'Result<$T>.success($value)';
+  String toString() => 'Result<$T>.success($data)';
 }
 
 /// Subclass of Result for errors

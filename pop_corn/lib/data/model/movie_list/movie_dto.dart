@@ -7,6 +7,7 @@ part 'movie_dto.g.dart';
 @freezed
 abstract class MovieDTO with _$MovieDTO {
   const factory MovieDTO({
+    @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'adult') required bool adult,
     @JsonKey(name: 'poster_path') required String posterPath,
     @JsonKey(name: 'release_date') required String releaseDate,

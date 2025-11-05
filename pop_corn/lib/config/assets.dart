@@ -4,6 +4,6 @@
 
 abstract final class Assets {
   static const moviePage1 = 'assets/movie_page_1.json';
-  static const moviePage2 = 'assets/movie_page_1.json';
+  static const moviePage2 = 'assets/movie_page_2.json';
   static const movieDetail = 'assets/movie_detail.json';
 }
