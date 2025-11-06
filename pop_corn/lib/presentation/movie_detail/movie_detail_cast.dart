@@ -9,19 +9,20 @@ class MovieDetailCast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var characterColor = Theme.of(context).textTheme.bodySmall?.color?.withAlpha(128);
-
     return Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 24),
+      padding: EdgeInsetsGeometry.symmetric(horizontal: 24, vertical: 8),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CircleAvatar(
+          (cast.avatarUrl != null) ? CircleAvatar(
             radius: 25,
             backgroundImage: NetworkImage(
-              cast.avatarUrl,
+              cast.avatarUrl!,
             ),
+          ) : CircleAvatar(
+            radius: 25,
+            backgroundImage: AssetImage('images/poster_placeholder.png')
           ),
           SizedBox(width: 16,),
           Column(
@@ -32,7 +33,7 @@ class MovieDetailCast extends StatelessWidget {
                 cast.fullName,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
               ),
-              SizedBox(height: 8,),
+              SizedBox(height: 4,),
               Text(
                 cast.character,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 12, color: characterColor),

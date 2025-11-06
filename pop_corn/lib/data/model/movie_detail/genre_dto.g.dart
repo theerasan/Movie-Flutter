@@ -7,7 +7,7 @@ part of 'genre_dto.dart';
 // **************************************************************************
 
 _GenreDTO _$GenreDTOFromJson(Map<String, dynamic> json) =>
-    _GenreDTO(id: json['id'] as String, name: json['name'] as String);
+    _GenreDTO(id: (json['id'] as num).toInt(), name: json['name'] as String);
 
 Map<String, dynamic> _$GenreDTOToJson(_GenreDTO instance) => <String, dynamic>{
   'id': instance.id,

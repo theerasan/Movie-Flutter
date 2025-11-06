@@ -1,3 +1,4 @@
+import 'package:pop_corn/data/model/movie_detail/movie_detail_dto.dart';
 import 'package:pop_corn/data/model/movie_list/movie_list_dto.dart';
 import 'package:pop_corn/data/repository/movie_repository.dart';
 import 'package:pop_corn/data/services/movie_service.dart';
@@ -14,7 +15,16 @@ class MovieRepositoryImpl implements MovieRepository {
       final result = await service.getMovies(page);
       return Result.success(result);
     } on Exception catch (error) {
-      print('error in repo');
+      return Result.error(error);
+    }
+  }
+
+  @override
+  Future<Result<MovieDetailDTO>> getMovieDetailById(int id) async {
+    try {
+      final result = await service.getMovieDetailById(id);
+      return Result.success(result);
+    } on Exception catch (error) {
       return Result.error(error);
     }
   }

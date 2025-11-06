@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CastDTO {
 
-@JsonKey(name: 'id') String get id;@JsonKey(name: 'name') String get name;@JsonKey(name: 'profile_path') String get profilePath;@JsonKey(name: 'character') String get character;
+@JsonKey(name: 'id') int get id;@JsonKey(name: 'name') String get name;@JsonKey(name: 'profile_path') String? get profilePath;@JsonKey(name: 'character') String get character;
 /// Create a copy of CastDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CastDTOCopyWith<$Res>  {
   factory $CastDTOCopyWith(CastDTO value, $Res Function(CastDTO) _then) = _$CastDTOCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'id') String id,@JsonKey(name: 'name') String name,@JsonKey(name: 'profile_path') String profilePath,@JsonKey(name: 'character') String character
+@JsonKey(name: 'id') int id,@JsonKey(name: 'name') String name,@JsonKey(name: 'profile_path') String? profilePath,@JsonKey(name: 'character') String character
 });
 
 
@@ -65,12 +65,12 @@ class _$CastDTOCopyWithImpl<$Res>
 
 /// Create a copy of CastDTO
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? profilePath = null,Object? character = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? profilePath = freezed,Object? character = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,profilePath: null == profilePath ? _self.profilePath : profilePath // ignore: cast_nullable_to_non_nullable
-as String,character: null == character ? _self.character : character // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,profilePath: freezed == profilePath ? _self.profilePath : profilePath // ignore: cast_nullable_to_non_nullable
+as String?,character: null == character ? _self.character : character // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'profile_path')  String profilePath, @JsonKey(name: 'character')  String character)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'profile_path')  String? profilePath, @JsonKey(name: 'character')  String character)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CastDTO() when $default != null:
 return $default(_that.id,_that.name,_that.profilePath,_that.character);case _:
@@ -177,7 +177,7 @@ return $default(_that.id,_that.name,_that.profilePath,_that.character);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'profile_path')  String profilePath, @JsonKey(name: 'character')  String character)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'profile_path')  String? profilePath, @JsonKey(name: 'character')  String character)  $default,) {final _that = this;
 switch (_that) {
 case _CastDTO():
 return $default(_that.id,_that.name,_that.profilePath,_that.character);case _:
@@ -197,7 +197,7 @@ return $default(_that.id,_that.name,_that.profilePath,_that.character);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'profile_path')  String profilePath, @JsonKey(name: 'character')  String character)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name, @JsonKey(name: 'profile_path')  String? profilePath, @JsonKey(name: 'character')  String character)?  $default,) {final _that = this;
 switch (_that) {
 case _CastDTO() when $default != null:
 return $default(_that.id,_that.name,_that.profilePath,_that.character);case _:
@@ -215,9 +215,9 @@ class _CastDTO implements CastDTO {
   const _CastDTO({@JsonKey(name: 'id') required this.id, @JsonKey(name: 'name') required this.name, @JsonKey(name: 'profile_path') required this.profilePath, @JsonKey(name: 'character') required this.character});
   factory _CastDTO.fromJson(Map<String, dynamic> json) => _$CastDTOFromJson(json);
 
-@override@JsonKey(name: 'id') final  String id;
+@override@JsonKey(name: 'id') final  int id;
 @override@JsonKey(name: 'name') final  String name;
-@override@JsonKey(name: 'profile_path') final  String profilePath;
+@override@JsonKey(name: 'profile_path') final  String? profilePath;
 @override@JsonKey(name: 'character') final  String character;
 
 /// Create a copy of CastDTO
@@ -253,7 +253,7 @@ abstract mixin class _$CastDTOCopyWith<$Res> implements $CastDTOCopyWith<$Res> {
   factory _$CastDTOCopyWith(_CastDTO value, $Res Function(_CastDTO) _then) = __$CastDTOCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'id') String id,@JsonKey(name: 'name') String name,@JsonKey(name: 'profile_path') String profilePath,@JsonKey(name: 'character') String character
+@JsonKey(name: 'id') int id,@JsonKey(name: 'name') String name,@JsonKey(name: 'profile_path') String? profilePath,@JsonKey(name: 'character') String character
 });
 
 
@@ -270,12 +270,12 @@ class __$CastDTOCopyWithImpl<$Res>
 
 /// Create a copy of CastDTO
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? profilePath = null,Object? character = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? profilePath = freezed,Object? character = null,}) {
   return _then(_CastDTO(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,profilePath: null == profilePath ? _self.profilePath : profilePath // ignore: cast_nullable_to_non_nullable
-as String,character: null == character ? _self.character : character // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,profilePath: freezed == profilePath ? _self.profilePath : profilePath // ignore: cast_nullable_to_non_nullable
+as String?,character: null == character ? _self.character : character // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
