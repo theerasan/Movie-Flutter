@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:pop_corn/domain/model/movie_detail.dart';
 import 'package:pop_corn/ui/genre_label.dart';
@@ -16,34 +18,42 @@ class MovieDetailHeader extends StatelessWidget {
     final startColor = Theme.of(context).colorScheme.surface.withValues(alpha: 0);
     final centerColor = Theme.of(context).colorScheme.surface.withValues(alpha: 1);
 
+    var headerHeight = 500.0;
+    if (Platform.isIOS) {
+      headerHeight = 500.0;
+    }
+    if (Platform.isAndroid) {
+      headerHeight = 460.0;
+    }
+
     return SizedBox(
-      height: 500,
+      height: headerHeight,
       child: Stack(
         children: [
           FadeInImage(
             image: NetworkImage(movie.backdropUrl),
             colorBlendMode: BlendMode.modulate,
-            height: 500,
+            height: headerHeight,
             fit: BoxFit.cover,
             placeholder: const AssetImage(
                 'images/backdrop_placeholder.png',
             ),
           ),
           Container(
-              decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                      colors: [
-                        startColor,
-                        centerColor,
-                      ],
-                      radius: 1,
-                      stops: const [
-                        0.0,
-                        0.6,
-                      ],
-                      center: Alignment.center
-                  )
+            decoration: BoxDecoration(
+              gradient: RadialGradient(
+                  colors: [
+                    startColor,
+                    centerColor,
+                  ],
+                  radius: 1,
+                  stops: const [
+                    0.0,
+                    0.6,
+                  ],
+                  center: Alignment.center
               )
+            )
           ),
           Positioned(
             bottom: 24,

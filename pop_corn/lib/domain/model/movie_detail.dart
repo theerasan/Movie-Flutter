@@ -11,7 +11,8 @@ class MovieDetail {
     required this.isAdult,
     required this.casts,
     required this.voteRating,
-    required this.mainGenre
+    required this.mainGenre,
+    required this.isFavorite,
   });
 
   final num id;
@@ -23,5 +24,6 @@ class MovieDetail {
   final String mainGenre;
   final bool isAdult;
   final double voteRating;
+  bool isFavorite;
   final List<Cast> casts;
 }

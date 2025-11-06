@@ -32,9 +32,15 @@ class MovieDetailViewModel extends ChangeNotifier {
         mainGenre: 'action',
         voteRating: 4.5,
         isAdult: true,
+        isFavorite: true,
         casts: [
           Cast(fullName: 'name', avatarUrl: 'https://media.themoviedb.org/t/p/w240_and_h266_face/dYbYNxMnqhNyAJyrPU7e2C9jcRz.jpg', character: 'a')
         ]
       ));
+  }
+
+  void onClickFavorite(MovieDetail detail) {
+    detail.isFavorite = !detail.isFavorite;
+    lceElement.update(detail);
   }
 }
