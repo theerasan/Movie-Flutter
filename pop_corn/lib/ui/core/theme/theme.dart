@@ -8,35 +8,59 @@ import 'package:pop_corn/ui/tag_chip.dart';
 import 'colors.dart';
 
 abstract final class AppTheme {
+  static final _fontFamily = GoogleFonts.montserrat().fontFamily;
+
   static final _textTheme = TextTheme(
     headlineLarge: TextStyle(
-        fontSize: 32,
-        fontWeight: FontWeight.w500,
-        fontFamily: GoogleFonts.montserrat().fontFamily
+      fontSize: 32,
+      fontWeight: FontWeight.w500,
+      fontFamily: _fontFamily,
     ),
     headlineSmall: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
-        fontFamily: GoogleFonts.montserrat().fontFamily
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+      fontFamily: _fontFamily,
     ),
-    titleMedium: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-    bodyLarge: const TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-    bodyMedium: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-    bodySmall: const TextStyle(
+    titleMedium: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+      fontFamily: _fontFamily,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w400,
+      fontFamily: _fontFamily,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      fontFamily: _fontFamily,
+    ),
+    bodySmall: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w400,
-      color: AppColors.grey3,
+      fontFamily: _fontFamily,
     ),
     labelSmall: TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w500,
       color: AppColors.grey3,
-        fontFamily: GoogleFonts.poppins().fontFamily
+      fontFamily: _fontFamily,
     ),
-    labelLarge: const TextStyle(
+    labelLarge: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
       color: AppColors.grey3,
+      fontFamily: _fontFamily,
+    ),
+  );
+
+  static final _appBarTheme = AppBarTheme(
+    centerTitle: true,
+    titleTextStyle: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w900,
+      fontFamily: _fontFamily,
     ),
   );
 
@@ -54,6 +78,7 @@ abstract final class AppTheme {
     colorScheme: AppColors.lightColorScheme,
     textTheme: _textTheme,
     inputDecorationTheme: _inputDecorationTheme,
+    appBarTheme: _appBarTheme,
     extensions: [
       TagChipTheme(
         chipColor: AppColors.whiteTransparent,
@@ -67,6 +92,7 @@ abstract final class AppTheme {
     colorScheme: AppColors.darkColorScheme,
     textTheme: _textTheme,
     inputDecorationTheme: _inputDecorationTheme,
+    appBarTheme: _appBarTheme,
     extensions: [
       TagChipTheme(
         chipColor: AppColors.blackTransparent,

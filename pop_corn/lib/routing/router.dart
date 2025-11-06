@@ -7,7 +7,7 @@ import 'package:pop_corn/routing/routes.dart';
 import 'package:provider/provider.dart';
 
 GoRouter router() => GoRouter(
-    initialLocation: Routes.movieList, //Routes.movieDetailWithId(1328803),
+    initialLocation: Routes.movieDetailWithId(1328803),
     routes: [
       GoRoute(
         path: Routes.movieList,
