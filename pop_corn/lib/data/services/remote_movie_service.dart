@@ -42,8 +42,16 @@ class RemoteMovieService implements MovieService {
   }
 
   @override
-  Future<MovieDetailDTO> getMovieDetailById(int id) {
-    // TODO: implement getMovieDetailById
-    throw UnimplementedError();
+  Future<MovieDetailDTO> getMovieDetailById(int id) async {
+    final response = await http.get(
+        Uri.parse('$_baseUrl/movie/$id?language=en-US&append_to_response=credits'),
+        headers: _getHeaders()
+    );
+
+    if (response.statusCode == 200) {
+      return MovieDetailDTO.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to load movie with id $id');
+    }
   }
 }

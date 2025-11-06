@@ -55,12 +55,23 @@ abstract final class AppTheme {
     ),
   );
 
-  static final _appBarTheme = AppBarTheme(
+  static final _appBarLightTheme = AppBarTheme(
     centerTitle: true,
     titleTextStyle: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w900,
       fontFamily: _fontFamily,
+      color: AppColors.black1,
+    ),
+  );
+
+  static final _appBarDarkTheme = AppBarTheme(
+    centerTitle: true,
+    titleTextStyle: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w900,
+      fontFamily: _fontFamily,
+      color: AppColors.grey1,
     ),
   );
 
@@ -78,7 +89,7 @@ abstract final class AppTheme {
     colorScheme: AppColors.lightColorScheme,
     textTheme: _textTheme,
     inputDecorationTheme: _inputDecorationTheme,
-    appBarTheme: _appBarTheme,
+    appBarTheme: _appBarLightTheme,
     extensions: [
       TagChipTheme(
         chipColor: AppColors.whiteTransparent,
@@ -92,7 +103,7 @@ abstract final class AppTheme {
     colorScheme: AppColors.darkColorScheme,
     textTheme: _textTheme,
     inputDecorationTheme: _inputDecorationTheme,
-    appBarTheme: _appBarTheme,
+    appBarTheme: _appBarDarkTheme,
     extensions: [
       TagChipTheme(
         chipColor: AppColors.blackTransparent,

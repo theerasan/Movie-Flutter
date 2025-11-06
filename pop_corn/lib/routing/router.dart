@@ -20,8 +20,7 @@ GoRouter router() => GoRouter(
         builder: (context, state) {
           final id = int.parse(state.pathParameters['id']!);
           final viewModel = Provider.of<MovieDetailViewModel>(context);
-          viewModel.setId = id;
-          return MovieDetailScreen(viewModel: viewModel);
+          return MovieDetailScreen(viewModel: viewModel, id: id);
         }
       )
     ]

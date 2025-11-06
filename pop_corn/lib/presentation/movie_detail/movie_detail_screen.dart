@@ -14,14 +14,22 @@ import 'package:pop_corn/ui/release_date_label.dart';
 import 'package:pop_corn/ui/vote_label.dart';
 
 class MovieDetailScreen extends StatefulWidget {
-  const MovieDetailScreen({super.key, required this.viewModel});
+  const MovieDetailScreen({super.key, required this.viewModel, required this.id});
   final MovieDetailViewModel viewModel;
+  final int id;
 
   @override
   State<StatefulWidget> createState() => _MovieDetailScreenState();
 }
 
 class _MovieDetailScreenState extends State<MovieDetailScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    widget.viewModel.setId = widget.id;
+  }
+
   @override
   Widget build(BuildContext context) {
     final lce = widget.viewModel.lceElement;
@@ -59,6 +67,8 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     });
   }
 
+
+
   Widget _movieDetailBody(LCEElement<MovieDetail> lce, int column) {
     if (lce.loading && lce.result == null) {
       return Center(
@@ -94,7 +104,8 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
         SizedBox(height: 12,),
         ...movie.casts.map((cast) =>
             MovieDetailCast(cast: cast)
-        )
+        ),
+        SizedBox(height: 24,)
       ],
     );
   }
