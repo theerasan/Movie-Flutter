@@ -8,6 +8,7 @@ part of 'movie_detail_dto.dart';
 
 _MovieDetailDTO _$MovieDetailDTOFromJson(Map<String, dynamic> json) =>
     _MovieDetailDTO(
+      id: (json['id'] as num).toInt(),
       adult: json['adult'] as bool,
       posterPath: json['poster_path'] as String,
       backdropPath: json['backdrop_path'] as String,
@@ -23,6 +24,7 @@ _MovieDetailDTO _$MovieDetailDTOFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$MovieDetailDTOToJson(_MovieDetailDTO instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'adult': instance.adult,
       'poster_path': instance.posterPath,
       'backdrop_path': instance.backdropPath,

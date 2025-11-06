@@ -4,7 +4,7 @@ import 'package:pop_corn/domain/model/movie.dart';
 import 'package:pop_corn/domain/model/movie_page_data.dart';
 
 class MovieDTOToMoviePageDataMapper {
- final AssetsUrlConfig config;
+  final AssetsUrlConfig config;
 
   MovieDTOToMoviePageDataMapper({required this.config});
 

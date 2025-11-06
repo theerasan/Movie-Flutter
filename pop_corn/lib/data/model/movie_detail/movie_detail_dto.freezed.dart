@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MovieDetailDTO {
 
-@JsonKey(name: 'adult') bool get adult;@JsonKey(name: 'poster_path') String get posterPath;@JsonKey(name: 'backdrop_path') String get backdropPath;@JsonKey(name: 'title') String get title;@JsonKey(name: 'overview') String get description;@JsonKey(name: 'release_date') String get releaseDate;@JsonKey(name: 'vote_average') double get voteAverage;@JsonKey(name: 'genres') List<GenreDTO> get genres;@JsonKey(name: 'credits') CreditsDTO get credits;
+@JsonKey(name: 'id') int get id;@JsonKey(name: 'adult') bool get adult;@JsonKey(name: 'poster_path') String get posterPath;@JsonKey(name: 'backdrop_path') String get backdropPath;@JsonKey(name: 'title') String get title;@JsonKey(name: 'overview') String get description;@JsonKey(name: 'release_date') String get releaseDate;@JsonKey(name: 'vote_average') double get voteAverage;@JsonKey(name: 'genres') List<GenreDTO> get genres;@JsonKey(name: 'credits') CreditsDTO get credits;
 /// Create a copy of MovieDetailDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $MovieDetailDTOCopyWith<MovieDetailDTO> get copyWith => _$MovieDetailDTOCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MovieDetailDTO&&(identical(other.adult, adult) || other.adult == adult)&&(identical(other.posterPath, posterPath) || other.posterPath == posterPath)&&(identical(other.backdropPath, backdropPath) || other.backdropPath == backdropPath)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.voteAverage, voteAverage) || other.voteAverage == voteAverage)&&const DeepCollectionEquality().equals(other.genres, genres)&&(identical(other.credits, credits) || other.credits == credits));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MovieDetailDTO&&(identical(other.id, id) || other.id == id)&&(identical(other.adult, adult) || other.adult == adult)&&(identical(other.posterPath, posterPath) || other.posterPath == posterPath)&&(identical(other.backdropPath, backdropPath) || other.backdropPath == backdropPath)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.voteAverage, voteAverage) || other.voteAverage == voteAverage)&&const DeepCollectionEquality().equals(other.genres, genres)&&(identical(other.credits, credits) || other.credits == credits));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,adult,posterPath,backdropPath,title,description,releaseDate,voteAverage,const DeepCollectionEquality().hash(genres),credits);
+int get hashCode => Object.hash(runtimeType,id,adult,posterPath,backdropPath,title,description,releaseDate,voteAverage,const DeepCollectionEquality().hash(genres),credits);
 
 @override
 String toString() {
-  return 'MovieDetailDTO(adult: $adult, posterPath: $posterPath, backdropPath: $backdropPath, title: $title, description: $description, releaseDate: $releaseDate, voteAverage: $voteAverage, genres: $genres, credits: $credits)';
+  return 'MovieDetailDTO(id: $id, adult: $adult, posterPath: $posterPath, backdropPath: $backdropPath, title: $title, description: $description, releaseDate: $releaseDate, voteAverage: $voteAverage, genres: $genres, credits: $credits)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $MovieDetailDTOCopyWith<$Res>  {
   factory $MovieDetailDTOCopyWith(MovieDetailDTO value, $Res Function(MovieDetailDTO) _then) = _$MovieDetailDTOCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'adult') bool adult,@JsonKey(name: 'poster_path') String posterPath,@JsonKey(name: 'backdrop_path') String backdropPath,@JsonKey(name: 'title') String title,@JsonKey(name: 'overview') String description,@JsonKey(name: 'release_date') String releaseDate,@JsonKey(name: 'vote_average') double voteAverage,@JsonKey(name: 'genres') List<GenreDTO> genres,@JsonKey(name: 'credits') CreditsDTO credits
+@JsonKey(name: 'id') int id,@JsonKey(name: 'adult') bool adult,@JsonKey(name: 'poster_path') String posterPath,@JsonKey(name: 'backdrop_path') String backdropPath,@JsonKey(name: 'title') String title,@JsonKey(name: 'overview') String description,@JsonKey(name: 'release_date') String releaseDate,@JsonKey(name: 'vote_average') double voteAverage,@JsonKey(name: 'genres') List<GenreDTO> genres,@JsonKey(name: 'credits') CreditsDTO credits
 });
 
 
@@ -65,9 +65,10 @@ class _$MovieDetailDTOCopyWithImpl<$Res>
 
 /// Create a copy of MovieDetailDTO
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? adult = null,Object? posterPath = null,Object? backdropPath = null,Object? title = null,Object? description = null,Object? releaseDate = null,Object? voteAverage = null,Object? genres = null,Object? credits = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? adult = null,Object? posterPath = null,Object? backdropPath = null,Object? title = null,Object? description = null,Object? releaseDate = null,Object? voteAverage = null,Object? genres = null,Object? credits = null,}) {
   return _then(_self.copyWith(
-adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
 as bool,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
 as String,backdropPath: null == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -170,10 +171,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String posterPath, @JsonKey(name: 'backdrop_path')  String backdropPath, @JsonKey(name: 'title')  String title, @JsonKey(name: 'overview')  String description, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'vote_average')  double voteAverage, @JsonKey(name: 'genres')  List<GenreDTO> genres, @JsonKey(name: 'credits')  CreditsDTO credits)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String posterPath, @JsonKey(name: 'backdrop_path')  String backdropPath, @JsonKey(name: 'title')  String title, @JsonKey(name: 'overview')  String description, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'vote_average')  double voteAverage, @JsonKey(name: 'genres')  List<GenreDTO> genres, @JsonKey(name: 'credits')  CreditsDTO credits)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MovieDetailDTO() when $default != null:
-return $default(_that.adult,_that.posterPath,_that.backdropPath,_that.title,_that.description,_that.releaseDate,_that.voteAverage,_that.genres,_that.credits);case _:
+return $default(_that.id,_that.adult,_that.posterPath,_that.backdropPath,_that.title,_that.description,_that.releaseDate,_that.voteAverage,_that.genres,_that.credits);case _:
   return orElse();
 
 }
@@ -191,10 +192,10 @@ return $default(_that.adult,_that.posterPath,_that.backdropPath,_that.title,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String posterPath, @JsonKey(name: 'backdrop_path')  String backdropPath, @JsonKey(name: 'title')  String title, @JsonKey(name: 'overview')  String description, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'vote_average')  double voteAverage, @JsonKey(name: 'genres')  List<GenreDTO> genres, @JsonKey(name: 'credits')  CreditsDTO credits)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String posterPath, @JsonKey(name: 'backdrop_path')  String backdropPath, @JsonKey(name: 'title')  String title, @JsonKey(name: 'overview')  String description, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'vote_average')  double voteAverage, @JsonKey(name: 'genres')  List<GenreDTO> genres, @JsonKey(name: 'credits')  CreditsDTO credits)  $default,) {final _that = this;
 switch (_that) {
 case _MovieDetailDTO():
-return $default(_that.adult,_that.posterPath,_that.backdropPath,_that.title,_that.description,_that.releaseDate,_that.voteAverage,_that.genres,_that.credits);case _:
+return $default(_that.id,_that.adult,_that.posterPath,_that.backdropPath,_that.title,_that.description,_that.releaseDate,_that.voteAverage,_that.genres,_that.credits);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -211,10 +212,10 @@ return $default(_that.adult,_that.posterPath,_that.backdropPath,_that.title,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String posterPath, @JsonKey(name: 'backdrop_path')  String backdropPath, @JsonKey(name: 'title')  String title, @JsonKey(name: 'overview')  String description, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'vote_average')  double voteAverage, @JsonKey(name: 'genres')  List<GenreDTO> genres, @JsonKey(name: 'credits')  CreditsDTO credits)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String posterPath, @JsonKey(name: 'backdrop_path')  String backdropPath, @JsonKey(name: 'title')  String title, @JsonKey(name: 'overview')  String description, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'vote_average')  double voteAverage, @JsonKey(name: 'genres')  List<GenreDTO> genres, @JsonKey(name: 'credits')  CreditsDTO credits)?  $default,) {final _that = this;
 switch (_that) {
 case _MovieDetailDTO() when $default != null:
-return $default(_that.adult,_that.posterPath,_that.backdropPath,_that.title,_that.description,_that.releaseDate,_that.voteAverage,_that.genres,_that.credits);case _:
+return $default(_that.id,_that.adult,_that.posterPath,_that.backdropPath,_that.title,_that.description,_that.releaseDate,_that.voteAverage,_that.genres,_that.credits);case _:
   return null;
 
 }
@@ -226,9 +227,10 @@ return $default(_that.adult,_that.posterPath,_that.backdropPath,_that.title,_tha
 @JsonSerializable()
 
 class _MovieDetailDTO implements MovieDetailDTO {
-  const _MovieDetailDTO({@JsonKey(name: 'adult') required this.adult, @JsonKey(name: 'poster_path') required this.posterPath, @JsonKey(name: 'backdrop_path') required this.backdropPath, @JsonKey(name: 'title') required this.title, @JsonKey(name: 'overview') required this.description, @JsonKey(name: 'release_date') required this.releaseDate, @JsonKey(name: 'vote_average') required this.voteAverage, @JsonKey(name: 'genres') required final  List<GenreDTO> genres, @JsonKey(name: 'credits') required this.credits}): _genres = genres;
+  const _MovieDetailDTO({@JsonKey(name: 'id') required this.id, @JsonKey(name: 'adult') required this.adult, @JsonKey(name: 'poster_path') required this.posterPath, @JsonKey(name: 'backdrop_path') required this.backdropPath, @JsonKey(name: 'title') required this.title, @JsonKey(name: 'overview') required this.description, @JsonKey(name: 'release_date') required this.releaseDate, @JsonKey(name: 'vote_average') required this.voteAverage, @JsonKey(name: 'genres') required final  List<GenreDTO> genres, @JsonKey(name: 'credits') required this.credits}): _genres = genres;
   factory _MovieDetailDTO.fromJson(Map<String, dynamic> json) => _$MovieDetailDTOFromJson(json);
 
+@override@JsonKey(name: 'id') final  int id;
 @override@JsonKey(name: 'adult') final  bool adult;
 @override@JsonKey(name: 'poster_path') final  String posterPath;
 @override@JsonKey(name: 'backdrop_path') final  String backdropPath;
@@ -258,16 +260,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MovieDetailDTO&&(identical(other.adult, adult) || other.adult == adult)&&(identical(other.posterPath, posterPath) || other.posterPath == posterPath)&&(identical(other.backdropPath, backdropPath) || other.backdropPath == backdropPath)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.voteAverage, voteAverage) || other.voteAverage == voteAverage)&&const DeepCollectionEquality().equals(other._genres, _genres)&&(identical(other.credits, credits) || other.credits == credits));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MovieDetailDTO&&(identical(other.id, id) || other.id == id)&&(identical(other.adult, adult) || other.adult == adult)&&(identical(other.posterPath, posterPath) || other.posterPath == posterPath)&&(identical(other.backdropPath, backdropPath) || other.backdropPath == backdropPath)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.voteAverage, voteAverage) || other.voteAverage == voteAverage)&&const DeepCollectionEquality().equals(other._genres, _genres)&&(identical(other.credits, credits) || other.credits == credits));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,adult,posterPath,backdropPath,title,description,releaseDate,voteAverage,const DeepCollectionEquality().hash(_genres),credits);
+int get hashCode => Object.hash(runtimeType,id,adult,posterPath,backdropPath,title,description,releaseDate,voteAverage,const DeepCollectionEquality().hash(_genres),credits);
 
 @override
 String toString() {
-  return 'MovieDetailDTO(adult: $adult, posterPath: $posterPath, backdropPath: $backdropPath, title: $title, description: $description, releaseDate: $releaseDate, voteAverage: $voteAverage, genres: $genres, credits: $credits)';
+  return 'MovieDetailDTO(id: $id, adult: $adult, posterPath: $posterPath, backdropPath: $backdropPath, title: $title, description: $description, releaseDate: $releaseDate, voteAverage: $voteAverage, genres: $genres, credits: $credits)';
 }
 
 
@@ -278,7 +280,7 @@ abstract mixin class _$MovieDetailDTOCopyWith<$Res> implements $MovieDetailDTOCo
   factory _$MovieDetailDTOCopyWith(_MovieDetailDTO value, $Res Function(_MovieDetailDTO) _then) = __$MovieDetailDTOCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'adult') bool adult,@JsonKey(name: 'poster_path') String posterPath,@JsonKey(name: 'backdrop_path') String backdropPath,@JsonKey(name: 'title') String title,@JsonKey(name: 'overview') String description,@JsonKey(name: 'release_date') String releaseDate,@JsonKey(name: 'vote_average') double voteAverage,@JsonKey(name: 'genres') List<GenreDTO> genres,@JsonKey(name: 'credits') CreditsDTO credits
+@JsonKey(name: 'id') int id,@JsonKey(name: 'adult') bool adult,@JsonKey(name: 'poster_path') String posterPath,@JsonKey(name: 'backdrop_path') String backdropPath,@JsonKey(name: 'title') String title,@JsonKey(name: 'overview') String description,@JsonKey(name: 'release_date') String releaseDate,@JsonKey(name: 'vote_average') double voteAverage,@JsonKey(name: 'genres') List<GenreDTO> genres,@JsonKey(name: 'credits') CreditsDTO credits
 });
 
 
@@ -295,9 +297,10 @@ class __$MovieDetailDTOCopyWithImpl<$Res>
 
 /// Create a copy of MovieDetailDTO
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? adult = null,Object? posterPath = null,Object? backdropPath = null,Object? title = null,Object? description = null,Object? releaseDate = null,Object? voteAverage = null,Object? genres = null,Object? credits = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? adult = null,Object? posterPath = null,Object? backdropPath = null,Object? title = null,Object? description = null,Object? releaseDate = null,Object? voteAverage = null,Object? genres = null,Object? credits = null,}) {
   return _then(_MovieDetailDTO(
-adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
 as bool,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
 as String,backdropPath: null == backdropPath ? _self.backdropPath : backdropPath // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable

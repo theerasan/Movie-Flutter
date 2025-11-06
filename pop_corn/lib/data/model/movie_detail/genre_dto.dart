@@ -7,7 +7,7 @@ part 'genre_dto.g.dart';
 @freezed
 abstract class GenreDTO with _$GenreDTO {
   const factory GenreDTO({
-    @JsonKey(name: 'id') required String id,
+    @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'name') required String name
   }) = _GenreDTO;
 

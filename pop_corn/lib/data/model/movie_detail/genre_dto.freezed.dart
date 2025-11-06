@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GenreDTO {
 
-@JsonKey(name: 'id') String get id;@JsonKey(name: 'name') String get name;
+@JsonKey(name: 'id') int get id;@JsonKey(name: 'name') String get name;
 /// Create a copy of GenreDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $GenreDTOCopyWith<$Res>  {
   factory $GenreDTOCopyWith(GenreDTO value, $Res Function(GenreDTO) _then) = _$GenreDTOCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'id') String id,@JsonKey(name: 'name') String name
+@JsonKey(name: 'id') int id,@JsonKey(name: 'name') String name
 });
 
 
@@ -68,7 +68,7 @@ class _$GenreDTOCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'name')  String name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GenreDTO() when $default != null:
 return $default(_that.id,_that.name);case _:
@@ -175,7 +175,7 @@ return $default(_that.id,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'name')  String name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name)  $default,) {final _that = this;
 switch (_that) {
 case _GenreDTO():
 return $default(_that.id,_that.name);case _:
@@ -195,7 +195,7 @@ return $default(_that.id,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'name')  String name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'name')  String name)?  $default,) {final _that = this;
 switch (_that) {
 case _GenreDTO() when $default != null:
 return $default(_that.id,_that.name);case _:
@@ -213,7 +213,7 @@ class _GenreDTO implements GenreDTO {
   const _GenreDTO({@JsonKey(name: 'id') required this.id, @JsonKey(name: 'name') required this.name});
   factory _GenreDTO.fromJson(Map<String, dynamic> json) => _$GenreDTOFromJson(json);
 
-@override@JsonKey(name: 'id') final  String id;
+@override@JsonKey(name: 'id') final  int id;
 @override@JsonKey(name: 'name') final  String name;
 
 /// Create a copy of GenreDTO
@@ -249,7 +249,7 @@ abstract mixin class _$GenreDTOCopyWith<$Res> implements $GenreDTOCopyWith<$Res>
   factory _$GenreDTOCopyWith(_GenreDTO value, $Res Function(_GenreDTO) _then) = __$GenreDTOCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'id') String id,@JsonKey(name: 'name') String name
+@JsonKey(name: 'id') int id,@JsonKey(name: 'name') String name
 });
 
 
@@ -269,7 +269,7 @@ class __$GenreDTOCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,}) {
   return _then(_GenreDTO(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

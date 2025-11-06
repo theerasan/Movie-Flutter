@@ -6,7 +6,10 @@ import 'package:pop_corn/data/services/movie_service.dart';
 import 'package:pop_corn/data/services/remote_movie_service.dart';
 import 'package:pop_corn/data/storage/favorite_share_pref_storage.dart';
 import 'package:pop_corn/data/storage/favorite_storage.dart';
+import 'package:pop_corn/domain/mapper/movie_detail_dto_to_movie_detail_mapper.dart';
 import 'package:pop_corn/domain/mapper/movie_dto_to_movie_page_data_mapper.dart';
+import 'package:pop_corn/domain/use_case/movie/movie_detail_use_case.dart';
+import 'package:pop_corn/domain/use_case/movie/movie_detail_use_case_impl.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case_impl.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_list_use_case.dart';
@@ -21,15 +24,17 @@ List<SingleChildWidget> _sharedProviders = [
   Provider<FavoriteStorage>(create: (ctx) => FavoriteSharePrefStorage()),
   Provider(create: (ctx) => AssetsUrlConfig()),
   Provider(create: (ctx) => MovieDTOToMoviePageDataMapper(config: ctx.read())),
+  Provider(create: (ctx) => MovieDetailDTOToMovieDetailMapper(config: ctx.read())),
   Provider<MovieRepository>(
     create: (ctx) => MovieRepositoryImpl(service: ctx.read()),
   ),
   Provider<MovieListUseCase>(
     create: (ctx) => MovieListUseCaseImpl(repo: ctx.read(), mapper: ctx.read(), favoriteStorage: ctx.read()),
   ),
+  Provider<MovieDetailUseCase>(create: (ctx) => MovieDetailUseCaseImpl(repo: ctx.read(), favoriteStorage: ctx.read(), mapper: ctx.read())),
   Provider<MovieFavoriteUseCase>(create: (ctx) => MovieFavoriteUseCaseImpl(storage: ctx.read())),
   ChangeNotifierProvider<MovieListViewModel>(create: (ctx) => MovieListViewModel(movieUseCase: ctx.read(), movieFavoriteUseCase: ctx.read())),
-  ChangeNotifierProvider<MovieDetailViewModel>(create: (ctx) => MovieDetailViewModel(favoriteUseCase: ctx.read()))
+  ChangeNotifierProvider<MovieDetailViewModel>(create: (ctx) => MovieDetailViewModel(favoriteUseCase: ctx.read(), movieDetailUseCase: ctx.read()))
 ];
 
 /// Provide for remote

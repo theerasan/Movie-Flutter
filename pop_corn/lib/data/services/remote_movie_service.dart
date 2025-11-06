@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:pop_corn/data/model/movie_detail/movie_detail_dto.dart';
 import 'package:pop_corn/data/model/movie_list/movie_list_dto.dart';
 import 'package:pop_corn/data/services/movie_service.dart';
 import 'package:http/http.dart' as http;
@@ -38,5 +39,11 @@ class RemoteMovieService implements MovieService {
     } else {
       throw Exception('Failed to load movies');
     }
+  }
+
+  @override
+  Future<MovieDetailDTO> getMovieDetailById(int id) {
+    // TODO: implement getMovieDetailById
+    throw UnimplementedError();
   }
 }

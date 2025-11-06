@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:pop_corn/data/model/movie_detail/movie_detail_dto.dart';
+
 import '../../../config/assets.dart';
 import 'package:flutter/services.dart';
 import 'package:pop_corn/data/model/movie_list/movie_list_dto.dart';
@@ -15,6 +17,7 @@ class LocalMovieService implements MovieService {
     return _instance as LocalMovieService;
   }
 
+  @override
   Future<MovieListDTO> getMovies(int page) async {
     if (page == 1) {
       final localData = await rootBundle.loadString(Assets.moviePage1);
@@ -25,7 +28,13 @@ class LocalMovieService implements MovieService {
       return MovieListDTO.fromJson(jsonDecode(localData));
     }
 
-    print('error in service');
     throw Exception('Page not found');
+  }
+
+  @override
+  Future<MovieDetailDTO> getMovieDetailById(int id) async {
+    final localData = await rootBundle.loadString(Assets.movieDetail);
+    print(localData);
+    return MovieDetailDTO.fromJson(jsonDecode(localData));
   }
 }
