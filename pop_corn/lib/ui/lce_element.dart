@@ -47,6 +47,8 @@ class LCEElement<T> extends ChangeNotifier {
 
   void clearResult() {
     _result = null;
+    _loading = true;
+    _error = false;
     notifyListeners();
   }
 }

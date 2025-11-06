@@ -7,11 +7,11 @@ import 'package:pop_corn/ui/lce_element.dart';
 
 class MovieDetailViewModel extends ChangeNotifier {
   int _id = -0;
-  final MovieFavoriteUseCase favoriteUseCase;
+  final MovieFavoriteUseCase movieFavoriteUseCase;
   final MovieDetailUseCase movieDetailUseCase;
   final LCEElement<MovieDetail> lceElement = LCEElement();
 
-  MovieDetailViewModel({required this.favoriteUseCase, required this.movieDetailUseCase});
+  MovieDetailViewModel({required this.movieFavoriteUseCase, required this.movieDetailUseCase});
 
   int get getId {
     return _id;
@@ -23,11 +23,17 @@ class MovieDetailViewModel extends ChangeNotifier {
   }
 
   void _loadMovieDetail() {
+    lceElement.clearResult();
     lceElement.updateResult(movieDetailUseCase.getMovieDetailById(_id));
   }
 
-  void onClickFavorite(MovieDetail detail) {
-    detail.isFavorite = !detail.isFavorite;
-    lceElement.update(detail);
+  void onClickFavorite(MovieDetail movie) {
+    if (movie.isFavorite) {
+      movieFavoriteUseCase.removeFromFavorite(movie.id);
+    } else {
+      movieFavoriteUseCase.addToFavorite(movie.id);
+    }
+    movie.isFavorite = !movie.isFavorite;
+    lceElement.update(movie);
   }
 }
