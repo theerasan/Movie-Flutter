@@ -3,23 +3,24 @@ import 'package:go_router/go_router.dart';
 import 'package:pop_corn/domain/model/movie.dart';
 import 'package:pop_corn/domain/model/movie_page_data.dart';
 import 'package:pop_corn/presentation/movie_list/movie_card.dart';
+import 'package:pop_corn/presentation/movie_list/movie_list_state.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:pop_corn/routing/routes.dart';
 import 'package:pop_corn/ui/lce_element.dart';
 
-class MovieList extends StatefulWidget {
+class MovieListScreen extends StatefulWidget {
 
   final MovieListViewModel viewModel;
-  const MovieList({
+  const MovieListScreen({
     super.key,
     required this.viewModel
   });
 
   @override
-  _MovieListState createState() => _MovieListState();
+  State<MovieListScreen> createState() => _MovieListScreenState();
 }
 
-class _MovieListState extends State<MovieList> {
+class _MovieListScreenState extends State<MovieListScreen> {
 
   final ScrollController _scrollController = ScrollController();
 
@@ -44,13 +45,45 @@ class _MovieListState extends State<MovieList> {
     widget.viewModel.onClickFavorite(movie);
   }
 
+  AppBar _getAppBarState(MovieListAppBarState state) {
+    switch (state) {
+      case MovieListAppBarState.TITLE_BAR:
+        return AppBar(
+          title: Text('Popcorn'),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              onPressed: widget.viewModel.onClickSearch,
+              icon: Icon(Icons.search_rounded)
+            )
+          ],
+        );
+      case MovieListAppBarState.SEARCH_BAR:
+        final TextEditingController searchController = TextEditingController(text: widget.viewModel.appBarState.query);
+        return AppBar(
+          title: TextField(
+            autofocus: true,
+            controller: searchController,
+            decoration: InputDecoration(
+              hintText: 'Search...',
+              border: InputBorder.none,
+            ),
+            onChanged: (query) {
+              widget.viewModel.search(query);
+            },
+          ),
+            actions: [
+              IconButton(
+                onPressed: widget.viewModel.onClickCloseSearch,
+                icon: Icon(Icons.close_rounded)
+              )
+            ]
+        );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final appBar = AppBar(
-      title: Text('Movie'),
-      centerTitle: true,
-    );
-
     final width = MediaQuery.of(context).size.width;
     var column = 1;
     if (width > 600 ) {
@@ -58,7 +91,7 @@ class _MovieListState extends State<MovieList> {
     }
 
     return Scaffold(
-      appBar: appBar,
+      appBar: _getAppBarState(widget.viewModel.appBarState.state),
       body: ListenableBuilder(listenable: widget.viewModel.lceElement, builder: (context, _) {
         return movieListBody(width, column);
       })
@@ -99,6 +132,7 @@ class _MovieListState extends State<MovieList> {
                 itemBuilder: (BuildContext context, int index) {
                   final movie = movies[index];
                   return MovieCard(
+                    key: ValueKey(movie.id),
                     movie: movie,
                     onClickMovieItem: () {
                       _onClickMovieItem(movie.id);

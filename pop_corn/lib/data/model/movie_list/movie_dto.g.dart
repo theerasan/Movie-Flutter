@@ -9,7 +9,7 @@ part of 'movie_dto.dart';
 _MovieDTO _$MovieDTOFromJson(Map<String, dynamic> json) => _MovieDTO(
   id: (json['id'] as num).toInt(),
   adult: json['adult'] as bool,
-  posterPath: json['poster_path'] as String,
+  posterPath: json['poster_path'] as String?,
   releaseDate: json['release_date'] as String,
   title: json['title'] as String,
   voteAverage: (json['vote_average'] as num).toDouble(),

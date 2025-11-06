@@ -15,7 +15,7 @@ class MovieDTOToMoviePageDataMapper {
       movies: dto.movies.map((m) => Movie(
         id: m.id,
         title: m.title,
-        posterUrl: config.posterBaseUrl + m.posterPath,
+        posterUrl: '${config.posterBaseUrl}${m.posterPath}',
         isFavorite: favoriteList.contains(m.id.toString()),
         rating: m.voteAverage,
         releaseDate: m.releaseDate,

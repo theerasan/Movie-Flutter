@@ -20,6 +20,22 @@ class MovieListUseCaseImpl implements MovieListUseCase {
 
   @override
   Future<Result<MoviePageData>> getMovies() async {
+    _page = 1;
+    _movies.clear();
+    return _loadMovies();
+  }
+
+  @override
+  Future<Result<MoviePageData>> loadMoreMovies() {
+    if (_page < _maxPage) {
+      _page++;
+      return _loadMovies();
+    }
+
+    throw Exception('No more movie');
+  }
+
+  Future<Result<MoviePageData>> _loadMovies() async {
     var data = await Future.wait([
       repo.getMovies(_page),
       favoriteStorage.getFavorite()
@@ -35,23 +51,13 @@ class MovieListUseCaseImpl implements MovieListUseCase {
         _page = data.page;
         _maxPage = data.maxPage;
         return Result.success(MoviePageData(
-          page: _page,
-          maxPage: _maxPage,
-          movies: _movies
+            page: _page,
+            maxPage: _maxPage,
+            movies: _movies
         ));
       case Error<MovieListDTO>():
         print('error in use case');
         return Result.error(result.error);
     }
-  }
-
-  @override
-  Future<Result<MoviePageData>> loadMoreMovies() {
-    if (_page < _maxPage) {
-      _page++;
-      return getMovies();
-    }
-
-    throw Exception('Not more movie');
   }
 }

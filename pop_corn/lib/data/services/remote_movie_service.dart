@@ -54,4 +54,24 @@ class RemoteMovieService implements MovieService {
       throw Exception('Failed to load movie with id $id');
     }
   }
+
+  @override
+  Future<MovieListDTO> searchMovies(String query, int page) async {
+    final response = await http.get(
+        Uri.parse('$_baseUrl/search/movie?query=$query&page=$page'),
+        headers: _getHeaders()
+    );
+
+    if (response.statusCode == 200) {
+      try {
+        return MovieListDTO.fromJson(jsonDecode(response.body));
+      } catch (e) {
+        print('error in search service mapping' + e.toString());
+        throw Exception('Failed to load movies');
+      }
+    } else {
+      print('error in search service');
+      throw Exception('Failed to load movies');
+    }
+  }
 }

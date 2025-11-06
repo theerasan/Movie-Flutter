@@ -10,8 +10,8 @@ _MovieDetailDTO _$MovieDetailDTOFromJson(Map<String, dynamic> json) =>
     _MovieDetailDTO(
       id: (json['id'] as num).toInt(),
       adult: json['adult'] as bool,
-      posterPath: json['poster_path'] as String,
-      backdropPath: json['backdrop_path'] as String,
+      posterPath: json['poster_path'] as String?,
+      backdropPath: json['backdrop_path'] as String?,
       title: json['title'] as String,
       description: json['overview'] as String,
       releaseDate: json['release_date'] as String,
