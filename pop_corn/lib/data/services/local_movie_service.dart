@@ -37,4 +37,18 @@ class LocalMovieService implements MovieService {
     print(localData);
     return MovieDetailDTO.fromJson(jsonDecode(localData));
   }
+
+  @override
+  Future<MovieListDTO> searchMovies(String query, int page) async {
+    if (page == 1) {
+      final localData = await rootBundle.loadString(Assets.moviePage1);
+      return MovieListDTO.fromJson(jsonDecode(localData));
+    }
+    if (page == 2) {
+      final localData = await rootBundle.loadString(Assets.moviePage2);
+      return MovieListDTO.fromJson(jsonDecode(localData));
+    }
+
+    throw Exception('Page not found');
+  }
 }

@@ -10,8 +10,8 @@ abstract class MovieDetailDTO with _$MovieDetailDTO {
   const factory MovieDetailDTO({
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'adult') required bool adult,
-    @JsonKey(name: 'poster_path') required String posterPath,
-    @JsonKey(name: 'backdrop_path') required String backdropPath,
+    @JsonKey(name: 'poster_path') required String? posterPath,
+    @JsonKey(name: 'backdrop_path') required String? backdropPath,
     @JsonKey(name: 'title') required String title,
     @JsonKey(name: 'overview') required String description,
     @JsonKey(name: 'release_date') required String releaseDate,

@@ -20,6 +20,17 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
+  Future<Result<MovieListDTO>> searchMovies(String query, int page) async {
+    try {
+      final result = await service.searchMovies(query, page);
+      return Result.success(result);
+    } on Exception catch (error) {
+      print("error in repo ${error.toString()}");
+      return Result.error(error);
+    }
+  }
+
+  @override
   Future<Result<MovieDetailDTO>> getMovieDetailById(int id) async {
     try {
       final result = await service.getMovieDetailById(id);

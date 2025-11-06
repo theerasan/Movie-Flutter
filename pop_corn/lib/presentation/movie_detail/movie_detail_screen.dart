@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pop_corn/domain/model/cast.dart';
 import 'package:pop_corn/domain/model/movie_detail.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_body.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_cast.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_header.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_viewmodel.dart';
-import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:pop_corn/ui/core/theme/colors.dart';
-import 'package:pop_corn/ui/genre_label.dart';
 import 'package:pop_corn/ui/lce_element.dart';
-import 'package:pop_corn/ui/rate_label.dart';
-import 'package:pop_corn/ui/release_date_label.dart';
-import 'package:pop_corn/ui/vote_label.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   const MovieDetailScreen({super.key, required this.viewModel, required this.id});

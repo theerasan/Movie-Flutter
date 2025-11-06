@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_screen.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_viewmodel.dart';
-import 'package:pop_corn/presentation/movie_list/movie_list.dart';
+import 'package:pop_corn/presentation/movie_list/movie_list_screen.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:pop_corn/routing/routes.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +12,7 @@ GoRouter router() => GoRouter(
       GoRoute(
         path: Routes.movieList,
         builder: (context, state) {
-          return MovieList(viewModel: Provider.of<MovieListViewModel>(context));
+          return MovieListScreen(viewModel: Provider.of<MovieListViewModel>(context));
         },
       ),
       GoRoute(

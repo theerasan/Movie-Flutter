@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MovieDTO {
 
-@JsonKey(name: 'id') int get id;@JsonKey(name: 'adult') bool get adult;@JsonKey(name: 'poster_path') String get posterPath;@JsonKey(name: 'release_date') String get releaseDate;@JsonKey(name: 'title') String get title;@JsonKey(name: 'vote_average') double get voteAverage;
+@JsonKey(name: 'id') int get id;@JsonKey(name: 'adult') bool get adult;@JsonKey(name: 'poster_path') String? get posterPath;@JsonKey(name: 'release_date') String get releaseDate;@JsonKey(name: 'title') String get title;@JsonKey(name: 'vote_average') double get voteAverage;
 /// Create a copy of MovieDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MovieDTOCopyWith<$Res>  {
   factory $MovieDTOCopyWith(MovieDTO value, $Res Function(MovieDTO) _then) = _$MovieDTOCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'id') int id,@JsonKey(name: 'adult') bool adult,@JsonKey(name: 'poster_path') String posterPath,@JsonKey(name: 'release_date') String releaseDate,@JsonKey(name: 'title') String title,@JsonKey(name: 'vote_average') double voteAverage
+@JsonKey(name: 'id') int id,@JsonKey(name: 'adult') bool adult,@JsonKey(name: 'poster_path') String? posterPath,@JsonKey(name: 'release_date') String releaseDate,@JsonKey(name: 'title') String title,@JsonKey(name: 'vote_average') double voteAverage
 });
 
 
@@ -65,12 +65,12 @@ class _$MovieDTOCopyWithImpl<$Res>
 
 /// Create a copy of MovieDTO
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? adult = null,Object? posterPath = null,Object? releaseDate = null,Object? title = null,Object? voteAverage = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? adult = null,Object? posterPath = freezed,Object? releaseDate = null,Object? title = null,Object? voteAverage = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
-as bool,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
-as String,releaseDate: null == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
+as bool,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,releaseDate: null == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
 as double,
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String posterPath, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'title')  String title, @JsonKey(name: 'vote_average')  double voteAverage)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String? posterPath, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'title')  String title, @JsonKey(name: 'vote_average')  double voteAverage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MovieDTO() when $default != null:
 return $default(_that.id,_that.adult,_that.posterPath,_that.releaseDate,_that.title,_that.voteAverage);case _:
@@ -179,7 +179,7 @@ return $default(_that.id,_that.adult,_that.posterPath,_that.releaseDate,_that.ti
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String posterPath, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'title')  String title, @JsonKey(name: 'vote_average')  double voteAverage)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String? posterPath, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'title')  String title, @JsonKey(name: 'vote_average')  double voteAverage)  $default,) {final _that = this;
 switch (_that) {
 case _MovieDTO():
 return $default(_that.id,_that.adult,_that.posterPath,_that.releaseDate,_that.title,_that.voteAverage);case _:
@@ -199,7 +199,7 @@ return $default(_that.id,_that.adult,_that.posterPath,_that.releaseDate,_that.ti
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String posterPath, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'title')  String title, @JsonKey(name: 'vote_average')  double voteAverage)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'adult')  bool adult, @JsonKey(name: 'poster_path')  String? posterPath, @JsonKey(name: 'release_date')  String releaseDate, @JsonKey(name: 'title')  String title, @JsonKey(name: 'vote_average')  double voteAverage)?  $default,) {final _that = this;
 switch (_that) {
 case _MovieDTO() when $default != null:
 return $default(_that.id,_that.adult,_that.posterPath,_that.releaseDate,_that.title,_that.voteAverage);case _:
@@ -219,7 +219,7 @@ class _MovieDTO implements MovieDTO {
 
 @override@JsonKey(name: 'id') final  int id;
 @override@JsonKey(name: 'adult') final  bool adult;
-@override@JsonKey(name: 'poster_path') final  String posterPath;
+@override@JsonKey(name: 'poster_path') final  String? posterPath;
 @override@JsonKey(name: 'release_date') final  String releaseDate;
 @override@JsonKey(name: 'title') final  String title;
 @override@JsonKey(name: 'vote_average') final  double voteAverage;
@@ -257,7 +257,7 @@ abstract mixin class _$MovieDTOCopyWith<$Res> implements $MovieDTOCopyWith<$Res>
   factory _$MovieDTOCopyWith(_MovieDTO value, $Res Function(_MovieDTO) _then) = __$MovieDTOCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'id') int id,@JsonKey(name: 'adult') bool adult,@JsonKey(name: 'poster_path') String posterPath,@JsonKey(name: 'release_date') String releaseDate,@JsonKey(name: 'title') String title,@JsonKey(name: 'vote_average') double voteAverage
+@JsonKey(name: 'id') int id,@JsonKey(name: 'adult') bool adult,@JsonKey(name: 'poster_path') String? posterPath,@JsonKey(name: 'release_date') String releaseDate,@JsonKey(name: 'title') String title,@JsonKey(name: 'vote_average') double voteAverage
 });
 
 
@@ -274,12 +274,12 @@ class __$MovieDTOCopyWithImpl<$Res>
 
 /// Create a copy of MovieDTO
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? adult = null,Object? posterPath = null,Object? releaseDate = null,Object? title = null,Object? voteAverage = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? adult = null,Object? posterPath = freezed,Object? releaseDate = null,Object? title = null,Object? voteAverage = null,}) {
   return _then(_MovieDTO(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,adult: null == adult ? _self.adult : adult // ignore: cast_nullable_to_non_nullable
-as bool,posterPath: null == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
-as String,releaseDate: null == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
+as bool,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,releaseDate: null == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
 as double,
