@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:pop_corn/domain/model/movie_detail.dart';
+import 'package:pop_corn/ui/core/sizing.dart';
 import 'package:pop_corn/ui/genre_label.dart';
 import 'package:pop_corn/ui/movie_cover.dart';
 import 'package:pop_corn/ui/rate_label.dart';
@@ -56,7 +57,7 @@ class MovieDetailHeader extends StatelessWidget {
             )
           ),
           Positioned(
-            bottom: 24,
+            bottom: AppSizing.xxl,
             left: 0,
             right: 0,
             child: Center(
@@ -77,19 +78,19 @@ class MovieDetailHeader extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 16,),
+                  BoxSizing.l,
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ReleaseDateLabel(releaseDate: movie.releaseDate,),
-                      SizedBox(width: 16,),
+                      BoxSizing.l,
                       RateLabel(isAdult: movie.isAdult,),
-                      SizedBox(width: 16,),
+                      BoxSizing.l,
                       GenreLabel(genre: movie.mainGenre)
                     ],
                   ),
-                  SizedBox(height: 8,),
+                  BoxSizing.s,
                   Center(
                     child: VoteLabel(rating: movie.voteRating),
                   )

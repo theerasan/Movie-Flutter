@@ -6,6 +6,7 @@ import 'package:pop_corn/presentation/movie_list/movie_card.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_state.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
 import 'package:pop_corn/routing/routes.dart';
+import 'package:pop_corn/ui/core/sizing.dart';
 import 'package:pop_corn/ui/lce_element.dart';
 
 class MovieListScreen extends StatefulWidget {
@@ -80,7 +81,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     var column = 1;
-    if (width > 600 ) {
+    if (width > AppSizing.smallBreakPoint) {
       column = 2;
     }
 
@@ -117,11 +118,11 @@ class _MovieListScreenState extends State<MovieListScreen> {
           children: [
             Expanded(
               child: GridView.builder(
-                padding: EdgeInsets.only(left: 16),
+                padding: EdgeInsets.only(left: AppSizing.l),
                 controller: _scrollController,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: column,
-                    childAspectRatio: width / column / 155
+                    childAspectRatio: width / column / AppSizing.coverSmall
                 ),
                 itemCount: movies.length,
                 itemBuilder: (BuildContext context, int index) {

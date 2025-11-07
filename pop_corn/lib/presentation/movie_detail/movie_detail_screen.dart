@@ -7,6 +7,8 @@ import 'package:pop_corn/presentation/movie_detail/movie_detail_viewmodel.dart';
 import 'package:pop_corn/ui/core/theme/colors.dart';
 import 'package:pop_corn/ui/lce_element.dart';
 
+import '../../ui/core/sizing.dart';
+
 class MovieDetailScreen extends StatefulWidget {
   const MovieDetailScreen({super.key, required this.viewModel, required this.id});
   final MovieDetailViewModel viewModel;
@@ -33,7 +35,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     final lce = widget.viewModel.lceElement;
     final width = MediaQuery.of(context).size.width;
     var column = 1;
-    if (width > 600 ) {
+    if (width > AppSizing.smallBreakPoint) {
       column = 2;
     }
     return ListenableBuilder(listenable: lce, builder: (context, _) {
@@ -99,18 +101,18 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
       padding: EdgeInsets.zero,
       children: [
         MovieDetailHeader(movie: movie),
-        SizedBox(height: 24,),
+        BoxSizing.xxl,
         MovieDetailBody(overview: movie.overView),
-        SizedBox(height: 24,),
+        BoxSizing.xxl,
         Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 24),
+          padding: EdgeInsetsGeometry.symmetric(horizontal: AppSizing.xxl),
           child: Text("Cast", style: Theme.of(context).textTheme.titleMedium,),
         ),
-        SizedBox(height: 12,),
+        BoxSizing.m,
         ...movie.casts.map((cast) =>
             MovieDetailCast(cast: cast)
         ),
-        SizedBox(height: 24,)
+        BoxSizing.xxl,
       ],
     );
   }
@@ -126,17 +128,17 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           child:  ListView(
             children: [
               Padding(
-                padding: EdgeInsetsGeometry.symmetric(horizontal: 24),
+                padding: EdgeInsetsGeometry.symmetric(horizontal: AppSizing.xxl),
                 child: Text(movie.title, style: Theme.of(context).textTheme.titleLarge,),
               ),
-              SizedBox(height: 24,),
+              BoxSizing.xxl,
               MovieDetailBody(overview: movie.overView),
-              SizedBox(height: 24,),
+              BoxSizing.xxl,
               Padding(
-                padding: EdgeInsetsGeometry.symmetric(horizontal: 24),
+                padding: EdgeInsetsGeometry.symmetric(horizontal: AppSizing.xxl),
                 child: Text("Cast", style: Theme.of(context).textTheme.titleMedium,),
               ),
-              SizedBox(height: 12,),
+              BoxSizing.m,
               ...movie.casts.map((cast) =>
                   MovieDetailCast(cast: cast)
               )

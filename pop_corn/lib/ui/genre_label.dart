@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pop_corn/ui/core/sizing.dart';
 import 'package:pop_corn/ui/core/theme/colors.dart';
 
 class GenreLabel extends StatelessWidget {
@@ -12,8 +13,8 @@ class GenreLabel extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Icon(Icons.movie, color: AppColors.grey3, size: 16),
-        SizedBox(width: 8),
+        Icon(Icons.movie, color: AppColors.grey3, size: AppSizing.l),
+        BoxSizing.s,
         Text(genre, style: Theme.of(context).textTheme.labelSmall),
       ],
     );

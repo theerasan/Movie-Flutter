@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pop_corn/ui/core/sizing.dart';
 import 'package:pop_corn/ui/core/theme/colors.dart';
 
 class RateLabel extends StatelessWidget {
@@ -24,7 +25,7 @@ class RateLabel extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
       ),
       child: Padding(
-        padding: EdgeInsetsGeometry.symmetric(vertical: 1, horizontal: 4),
+        padding: EdgeInsetsGeometry.symmetric(vertical: 0, horizontal: AppSizing.xs),
         child: Text(
           rateText,
           style: Theme.of(context).textTheme.labelMedium?.copyWith(color: color),
