@@ -37,6 +37,7 @@ class _MovieCardState extends State<MovieCard> {
                 widget.movie.title,
                 style: Theme.of(context).textTheme.headlineSmall,
                 maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           )
@@ -60,23 +61,26 @@ class _MovieCardState extends State<MovieCard> {
       icon = Icons.favorite;
     }
 
-    return SizedBox(
-      height: 155,
-      child: Card(
+    return Card(
+        elevation: 0,
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: widget.onClickMovieItem,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 155,
-                child: MovieCover(
-                  path: widget.movie.posterUrl,
-                  placeholder: 'images/poster_placeholder.png'
+              Card(
+                elevation: 0,
+                clipBehavior: Clip.antiAlias,
+                child: SizedBox(
+                  height: 155,
+                  child: MovieCover(
+                      path: widget.movie.posterUrl,
+                      placeholder: 'images/poster_placeholder.png'
+                  ),
                 ),
               ),
-              SizedBox(width: 16),
+              SizedBox(width: 12),
               Expanded(
                 flex: 1,
                 child: Column(
@@ -88,7 +92,7 @@ class _MovieCardState extends State<MovieCard> {
                         ratingAndVote,
                         SizedBox(height: 12,),
                         ReleaseDateLabel(releaseDate: widget.movie.releaseDate,),
-                        SizedBox(height: 16,)
+                        SizedBox(height: 8,)
                       ],
                     )
                   ]
@@ -101,7 +105,6 @@ class _MovieCardState extends State<MovieCard> {
             ],
           ),
         )
-      ),
-    );
+      );
   }
 }

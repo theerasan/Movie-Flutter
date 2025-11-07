@@ -9,7 +9,6 @@ class MovieDetailCast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var characterColor = Theme.of(context).textTheme.bodySmall?.color?.withAlpha(128);
     return Padding(
       padding: EdgeInsetsGeometry.symmetric(horizontal: 24, vertical: 8),
       child: Row(
@@ -35,7 +34,7 @@ class MovieDetailCast extends StatelessWidget {
               SizedBox(height: 4,),
               Text(
                 cast.character,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 12, color: characterColor),
+                style: Theme.of(context).textTheme.labelSmall,
               )
             ]
           )

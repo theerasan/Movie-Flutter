@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pop_corn/ui/tag_chip.dart';
 import 'colors.dart';
 
 abstract final class AppTheme {
@@ -43,14 +42,14 @@ abstract final class AppTheme {
     ),
     labelSmall: TextStyle(
       fontSize: 12,
-      fontWeight: FontWeight.w500,
-      color: AppColors.grey3,
+      fontWeight: FontWeight.w700,
+      color: AppColors.grey2,
       fontFamily: _fontFamily,
     ),
     labelLarge: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
-      color: AppColors.grey3,
+      color: AppColors.grey2,
       fontFamily: _fontFamily,
     ),
   );
@@ -88,18 +87,18 @@ abstract final class AppTheme {
     ),
   );
 
+  static const _progressIndicatorTheme = ProgressIndicatorThemeData(
+    color: AppColors.info
+  );
+
+
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     colorScheme: AppColors.lightColorScheme,
     textTheme: _textTheme,
     inputDecorationTheme: _inputDecorationTheme,
     appBarTheme: _appBarLightTheme,
-    extensions: [
-      TagChipTheme(
-        chipColor: AppColors.whiteTransparent,
-        onChipColor: Colors.white,
-      ),
-    ],
+    progressIndicatorTheme: _progressIndicatorTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -108,11 +107,6 @@ abstract final class AppTheme {
     textTheme: _textTheme,
     inputDecorationTheme: _inputDecorationTheme,
     appBarTheme: _appBarDarkTheme,
-    extensions: [
-      TagChipTheme(
-        chipColor: AppColors.blackTransparent,
-        onChipColor: Colors.white,
-      ),
-    ],
+    progressIndicatorTheme: _progressIndicatorTheme,
   );
 }
