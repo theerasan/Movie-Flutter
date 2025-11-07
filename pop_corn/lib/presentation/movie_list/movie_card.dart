@@ -74,7 +74,7 @@ class _MovieCardState extends State<MovieCard> {
               elevation: 0,
               clipBehavior: Clip.antiAlias,
               child: SizedBox(
-                height: 155,
+                height: AppSizing.coverSmall,
                 child: MovieCover(
                     path: widget.movie.posterUrl,
                     placeholder: 'images/poster_placeholder.png'

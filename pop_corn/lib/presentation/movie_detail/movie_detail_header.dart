@@ -19,17 +19,15 @@ class MovieDetailHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final startColor = Theme.of(context).colorScheme.surface.withValues(alpha: 0);
     final centerColor = Theme.of(context).colorScheme.surface.withValues(alpha: 1);
-    
-    var headerHeight = 500.0;
-    if (Platform.isIOS) {
-      headerHeight = 500.0;
-    }
-    if (Platform.isAndroid) {
-      headerHeight = 460.0;
+    double statusBarHeight = MediaQuery.of(context).padding.top;
+    double headerHeight = statusBarHeight + 380.0;
+
+    if (MediaQuery.of(context).size.width > AppSizing.smallBreakPoint) {
+      statusBarHeight /= 2;
+      headerHeight = MediaQuery.of(context).size.height;
     }
 
     return SizedBox(
-      height: headerHeight,
       child: Stack(
         children: [
           SizedBox(
@@ -41,6 +39,7 @@ class MovieDetailHeader extends StatelessWidget {
             ),
           ),
           Container(
+            height: headerHeight,
             decoration: BoxDecoration(
               gradient: RadialGradient(
                 colors: [
@@ -56,46 +55,35 @@ class MovieDetailHeader extends StatelessWidget {
               )
             )
           ),
-          Positioned(
-            bottom: AppSizing.xxl,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Stack(
-                    children: [
-                      Card(
-                        clipBehavior: Clip.antiAlias,
-                        child: SizedBox(
-                          height: 285,
-                          child: MovieCover(
-                              path: movie.posterUrl,
-                              placeholder: 'images/poster_placeholder.png'
-                          ),
-                        ),
-                      )
-                    ],
+          Center(
+            child: Column(
+              children: [
+                SizedBox(height: statusBarHeight,),
+                Card(
+                  clipBehavior: Clip.antiAlias,
+                  child: SizedBox(
+                    height: AppSizing.coverLarge,
+                    child: MovieCover(
+                        path: movie.posterUrl,
+                        placeholder: 'images/poster_placeholder.png'
+                    ),
                   ),
-                  BoxSizing.l,
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ReleaseDateLabel(releaseDate: movie.releaseDate,),
-                      BoxSizing.l,
-                      RateLabel(isAdult: movie.isAdult,),
-                      BoxSizing.l,
-                      GenreLabel(genre: movie.mainGenre)
-                    ],
-                  ),
-                  BoxSizing.s,
-                  Center(
-                    child: VoteLabel(rating: movie.voteRating),
-                  )
-                ],
-              ),
+                ),
+                BoxSizing.l,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ReleaseDateLabel(releaseDate: movie.releaseDate,),
+                    BoxSizing.l,
+                    RateLabel(isAdult: movie.isAdult,),
+                    BoxSizing.l,
+                    GenreLabel(genre: movie.mainGenre)
+                  ],
+                ),
+                BoxSizing.s,
+                VoteLabel(rating: movie.voteRating),
+              ],
             ),
           ),
         ],
