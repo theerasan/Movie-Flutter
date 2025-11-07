@@ -18,10 +18,14 @@ class MovieDetailScreen extends StatefulWidget {
 
 class _MovieDetailScreenState extends State<MovieDetailScreen> {
 
+  final ScrollController _scrollController = ScrollController();
+  double _appBarAlpha = 0.0;
+
   @override
   void initState() {
     super.initState();
     widget.viewModel.setId = widget.id;
+    _scrollController.addListener(_onScroll);
   }
 
   @override
@@ -33,14 +37,22 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
       column = 2;
     }
     return ListenableBuilder(listenable: lce, builder: (context, _) {
+      final bg = Theme.of(context).appBarTheme.backgroundColor;
+      final bgColor = bg?.withValues(
+        alpha: _appBarAlpha,
+        red: bg.r * 0.95,
+        green: bg.g * 0.95,
+        blue: bg.b * 0.95
+      );
       return Scaffold(
         extendBodyBehindAppBar: true,
         extendBody: true,
         appBar: AppBar(
           title: (lce.result != null && column == 1) ? Text(lce.result!.title) : SizedBox
               .shrink(),
+          surfaceTintColor: Colors.transparent,
           centerTitle: true,
-          backgroundColor: Colors.transparent,
+          backgroundColor: bgColor,
           actions: (lce.result != null) ? [
             IconButton(
               onPressed: () {
@@ -60,8 +72,6 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
       );
     });
   }
-
-
 
   Widget _movieDetailBody(LCEElement<MovieDetail> lce, int column) {
     if (lce.loading && lce.result == null) {
@@ -85,6 +95,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
 
   Widget _singleColumn(MovieDetail movie) {
     return ListView(
+      controller: _scrollController,
       padding: EdgeInsets.zero,
       children: [
         MovieDetailHeader(movie: movie),
@@ -134,5 +145,19 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
         ),
       ]
     );
+  }
+
+  void _onScroll() {
+    setState(() {
+      double offset = _scrollController.offset;
+      _appBarAlpha = (offset / 100).clamp(0.0, 0.9);
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    super.dispose();
   }
 }
