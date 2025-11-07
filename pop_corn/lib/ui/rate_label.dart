@@ -9,7 +9,7 @@ class RateLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color = AppColors.accept;
+    var color = AppColors.info;
     var rateText = 'PG-13';
     if (isAdult) {
       color = AppColors.danger;
@@ -19,7 +19,7 @@ class RateLabel extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: color,
-          width: 2,
+          width: 1.5,
         ),
         borderRadius: BorderRadius.circular(5),
       ),

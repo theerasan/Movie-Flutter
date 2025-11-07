@@ -117,6 +117,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
           children: [
             Expanded(
               child: GridView.builder(
+                padding: EdgeInsets.only(left: 16),
                 controller: _scrollController,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: column,
