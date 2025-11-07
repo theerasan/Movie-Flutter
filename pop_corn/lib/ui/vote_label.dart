@@ -13,7 +13,7 @@ class VoteLabel extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(Icons.star, size: 16, color: AppColors.star),
-        SizedBox(width: 8),
+        SizedBox(width: 4),
         Text(
           rating.toStringAsFixed(1),
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
