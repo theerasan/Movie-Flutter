@@ -27,14 +27,8 @@ class _MovieListScreenState extends State<MovieListScreen> {
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(() {
-      if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent) {
-        widget.viewModel.loadMore();
-      }
-    });
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      widget.viewModel.onEnterScreen();
-    });
+    _scrollController.addListener(_onScroll);
+    widget.viewModel.onEnterScreen();
   }
 
   void _onClickMovieItem(num id) {
@@ -154,5 +148,18 @@ class _MovieListScreenState extends State<MovieListScreen> {
         );
       },
     );
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent) {
+      widget.viewModel.loadMore();
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    super.dispose();
   }
 }
