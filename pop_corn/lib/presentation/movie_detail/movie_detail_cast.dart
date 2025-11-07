@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pop_corn/domain/model/cast.dart';
+import 'package:pop_corn/ui/core/sizing.dart';
 
 class MovieDetailCast extends StatelessWidget {
 
@@ -10,7 +11,10 @@ class MovieDetailCast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 24, vertical: 8),
+      padding: EdgeInsetsGeometry.symmetric(
+          horizontal: AppSizing.xxl,
+          vertical: AppSizing.s,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -22,7 +26,7 @@ class MovieDetailCast extends StatelessWidget {
             radius: 25,
             foregroundImage: AssetImage('images/avatar_placeholder.png'),
           ),
-          SizedBox(width: 16,),
+          BoxSizing.l,
           Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +35,7 @@ class MovieDetailCast extends StatelessWidget {
                 cast.fullName,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
               ),
-              SizedBox(height: 4,),
+              BoxSizing.xs,
               Text(
                 cast.character,
                 style: Theme.of(context).textTheme.labelSmall,

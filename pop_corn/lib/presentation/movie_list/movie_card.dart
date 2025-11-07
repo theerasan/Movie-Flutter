@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pop_corn/domain/model/movie.dart';
+import 'package:pop_corn/ui/core/sizing.dart';
 import 'package:pop_corn/ui/movie_cover.dart';
 import 'package:pop_corn/ui/release_date_label.dart';
 import 'package:pop_corn/ui/vote_label.dart';
@@ -26,7 +27,7 @@ class _MovieCardState extends State<MovieCard> {
 
   late final movieTitle = Column(
     children: [
-      SizedBox(height: 8,),
+      BoxSizing.s,
       Row(
         children: [
           Expanded(
@@ -49,7 +50,7 @@ class _MovieCardState extends State<MovieCard> {
   late final ratingAndVote = Row(
     children: [
       RateLabel(isAdult: widget.movie.isAdult),
-      SizedBox(width: 8,),
+      BoxSizing.s,
       VoteLabel(rating: widget.movie.rating)
     ],
   );
@@ -62,49 +63,49 @@ class _MovieCardState extends State<MovieCard> {
     }
 
     return Card(
-        elevation: 0,
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          onTap: widget.onClickMovieItem,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Card(
-                elevation: 0,
-                clipBehavior: Clip.antiAlias,
-                child: SizedBox(
-                  height: 155,
-                  child: MovieCover(
-                      path: widget.movie.posterUrl,
-                      placeholder: 'images/poster_placeholder.png'
-                  ),
+      clipBehavior: Clip.antiAlias,
+      elevation: 0,
+      child: InkWell(
+        onTap: widget.onClickMovieItem,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Card(
+              elevation: 0,
+              clipBehavior: Clip.antiAlias,
+              child: SizedBox(
+                height: 155,
+                child: MovieCover(
+                    path: widget.movie.posterUrl,
+                    placeholder: 'images/poster_placeholder.png'
                 ),
               ),
-              SizedBox(width: 12),
-              Expanded(
-                flex: 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    movieTitle,
-                    Column(
-                      children: [
-                        ratingAndVote,
-                        SizedBox(height: 12,),
-                        ReleaseDateLabel(releaseDate: widget.movie.releaseDate,),
-                        SizedBox(height: 8,)
-                      ],
-                    )
-                  ]
-                ),
+            ),
+            BoxSizing.m,
+            Expanded(
+              flex: 1,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  movieTitle,
+                  Column(
+                    children: [
+                      ratingAndVote,
+                      BoxSizing.m,
+                      ReleaseDateLabel(releaseDate: widget.movie.releaseDate,),
+                      SizedBox(height: 8,)
+                    ],
+                  )
+                ]
               ),
-              IconButton(
-                onPressed: widget.onClickFavorite,
-                icon: Icon(icon, color: AppColors.favColor,)
-              )
-            ],
-          ),
-        )
-      );
+            ),
+            IconButton(
+              onPressed: widget.onClickFavorite,
+              icon: Icon(icon, color: AppColors.favColor,)
+            )
+          ],
+        ),
+      )
+    );
   }
 }

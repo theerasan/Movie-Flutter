@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pop_corn/ui/core/sizing.dart';
 import 'package:pop_corn/ui/core/theme/colors.dart';
 
 class VoteLabel extends StatelessWidget {
@@ -12,8 +13,8 @@ class VoteLabel extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(Icons.star, size: 16, color: AppColors.star),
-        SizedBox(width: 4),
+        Icon(Icons.star, size: AppSizing.l, color: AppColors.star),
+        BoxSizing.xs,
         Text(
           rating.toStringAsFixed(1),
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
