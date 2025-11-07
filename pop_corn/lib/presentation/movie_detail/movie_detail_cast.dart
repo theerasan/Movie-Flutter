@@ -17,6 +17,7 @@ class MovieDetailCast extends StatelessWidget {
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
         children: [
           (cast.avatarUrl != null) ? CircleAvatar(
             radius: 25,
@@ -27,21 +28,27 @@ class MovieDetailCast extends StatelessWidget {
             foregroundImage: AssetImage('images/avatar_placeholder.png'),
           ),
           BoxSizing.l,
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                cast.fullName,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
-              ),
-              BoxSizing.xs,
-              Text(
-                cast.character,
-                style: Theme.of(context).textTheme.labelSmall,
-              )
-            ]
-          )
+          Expanded(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  cast.fullName,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
+                ),
+                BoxSizing.xs,
+                Text(
+                  cast.character,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.labelSmall,
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

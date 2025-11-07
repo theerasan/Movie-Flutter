@@ -18,7 +18,7 @@ class MovieDetailHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final startColor = Theme.of(context).colorScheme.surface.withValues(alpha: 0);
-    final centerColor = Theme.of(context).colorScheme.surface.withValues(alpha: 1);
+    final endColor = Theme.of(context).colorScheme.surface.withValues(alpha: 1);
     double statusBarHeight = MediaQuery.of(context).padding.top;
     double headerHeight = statusBarHeight + 380.0;
 
@@ -44,7 +44,7 @@ class MovieDetailHeader extends StatelessWidget {
               gradient: RadialGradient(
                 colors: [
                   startColor,
-                  centerColor,
+                  endColor,
                 ],
                 radius: 1,
                 stops: const [
@@ -53,6 +53,23 @@ class MovieDetailHeader extends StatelessWidget {
                 ],
                 center: Alignment.center
               )
+            )
+          ),
+          Container(
+            height: headerHeight,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  startColor,
+                  endColor
+                ],
+                stops: [
+                  0.75,
+                  0.85
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter
+              ),
             )
           ),
           Center(
