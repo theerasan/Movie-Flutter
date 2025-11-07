@@ -72,12 +72,12 @@ class _MovieListScreenState extends State<MovieListScreen> {
               widget.viewModel.search(query);
             },
           ),
-            actions: [
-              IconButton(
-                onPressed: widget.viewModel.onClickCloseSearch,
-                icon: Icon(Icons.close_rounded)
-              )
-            ]
+          actions: [
+            IconButton(
+              onPressed: widget.viewModel.onClickCloseSearch,
+              icon: Icon(Icons.close_rounded)
+            )
+          ]
         );
     }
   }

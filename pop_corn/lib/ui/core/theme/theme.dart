@@ -57,6 +57,8 @@ abstract final class AppTheme {
 
   static final _appBarLightTheme = AppBarTheme(
     centerTitle: true,
+    backgroundColor: Colors.white,
+    surfaceTintColor: Colors.black,
     titleTextStyle: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w900,
@@ -67,8 +69,10 @@ abstract final class AppTheme {
 
   static final _appBarDarkTheme = AppBarTheme(
     centerTitle: true,
+    backgroundColor: AppColors.black1,
+    surfaceTintColor: Colors.black,
     titleTextStyle: TextStyle(
-      fontSize: 18,
+      fontSize: 20,
       fontWeight: FontWeight.w900,
       fontFamily: _fontFamily,
       color: AppColors.grey1,
@@ -79,7 +83,7 @@ abstract final class AppTheme {
     hintStyle: TextStyle(
       // grey3 works for both light and dark themes
       color: AppColors.grey3,
-      fontSize: 18.0,
+      fontSize: 20,
       fontWeight: FontWeight.w400,
     ),
   );
