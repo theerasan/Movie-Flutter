@@ -17,12 +17,11 @@ class MovieDetailCast extends StatelessWidget {
         children: [
           (cast.avatarUrl != null) ? CircleAvatar(
             radius: 25,
-            backgroundImage: NetworkImage(
-              cast.avatarUrl!,
-            ),
+            foregroundImage: NetworkImage(cast.avatarUrl!),
+            backgroundImage: AssetImage('images/avatar_placeholder.png'),
           ) : CircleAvatar(
             radius: 25,
-            backgroundImage: AssetImage('images/poster_placeholder.png')
+            foregroundImage: AssetImage('images/avatar_placeholder.png'),
           ),
           SizedBox(width: 16,),
           Column(

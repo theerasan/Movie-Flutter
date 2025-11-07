@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pop_corn/domain/model/movie.dart';
+import 'package:pop_corn/ui/movie_cover.dart';
 import 'package:pop_corn/ui/release_date_label.dart';
 import 'package:pop_corn/ui/vote_label.dart';
 import 'package:pop_corn/ui/core/theme/colors.dart';
@@ -68,10 +69,12 @@ class _MovieCardState extends State<MovieCard> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              FadeInImage(
+              SizedBox(
                 height: 155,
-                image: NetworkImage(widget.movie.posterUrl),
-                placeholder: const AssetImage('images/poster_placeholder.png'),
+                child: MovieCover(
+                  path: widget.movie.posterUrl,
+                  placeholder: 'images/poster_placeholder.png'
+                ),
               ),
               SizedBox(width: 16),
               Expanded(

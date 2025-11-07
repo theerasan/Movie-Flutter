@@ -11,7 +11,7 @@ class Movie {
 
   final num id;
   final String title;
-  final String posterUrl;
+  String? posterUrl;
   bool isFavorite;
   final double rating;
   final String releaseDate;

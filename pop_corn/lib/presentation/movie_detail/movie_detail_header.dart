@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:pop_corn/domain/model/movie_detail.dart';
 import 'package:pop_corn/ui/genre_label.dart';
+import 'package:pop_corn/ui/movie_cover.dart';
 import 'package:pop_corn/ui/rate_label.dart';
 import 'package:pop_corn/ui/release_date_label.dart';
 import 'package:pop_corn/ui/vote_label.dart';
@@ -18,6 +19,8 @@ class MovieDetailHeader extends StatelessWidget {
     final startColor = Theme.of(context).colorScheme.surface.withValues(alpha: 0);
     final centerColor = Theme.of(context).colorScheme.surface.withValues(alpha: 1);
 
+    MediaQuery.of(context).size.width;
+
     var headerHeight = 500.0;
     if (Platform.isIOS) {
       headerHeight = 500.0;
@@ -30,28 +33,27 @@ class MovieDetailHeader extends StatelessWidget {
       height: headerHeight,
       child: Stack(
         children: [
-          FadeInImage(
-            image: NetworkImage(movie.backdropUrl),
-            colorBlendMode: BlendMode.modulate,
+          SizedBox(
             height: headerHeight,
-            fit: BoxFit.cover,
-            placeholder: const AssetImage(
-                'images/backdrop_placeholder.png',
+            child: MovieCover(
+              height: headerHeight,
+              path: movie.backdropUrl,
+              placeholder: 'images/backdrop_placeholder.png',
             ),
           ),
           Container(
             decoration: BoxDecoration(
               gradient: RadialGradient(
-                  colors: [
-                    startColor,
-                    centerColor,
-                  ],
-                  radius: 1,
-                  stops: const [
-                    0.0,
-                    0.6,
-                  ],
-                  center: Alignment.center
+                colors: [
+                  startColor,
+                  centerColor,
+                ],
+                radius: 1,
+                stops: const [
+                  0.0,
+                  0.6,
+                ],
+                center: Alignment.center
               )
             )
           ),
@@ -67,10 +69,12 @@ class MovieDetailHeader extends StatelessWidget {
                     children: [
                       Card(
                         clipBehavior: Clip.antiAlias,
-                        child: FadeInImage(
+                        child: SizedBox(
                           height: 285,
-                          image: NetworkImage(movie.posterUrl),
-                          placeholder: const AssetImage('images/poster_placeholder.png'),
+                          child: MovieCover(
+                              path: movie.posterUrl,
+                              placeholder: 'images/poster_placeholder.png'
+                          ),
                         ),
                       )
                     ],

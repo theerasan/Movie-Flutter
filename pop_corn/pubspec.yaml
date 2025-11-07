@@ -72,6 +72,7 @@ flutter:
   assets:
     - images/poster_placeholder.png
     - images/backdrop_placeholder.png
+    - images/avatar_placeholder.png
     - assets/movie_page_1.json
     - assets/movie_page_2.json
     - assets/movie_detail.json

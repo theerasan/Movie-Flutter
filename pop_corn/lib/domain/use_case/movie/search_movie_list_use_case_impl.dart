@@ -46,7 +46,7 @@ class SearchMovieListUseCaseImpl extends SearchMovieListUseCase {
         return Result.success(MoviePageData(
             page: _page,
             maxPage: _maxPage,
-            movies: data.movies
+            movies: _movies
         ));
       case Error<MovieListDTO>():
         print('error in use case');
