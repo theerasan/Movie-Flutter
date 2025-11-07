@@ -18,9 +18,7 @@ class MovieDetailHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final startColor = Theme.of(context).colorScheme.surface.withValues(alpha: 0);
     final centerColor = Theme.of(context).colorScheme.surface.withValues(alpha: 1);
-
-    MediaQuery.of(context).size.width;
-
+    
     var headerHeight = 500.0;
     if (Platform.isIOS) {
       headerHeight = 500.0;
