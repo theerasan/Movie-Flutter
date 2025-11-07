@@ -17,7 +17,6 @@ class MovieListViewModel extends ChangeNotifier {
   MovieListState appBarState = MovieListState(state: MovieListAppBarState.TITLE_BAR, query: "");
 
   bool isLoadMore = false;
-  String _localQuery = '';
 
   MovieListViewModel({
     required this.movieUseCase,
