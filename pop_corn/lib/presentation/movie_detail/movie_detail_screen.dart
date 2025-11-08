@@ -26,8 +26,10 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   @override
   void initState() {
     super.initState();
-    widget.viewModel.setId = widget.id;
-    _scrollController.addListener(_onScroll);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.viewModel.setId = widget.id;
+      _scrollController.addListener(_onScroll);
+    });
   }
 
   @override
@@ -102,7 +104,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
       children: [
         MovieDetailHeader(movie: movie),
         BoxSizing.xxl,
-        MovieDetailBody(overview: movie.overView),
+        MovieDetailBody(overview: movie.overview),
         BoxSizing.xxl,
         Padding(
           padding: EdgeInsetsGeometry.symmetric(horizontal: AppSizing.xxl),
@@ -132,7 +134,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                 child: Text(movie.title, style: Theme.of(context).textTheme.titleLarge,),
               ),
               BoxSizing.xxl,
-              MovieDetailBody(overview: movie.overView),
+              MovieDetailBody(overview: movie.overview),
               BoxSizing.xxl,
               Padding(
                 padding: EdgeInsetsGeometry.symmetric(horizontal: AppSizing.xxl),

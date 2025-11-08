@@ -81,7 +81,6 @@ class MovieListViewModel extends ChangeNotifier {
        lceElement.showLoading();
      }
       appBarState.query = query;
-      print('Search query: $query');
       lceElement.updateResult(searchMovieListUseCase.getMovies(query));
     }
   }

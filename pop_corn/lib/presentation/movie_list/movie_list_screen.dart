@@ -28,8 +28,10 @@ class _MovieListScreenState extends State<MovieListScreen> {
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(_onScroll);
-    widget.viewModel.onEnterScreen();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollController.addListener(_onScroll);
+      widget.viewModel.onEnterScreen();
+    });
   }
 
   void _onClickMovieItem(num id) {
