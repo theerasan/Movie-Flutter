@@ -32,3 +32,9 @@ $ cd popcorn
 $ flutter run --target lib/main_staging.dart
 ```
 
+### Run build runner to create mock/json
+```bash
+$ cd popcorn
+$ dart run build_runner build
+```
+

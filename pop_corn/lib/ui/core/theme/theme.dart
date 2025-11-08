@@ -3,54 +3,57 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
 abstract final class AppTheme {
-  static final _fontFamily = GoogleFonts.montserrat().fontFamily;
 
-  static final _textTheme = TextTheme(
+  static final _textTheme = const TextTheme(
     headlineLarge: TextStyle(
       fontSize: 32,
-      fontWeight: FontWeight.w500,
-      fontFamily: _fontFamily,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'Montserrat',
     ),
     headlineSmall: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w600,
-      fontFamily: _fontFamily,
+      fontFamily: 'Montserrat',
+    ),
+    titleLarge: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'Montserrat',
     ),
     titleMedium: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w600,
-      fontFamily: _fontFamily,
+      fontFamily: 'Montserrat',
     ),
     bodyLarge: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
-      fontFamily: _fontFamily,
+      fontFamily: 'Montserrat',
     ),
     bodyMedium: TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w400,
-      fontFamily: _fontFamily,
+      fontFamily: 'Montserrat',
     ),
     bodySmall: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w400,
-      fontFamily: _fontFamily,
+      fontFamily: 'Montserrat',
     ),
     labelSmall: TextStyle(
       fontSize: 12,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w400,
       color: AppColors.grey2,
-      fontFamily: _fontFamily,
+      fontFamily: 'Montserrat',
     ),
     labelLarge: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
       color: AppColors.grey2,
-      fontFamily: _fontFamily,
+      fontFamily: 'Montserrat',
     ),
   );
 
@@ -60,8 +63,8 @@ abstract final class AppTheme {
     surfaceTintColor: Colors.black,
     titleTextStyle: TextStyle(
       fontSize: 18,
-      fontWeight: FontWeight.w900,
-      fontFamily: _fontFamily,
+      fontWeight: FontWeight.w600,
+      fontFamily: 'Montserrat',
       color: AppColors.black1,
     ),
   );
@@ -72,8 +75,8 @@ abstract final class AppTheme {
     surfaceTintColor: Colors.black,
     titleTextStyle: TextStyle(
       fontSize: 20,
-      fontWeight: FontWeight.w900,
-      fontFamily: _fontFamily,
+      fontWeight: FontWeight.w600,
+      fontFamily: 'Montserrat',
       color: AppColors.grey1,
     ),
   );
@@ -90,7 +93,6 @@ abstract final class AppTheme {
   static const _progressIndicatorTheme = ProgressIndicatorThemeData(
     color: AppColors.info
   );
-
 
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,

@@ -12,7 +12,7 @@ class MovieDetailDTOToMovieDetailMapper {
     return MovieDetail(
       id: dto.id,
       title: dto.title,
-      overView: dto.description,
+      overview: dto.description,
       posterUrl: '${config.posterBaseUrl}${dto.posterPath}',
       backdropUrl: '${config.backdropBaseUrl}${dto.backdropPath}',
       releaseDate: dto.releaseDate,

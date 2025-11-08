@@ -4,7 +4,7 @@ class MovieDetail {
   MovieDetail({
     required this.id,
     required this.title,
-    required this.overView,
+    required this.overview,
     required this.posterUrl,
     required this.backdropUrl,
     required this.releaseDate,
@@ -17,9 +17,9 @@ class MovieDetail {
 
   final num id;
   final String title;
-  final String overView;
-  final String posterUrl;
-  final String backdropUrl;
+  final String overview;
+  final String? posterUrl;
+  final String? backdropUrl;
   final String releaseDate;
   final String mainGenre;
   final bool isAdult;
