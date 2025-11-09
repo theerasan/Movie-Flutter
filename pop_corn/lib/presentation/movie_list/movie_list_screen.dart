@@ -9,6 +9,8 @@ import 'package:pop_corn/routing/routes.dart';
 import 'package:pop_corn/ui/core/sizing.dart';
 import 'package:pop_corn/ui/lce_element.dart';
 
+import '../../l10n/app_localizations.dart';
+
 class MovieListScreen extends StatefulWidget {
 
   final MovieListViewModel viewModel;
@@ -47,7 +49,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
     switch (state) {
       case MovieListAppBarState.TITLE_BAR:
         return AppBar(
-          title: Text('Popcorn'),
+          title: Text(AppLocalizations.of(context)!.app_name),
           centerTitle: true,
           actions: [
             IconButton(
@@ -63,7 +65,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
             autofocus: true,
             controller: searchController,
             decoration: InputDecoration(
-              hintText: 'Search...',
+              hintText: AppLocalizations.of(context)!.search,
               border: InputBorder.none,
             ),
             onChanged: (query) {
