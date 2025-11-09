@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pop_corn/domain/model/movie_page_data.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_list_use_case.dart';
@@ -29,7 +30,6 @@ class MovieListViewModel extends ChangeNotifier {
   }
 
   void loadMore() {
-    print('load more...');
     var pageData = (lceElement.result as MoviePageData);
     if (pageData.hasNextPage()) {
       lceElement.showLoading();
@@ -50,13 +50,13 @@ class MovieListViewModel extends ChangeNotifier {
     } else {
       movieFavoriteUseCase.addToFavorite(movie.id);
     }
-    _toggleFavorite(movie);
+    _updateFavorite(movie.id, !movie.isFavorite);
   }
 
-  void _toggleFavorite(Movie movie) {
+  void _updateFavorite(num id, bool value) {
     var pageData = (lceElement.result as MoviePageData);
-    var index = pageData.movies.indexWhere((element) => element.id == movie.id);
-    pageData.movies[index].isFavorite = !movie.isFavorite;
+    var index = pageData.movies.indexWhere((element) => element.id == id);
+    pageData.movies[index].isFavorite = value;
     notifyListeners();
   }
 
@@ -83,5 +83,10 @@ class MovieListViewModel extends ChangeNotifier {
       appBarState.query = query;
       lceElement.updateResult(searchMovieListUseCase.getMovies(query));
     }
+  }
+
+  void updateFavoriteById(num id) async {
+    final favorite = await movieFavoriteUseCase.getFavoriteStatus(id);
+    _updateFavorite(id, favorite);
   }
 }

@@ -17,4 +17,10 @@ class MovieFavoriteUseCaseImpl extends MovieFavoriteUseCase {
   void removeFromFavorite(num id) {
     storage.removeFromFavorite(id);
   }
+
+  @override
+  Future<bool> getFavoriteStatus(num id) async {
+    final favoriteList = await storage.getFavorite();
+    return favoriteList.contains(id.toString());
+  }
 }

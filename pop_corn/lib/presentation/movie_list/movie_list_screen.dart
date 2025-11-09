@@ -34,8 +34,9 @@ class _MovieListScreenState extends State<MovieListScreen> {
     });
   }
 
-  void _onClickMovieItem(num id) {
-    context.push(Routes.movieDetailWithId(id));
+  void _onClickMovieItem(num id) async {
+    await context.push(Routes.movieDetailWithId(id));
+    widget.viewModel.updateFavoriteById(id);
   }
 
   void _onClickFavorite(Movie movie) {
