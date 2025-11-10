@@ -1,0 +1,40 @@
+import 'package:popcorn/data/model/movie_detail/movie_detail_dto.dart';
+import 'package:popcorn/data/model/movie_list/movie_list_dto.dart';
+import 'package:popcorn/data/repository/movie_repository.dart';
+import 'package:popcorn/data/services/movie_service.dart';
+import 'package:popcorn/util/result.dart';
+
+class MovieRepositoryImpl implements MovieRepository {
+  final MovieService service;
+  const MovieRepositoryImpl({required this.service});
+
+  @override
+  Future<Result<MovieListDTO>> getMovies(int page) async {
+    try {
+      final result = await service.getMovies(page);
+      return Result.success(result);
+    } on Exception catch (error) {
+      return Result.error(error);
+    }
+  }
+
+  @override
+  Future<Result<MovieListDTO>> searchMovies(String query, int page) async {
+    try {
+      final result = await service.searchMovies(query, page);
+      return Result.success(result);
+    } on Exception catch (error) {
+      return Result.error(error);
+    }
+  }
+
+  @override
+  Future<Result<MovieDetailDTO>> getMovieDetailById(int id) async {
+    try {
+      final result = await service.getMovieDetailById(id);
+      return Result.success(result);
+    } on Exception catch (error) {
+      return Result.error(error);
+    }
+  }
+}

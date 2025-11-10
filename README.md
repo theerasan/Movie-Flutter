@@ -1,5 +1,5 @@
 # Popcorn
-![](https://github.com/theerasan/Movie-Flutter/blob/main/pop_corn/git_splash.png)
+![](https://github.com/theerasan/Movie-Flutter/blob/main/readme_assets/git_splash.png)
 ### Description:
 A Flutter showcase project that demonstrates building a modern, responsive movie application. The app displays a list of movies, allows users to view detailed information for each movie, and supports adding movies to a favorites list.
 
@@ -21,13 +21,16 @@ This application uses **The Movie Database (TMDb) API**.
 To get started, visit the [TMDb Developer Portal](https://developer.themoviedb.org/docs/getting-started) and obtain an `API token`.
 Once you have your token, update the API_TOKEN value in:.
 ```bash
-pop_corn/lib/data/services/service_config.dart
+popcorn/lib/data/services/service_config.dart
 ```
 ```dart
 abstract final class ServiceConfig {
   static const apiToken = ''; // update the api token here
 }
 ```
+---
+## Project Structure
+![architecture.png](readme_assets/architecture.png)
 ---
 
 ## Run the project
