@@ -23,7 +23,10 @@ A Flutter showcase project that demonstrates building a modern, responsive movie
 - 📝 Project Home: [Notion](https://www.notion.so/Getting-Started-2a7a844fb94280248131cfc412c604cb?)
 - 📄 Specification: [Notion](https://www.notion.so/Flutter-Movie-Showcase-App-Detailed-Specification-2a7a844fb942803fbf1adb65582bd98b)
 - 👨‍🔬 Test Case: [Notion](https://www.notion.so/Test-cases-2a7a844fb94280f0b2f3ddfd72b799c8?)
+- 🎬 Sprint Board: [Linear](https://linear.app/popcorn-flutter/team/POP/all) (Invite Only)
 - 👨🏻‍💻 My profile: [Drive](https://docs.google.com/document/d/1PjG_kUpry4AqWKVEw0VV02HCih3igUJII3NR1A8qXlI/)
+---
+
 ## ⚙️ Prerequisite
 This application uses **The Movie Database (TMDb) API**.
 To get started, visit the [TMDb Developer Portal](https://developer.themoviedb.org/docs/getting-started) and obtain an `API token`.
