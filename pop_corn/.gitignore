@@ -47,4 +47,4 @@ app.*.map.json
 # snapshot test
 **/failures/*.png
 /test/snapshot_tests/failures/
-**/service_config.dart
+lib/data/services/service_config.dart
