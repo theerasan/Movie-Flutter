@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:pop_corn/util/result.dart';
 
 class LCEElement<T> extends ChangeNotifier {
-
   bool _loading = true;
   bool _error = false;
   T? _result;
@@ -19,18 +18,20 @@ class LCEElement<T> extends ChangeNotifier {
   }
 
   void updateResult(Future<Result<T>> future) {
-    future.then((result) {
-      switch (result) {
-        case Success<T>():
-          update(result.data);
-          break;
-        case Error<T>():
+    future
+        .then((result) {
+          switch (result) {
+            case Success<T>():
+              update(result.data);
+              break;
+            case Error<T>():
+              _showError();
+              break;
+          }
+        })
+        .catchError((err) {
           _showError();
-          break;
-      }
-    }).catchError((err) {
-      _showError();
-    });
+        });
   }
 
   void showLoading() {

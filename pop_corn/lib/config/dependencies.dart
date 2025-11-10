@@ -27,25 +27,56 @@ List<SingleChildWidget> _sharedProviders = [
   Provider<FavoriteStorage>(create: (ctx) => FavoriteSharePrefStorage()),
   Provider(create: (ctx) => AssetsUrlConfig()),
   Provider(create: (ctx) => MovieDTOToMoviePageDataMapper(config: ctx.read())),
-  Provider(create: (ctx) => MovieDetailDTOToMovieDetailMapper(config: ctx.read())),
+  Provider(
+    create: (ctx) => MovieDetailDTOToMovieDetailMapper(config: ctx.read()),
+  ),
   Provider<MovieRepository>(
     create: (ctx) => MovieRepositoryImpl(service: ctx.read()),
   ),
   Provider<MovieListUseCase>(
-    create: (ctx) => MovieListUseCaseImpl(repo: ctx.read(), mapper: ctx.read(), favoriteStorage: ctx.read()),
+    create: (ctx) => MovieListUseCaseImpl(
+      repo: ctx.read(),
+      mapper: ctx.read(),
+      favoriteStorage: ctx.read(),
+    ),
   ),
-  Provider<SearchMovieListUseCase>(create: (ctx) => SearchMovieListUseCaseImpl(repo: ctx.read(), mapper: ctx.read(), favoriteStorage: ctx.read())),
-  Provider<MovieDetailUseCase>(create: (ctx) => MovieDetailUseCaseImpl(repo: ctx.read(), favoriteStorage: ctx.read(), mapper: ctx.read())),
-  Provider<MovieFavoriteUseCase>(create: (ctx) => MovieFavoriteUseCaseImpl(storage: ctx.read())),
-  ChangeNotifierProvider<MovieListViewModel>(create: (ctx) => MovieListViewModel(movieUseCase: ctx.read(), movieFavoriteUseCase: ctx.read(), searchMovieListUseCase: ctx.read())),
-  ChangeNotifierProvider<MovieDetailViewModel>(create: (ctx) => MovieDetailViewModel(movieFavoriteUseCase: ctx.read(), movieDetailUseCase: ctx.read()))
+  Provider<SearchMovieListUseCase>(
+    create: (ctx) => SearchMovieListUseCaseImpl(
+      repo: ctx.read(),
+      mapper: ctx.read(),
+      favoriteStorage: ctx.read(),
+    ),
+  ),
+  Provider<MovieDetailUseCase>(
+    create: (ctx) => MovieDetailUseCaseImpl(
+      repo: ctx.read(),
+      favoriteStorage: ctx.read(),
+      mapper: ctx.read(),
+    ),
+  ),
+  Provider<MovieFavoriteUseCase>(
+    create: (ctx) => MovieFavoriteUseCaseImpl(storage: ctx.read()),
+  ),
+  ChangeNotifierProvider<MovieListViewModel>(
+    create: (ctx) => MovieListViewModel(
+      movieUseCase: ctx.read(),
+      movieFavoriteUseCase: ctx.read(),
+      searchMovieListUseCase: ctx.read(),
+    ),
+  ),
+  ChangeNotifierProvider<MovieDetailViewModel>(
+    create: (ctx) => MovieDetailViewModel(
+      movieFavoriteUseCase: ctx.read(),
+      movieDetailUseCase: ctx.read(),
+    ),
+  ),
 ];
 
 /// Provide for remote
 List<SingleChildWidget> get providersRemote {
   return [
     Provider<MovieService>(create: (ctx) => RemoteMovieService()),
-    ..._sharedProviders
+    ..._sharedProviders,
   ];
 }
 
@@ -53,6 +84,6 @@ List<SingleChildWidget> get providersRemote {
 List<SingleChildWidget> get providersLocal {
   return [
     Provider<MovieService>(create: (ctx) => LocalMovieService()),
-    ..._sharedProviders
+    ..._sharedProviders,
   ];
 }

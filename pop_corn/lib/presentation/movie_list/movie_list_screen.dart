@@ -167,7 +167,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
               if (moviePage.loading)
                 const Center(
                   child: Padding(
-                    padding: EdgeInsets.all(24.0),
+                    padding: EdgeInsets.all(AppSizing.xxl),
                     child: CircularProgressIndicator(),
                   ),
                 ),

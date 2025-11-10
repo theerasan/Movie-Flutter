@@ -1,4 +1,3 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pop_corn/data/model/movie_list/movie_dto.dart';
 
@@ -13,5 +12,6 @@ abstract class MovieListDTO with _$MovieListDTO {
     @JsonKey(name: 'results') required List<MovieDTO> movies,
   }) = _MovieListDTO;
 
-  factory MovieListDTO.fromJson(Map<String, dynamic> json) => _$MovieListDTOFromJson(json);
+  factory MovieListDTO.fromJson(Map<String, dynamic> json) =>
+      _$MovieListDTOFromJson(json);
 }

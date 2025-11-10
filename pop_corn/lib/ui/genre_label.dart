@@ -3,7 +3,6 @@ import 'package:pop_corn/ui/core/sizing.dart';
 import 'package:pop_corn/ui/core/theme/colors.dart';
 
 class GenreLabel extends StatelessWidget {
-
   const GenreLabel({super.key, required this.genre});
 
   final String genre;

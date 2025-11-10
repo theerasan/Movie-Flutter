@@ -1,8 +1,6 @@
-
 import 'package:flutter/cupertino.dart';
 
 abstract final class AppSizing {
-
   static const smallBreakPoint = 600.0;
 
   static const xs = 4.0;

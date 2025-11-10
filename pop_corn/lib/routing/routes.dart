@@ -1,4 +1,3 @@
-
 abstract final class Routes {
   static const movieList = '/';
   static const search = '/search';

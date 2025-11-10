@@ -24,7 +24,6 @@ class MovieCard extends StatefulWidget {
 }
 
 class _MovieCardState extends State<MovieCard> {
-
   late final movieTitle = Column(
     children: [
       BoxSizing.s,
@@ -41,7 +40,7 @@ class _MovieCardState extends State<MovieCard> {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-          )
+          ),
         ],
       ),
     ],
@@ -51,7 +50,7 @@ class _MovieCardState extends State<MovieCard> {
     children: [
       RateLabel(isAdult: widget.movie.isAdult),
       BoxSizing.s,
-      VoteLabel(rating: widget.movie.rating)
+      VoteLabel(rating: widget.movie.rating),
     ],
   );
 
@@ -76,8 +75,8 @@ class _MovieCardState extends State<MovieCard> {
               child: SizedBox(
                 height: AppSizing.coverSmall,
                 child: MovieCover(
-                    path: widget.movie.posterUrl,
-                    placeholder: 'images/poster_placeholder.png'
+                  path: widget.movie.posterUrl,
+                  placeholder: 'images/poster_placeholder.png',
                 ),
               ),
             ),
@@ -92,20 +91,20 @@ class _MovieCardState extends State<MovieCard> {
                     children: [
                       ratingAndVote,
                       BoxSizing.m,
-                      ReleaseDateLabel(releaseDate: widget.movie.releaseDate,),
-                      SizedBox(height: 8,)
+                      ReleaseDateLabel(releaseDate: widget.movie.releaseDate),
+                      BoxSizing.s,
                     ],
-                  )
-                ]
+                  ),
+                ],
               ),
             ),
             IconButton(
               onPressed: widget.onClickFavorite,
-              icon: Icon(icon, color: AppColors.favColor,)
-            )
+              icon: Icon(icon, color: AppColors.favColor),
+            ),
           ],
         ),
-      )
+      ),
     );
   }
 }

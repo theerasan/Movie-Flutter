@@ -5,7 +5,6 @@ import 'package:pop_corn/data/services/movie_service.dart';
 import 'package:pop_corn/util/result.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
-
   final MovieService service;
   const MovieRepositoryImpl({required this.service});
 

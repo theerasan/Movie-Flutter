@@ -1,4 +1,3 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'movie_dto.freezed.dart';
@@ -15,5 +14,6 @@ abstract class MovieDTO with _$MovieDTO {
     @JsonKey(name: 'vote_average') required double voteAverage,
   }) = _MovieDTO;
 
-  factory MovieDTO.fromJson(Map<String, dynamic> json) => _$MovieDTOFromJson(json);
+  factory MovieDTO.fromJson(Map<String, dynamic> json) =>
+      _$MovieDTOFromJson(json);
 }

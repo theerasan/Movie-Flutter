@@ -11,7 +11,11 @@ class MovieListUseCaseImpl implements MovieListUseCase {
   final MovieRepository repo;
   final FavoriteStorage favoriteStorage;
   final MovieDTOToMoviePageDataMapper mapper;
-  MovieListUseCaseImpl({required this.repo, required this.mapper, required this.favoriteStorage});
+  MovieListUseCaseImpl({
+    required this.repo,
+    required this.mapper,
+    required this.favoriteStorage,
+  });
   final List<Movie> _movies = [];
 
   var _page = 1;
@@ -37,23 +41,21 @@ class MovieListUseCaseImpl implements MovieListUseCase {
   Future<Result<MoviePageData>> _loadMovies() async {
     var data = await Future.wait([
       repo.getMovies(_page),
-      favoriteStorage.getFavorite()
+      favoriteStorage.getFavorite(),
     ]);
 
     var result = data[0] as Result<MovieListDTO>;
     var favorites = data[1] as List<String>;
 
-    switch(result) {
+    switch (result) {
       case Success<MovieListDTO>():
         var data = mapper.map(result.data, favorites);
         _movies.addAll(data.movies);
         _page = data.page;
         _maxPage = data.maxPage;
-        return Result.success(MoviePageData(
-            page: _page,
-            maxPage: _maxPage,
-            movies: _movies
-        ));
+        return Result.success(
+          MoviePageData(page: _page, maxPage: _maxPage, movies: _movies),
+        );
       case Error<MovieListDTO>():
         return Result.error(result.error);
     }

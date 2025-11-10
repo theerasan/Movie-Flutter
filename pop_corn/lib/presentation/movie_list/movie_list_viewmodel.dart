@@ -9,19 +9,21 @@ import 'package:pop_corn/ui/lce_element.dart';
 import '../../domain/use_case/movie/search_movie_list_use_case.dart';
 
 class MovieListViewModel extends ChangeNotifier {
-
   final MovieListUseCase movieUseCase;
   final MovieFavoriteUseCase movieFavoriteUseCase;
   final SearchMovieListUseCase searchMovieListUseCase;
   LCEElement<MoviePageData> lceElement = LCEElement();
-  MovieListState appBarState = MovieListState(state: MovieListAppBarState.titleBar, query: "");
+  MovieListState appBarState = MovieListState(
+    state: MovieListAppBarState.titleBar,
+    query: "",
+  );
 
   bool isLoadMore = false;
 
   MovieListViewModel({
     required this.movieUseCase,
     required this.movieFavoriteUseCase,
-    required this.searchMovieListUseCase
+    required this.searchMovieListUseCase,
   });
 
   void onEnterScreen() {
@@ -77,9 +79,9 @@ class MovieListViewModel extends ChangeNotifier {
     if (query.isNotEmpty) {
       if (!query.startsWith(appBarState.query)) {
         lceElement.clearResult();
-     } else {
-       lceElement.showLoading();
-     }
+      } else {
+        lceElement.showLoading();
+      }
       appBarState.query = query;
       lceElement.updateResult(searchMovieListUseCase.getMovies(query));
     }

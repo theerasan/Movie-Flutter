@@ -10,7 +10,10 @@ class MovieDetailViewModel extends ChangeNotifier {
   final MovieDetailUseCase movieDetailUseCase;
   final LCEElement<MovieDetail> lceElement = LCEElement();
 
-  MovieDetailViewModel({required this.movieFavoriteUseCase, required this.movieDetailUseCase});
+  MovieDetailViewModel({
+    required this.movieFavoriteUseCase,
+    required this.movieDetailUseCase,
+  });
 
   int get getId {
     return _id;

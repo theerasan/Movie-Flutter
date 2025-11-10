@@ -8,7 +8,6 @@ import '../../../data/repository/movie_repository.dart';
 import '../../../data/storage/favorite_storage.dart';
 
 class MovieDetailUseCaseImpl extends MovieDetailUseCase {
-
   final MovieRepository repo;
   final FavoriteStorage favoriteStorage;
   final MovieDetailDTOToMovieDetailMapper mapper;
@@ -16,7 +15,7 @@ class MovieDetailUseCaseImpl extends MovieDetailUseCase {
   MovieDetailUseCaseImpl({
     required this.repo,
     required this.favoriteStorage,
-    required this.mapper
+    required this.mapper,
   });
 
   @override
@@ -29,7 +28,7 @@ class MovieDetailUseCaseImpl extends MovieDetailUseCase {
     var movieDetail = result[0] as Result<MovieDetailDTO>;
     var favorites = result[1] as List<String>;
 
-    switch(movieDetail) {
+    switch (movieDetail) {
       case Success():
         final isFavorite = favorites.contains(movieDetail.data.id.toString());
         final data = mapper.map(movieDetail.data, isFavorite);

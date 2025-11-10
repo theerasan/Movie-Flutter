@@ -20,5 +20,6 @@ abstract class MovieDetailDTO with _$MovieDetailDTO {
     @JsonKey(name: 'credits') required CreditsDTO credits,
   }) = _MovieDetailDTO;
 
-  factory MovieDetailDTO.fromJson(Map<String, dynamic> json) => _$MovieDetailDTOFromJson(json);
+  factory MovieDetailDTO.fromJson(Map<String, dynamic> json) =>
+      _$MovieDetailDTOFromJson(json);
 }
