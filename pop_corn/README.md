@@ -38,3 +38,15 @@ $ cd popcorn
 $ dart run build_runner build
 ```
 
+## Integration Tests
+
+Integration tests must be run from the `popcorn` directory.
+*Make sure you run emulator on your device*
+
+**Integration tests with local data**
+
+```bash
+cd popcorn
+$ flutter test integration_test
+```
+

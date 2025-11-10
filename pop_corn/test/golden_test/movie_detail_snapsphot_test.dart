@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-import 'package:http/http.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pop_corn/domain/model/cast.dart';
@@ -9,12 +7,11 @@ import 'package:pop_corn/domain/use_case/movie/movie_detail_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_screen.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_viewmodel.dart';
-import 'package:pop_corn/ui/core/theme/theme.dart';
 import 'package:pop_corn/util/result.dart';
 
-import '../config/test_devices.dart';
+import 'config/test_config.dart';
+import 'config/test_devices.dart';
 import 'movie_detail_snapsphot_test.mocks.dart';
-import 'test_config.dart';
 
 @GenerateMocks(<Type>[
   MovieDetailUseCase,
