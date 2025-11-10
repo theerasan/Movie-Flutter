@@ -118,8 +118,11 @@ $ flutter run --target lib/main_staging.dart
 This project follows the Test Pyramid principle — it contains a majority of unit tests, along with comprehensive widget and golden tests, and only a few targeted integration tests to cover end-to-end scenarios.
 Current test coverage is displayed in the image above.
 
-### Unit test
-This test also runs a **golden test** to verify the widget’s appearance against the reference _golden image_.
+### Test All
+This command runs;
+- **Unit test:** to reverify business logics in each component
+- **Golden test:** to verify the widget’s appearance against the reference _golden image_.
+- **Widget test:** to verify behavior for specific widget.
 ```bash 
 $ cd popcorn
 $ flutter test --coverage
