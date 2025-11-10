@@ -93,6 +93,40 @@ popcorn/
 └── README.md               # Project documentation
 
 ```
+
+## State Management and Error Handling
+This project introduces a component called LCEElement, which stands for Loading, Content, and Error.
+It serves as a unified model for representing different UI states throughout the app, ensuring a consistent and predictable way to handle asynchronous operations.
+
+### 🔹 Purpose 
+- While the UseCases and Repositories return their results wrapped in a Result object (e.g., Result<Success, Error>), the LCEElement translates these results into UI-friendly states. This abstraction simplifies how the presentation layer (especially ViewModels) communicates with the UI.
+
+### 🔹 Core States 
+- Loading: Represents the state where data is being fetched or processed. 
+- Content: Represents the successfully retrieved or computed data that should be displayed on screen. 
+- Error: Represents any failure or exception, providing an error message or retry option.
+
+### 🔹 Benefits
+- Provides a clean separation between data and UI state management. 
+- Simplifies ViewModel logic by standardizing loading and error handling. 
+- Makes the UI more reactive and resilient to changes in asynchronous data flow. 
+- Reduces boilerplate code for handling network or data-related states.
+
+#### 🔹 Example 
+```dart
+class MovieViewModel extends ChangeNotifier {
+  final GetMoviesUseCase _getMoviesUseCase;
+
+  LCEElement<List<Movie>> state = LCEElement(); // initial state is loading
+
+  Future<void> loadMovies() async {
+    Result<List<Movie>> result = await _getMoviesUseCase.execute();
+    state.update(result);
+    notifyListeners();
+  }
+}
+```
+
 ---
 
 ## 📲 Run the project
