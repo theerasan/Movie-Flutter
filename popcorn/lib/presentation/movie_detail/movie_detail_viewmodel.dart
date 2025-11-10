@@ -15,17 +15,17 @@ class MovieDetailViewModel extends ChangeNotifier {
     required this.movieDetailUseCase,
   });
 
-  Future<void> setId(int id) async {
+  Future setId(int id) async {
     _id = id;
     return _loadMovieDetail();
   }
 
-  Future<void> _loadMovieDetail() async {
+  Future _loadMovieDetail() async {
     lceElement.clearResult();
     return lceElement.updateResult(movieDetailUseCase.getMovieDetailById(_id));
   }
 
-  Future<void> onClickFavorite(MovieDetail movie) {
+  Future onClickFavorite(MovieDetail movie) {
     if (movie.isFavorite) {
       movieFavoriteUseCase.removeFromFavorite(movie.id);
     } else {

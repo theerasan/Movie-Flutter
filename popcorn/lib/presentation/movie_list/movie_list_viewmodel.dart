@@ -26,12 +26,12 @@ class MovieListViewModel extends ChangeNotifier {
     required this.searchMovieListUseCase,
   });
 
-  Future<void> onEnterScreen() async {
+  Future onEnterScreen() async {
     lceElement.clearResult();
     return lceElement.updateResult(movieUseCase.getMovies());
   }
 
-  Future<void> loadMore() async {
+  Future loadMore() async {
     var pageData = (lceElement.result as MoviePageData);
     if (pageData.hasNextPage()) {
       lceElement.showLoading();
@@ -67,7 +67,7 @@ class MovieListViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> onClickCloseSearch() async {
+  Future onClickCloseSearch() async {
     appBarState.state = MovieListAppBarState.titleBar;
     appBarState.query = "";
     notifyListeners();
@@ -75,7 +75,7 @@ class MovieListViewModel extends ChangeNotifier {
     return lceElement.updateResult(movieUseCase.getMovies());
   }
 
-  Future<void> search(String query) async {
+  Future search(String query) async {
     if (query.isNotEmpty) {
       if (query.startsWith(appBarState.query)) {
         lceElement.showLoading();
@@ -88,7 +88,7 @@ class MovieListViewModel extends ChangeNotifier {
     }
   }
 
-  Future<void> updateFavoriteById(num id) async {
+  Future updateFavoriteById(num id) async {
     final favorite = await movieFavoriteUseCase.getFavoriteStatus(id);
     return _updateFavorite(id, favorite);
   }

@@ -10,14 +10,14 @@ class LCEElement<T> extends ChangeNotifier {
   bool get error => _error;
   T? get result => _result;
 
-  Future<void> update(T result) async {
+  Future update(T result) async {
     _result = result;
     _loading = false;
     _error = false;
     notifyListeners();
   }
 
-  Future<void> updateResult(Future<Result<T>> future) async {
+  Future updateResult(Future<Result<T>> future) async {
     return future
         .then((result) {
           switch (result) {
@@ -34,7 +34,7 @@ class LCEElement<T> extends ChangeNotifier {
         });
   }
 
-  void showLoading() {
+  Future showLoading() async {
     _loading = true;
     notifyListeners();
   }
@@ -45,7 +45,7 @@ class LCEElement<T> extends ChangeNotifier {
     notifyListeners();
   }
 
-  void clearResult() {
+  Future clearResult() async {
     _result = null;
     _loading = true;
     _error = false;
