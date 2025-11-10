@@ -26,22 +26,22 @@ class MovieListViewModel extends ChangeNotifier {
     required this.searchMovieListUseCase,
   });
 
-  void onEnterScreen() {
+  Future<void> onEnterScreen() async {
     lceElement.clearResult();
-    lceElement.updateResult(movieUseCase.getMovies());
+    return lceElement.updateResult(movieUseCase.getMovies());
   }
 
-  void loadMore() {
+  Future<void> loadMore() async {
     var pageData = (lceElement.result as MoviePageData);
     if (pageData.hasNextPage()) {
       lceElement.showLoading();
       switch (appBarState.state) {
         case MovieListAppBarState.titleBar:
-          lceElement.updateResult(movieUseCase.loadMoreMovies());
-          break;
+          return lceElement.updateResult(movieUseCase.loadMoreMovies());
         case MovieListAppBarState.searchBar:
-          lceElement.updateResult(searchMovieListUseCase.loadMoreMovies());
-          break;
+          return lceElement.updateResult(
+            searchMovieListUseCase.loadMoreMovies(),
+          );
       }
     }
   }
@@ -55,7 +55,7 @@ class MovieListViewModel extends ChangeNotifier {
     _updateFavorite(movie.id, !movie.isFavorite);
   }
 
-  void _updateFavorite(num id, bool value) {
+  void _updateFavorite(num id, bool value) async {
     var pageData = (lceElement.result as MoviePageData);
     var index = pageData.movies.indexWhere((element) => element.id == id);
     pageData.movies[index].isFavorite = value;
@@ -67,15 +67,15 @@ class MovieListViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void onClickCloseSearch() {
+  Future<void> onClickCloseSearch() async {
     appBarState.state = MovieListAppBarState.titleBar;
     appBarState.query = "";
     notifyListeners();
     lceElement.clearResult();
-    lceElement.updateResult(movieUseCase.getMovies());
+    return lceElement.updateResult(movieUseCase.getMovies());
   }
 
-  void search(String query) {
+  Future<void> search(String query) async {
     if (query.isNotEmpty) {
       if (query.startsWith(appBarState.query)) {
         lceElement.showLoading();
@@ -84,12 +84,12 @@ class MovieListViewModel extends ChangeNotifier {
         lceElement.showLoading();
       }
       appBarState.query = query;
-      lceElement.updateResult(searchMovieListUseCase.getMovies(query));
+      return lceElement.updateResult(searchMovieListUseCase.getMovies(query));
     }
   }
 
-  void updateFavoriteById(num id) async {
+  Future<void> updateFavoriteById(num id) async {
     final favorite = await movieFavoriteUseCase.getFavoriteStatus(id);
-    _updateFavorite(id, favorite);
+    return _updateFavorite(id, favorite);
   }
 }

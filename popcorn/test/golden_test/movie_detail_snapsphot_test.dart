@@ -13,9 +13,9 @@ import 'config/test_config.dart';
 import 'config/test_devices.dart';
 import 'movie_detail_snapsphot_test.mocks.dart';
 
-@GenerateMocks(<Type>[
-  MovieDetailUseCase,
-  MovieFavoriteUseCase,
+@GenerateNiceMocks([
+  MockSpec<MovieDetailUseCase>(),
+  MockSpec<MovieFavoriteUseCase>(),
 ])
 void main() {
   testGoldens('Movie Detail', (tester) async {
@@ -25,13 +25,10 @@ void main() {
     viewModel.setId = 1;
 
     final builder = DeviceBuilder()
-      ..overrideDevicesForAllScenarios(
-        devices: devices,
-      )
+      ..overrideDevicesForAllScenarios(devices: devices)
       ..addScenario(
-        widget: getTestApp(MovieDetailScreen(viewModel: viewModel, id: 1))
-      )
-    ;
+        widget: getTestApp(MovieDetailScreen(viewModel: viewModel, id: 1)),
+      );
 
     await tester.pumpDeviceBuilder(builder);
     await screenMatchesGolden(tester, 'movie_detail');
@@ -46,7 +43,8 @@ MovieDetailViewModel _givenGetMovieDetail() {
     MovieDetail(
       id: 1,
       title: 'One Piece: RED film',
-      overview: 'Monkey D. Luffy, a young man with rubber-like powers, who gathers a diverse crew called the Straw Hat Pirates to sail the treacherous seas in search of the legendary treasure known as the "One Piece".',
+      overview:
+          'Monkey D. Luffy, a young man with rubber-like powers, who gathers a diverse crew called the Straw Hat Pirates to sail the treacherous seas in search of the legendary treasure known as the "One Piece".',
       posterUrl: null,
       backdropUrl: null,
       releaseDate: '1996',
@@ -55,20 +53,16 @@ MovieDetailViewModel _givenGetMovieDetail() {
       isFavorite: true,
       isAdult: false,
       casts: [
-        Cast(
-          fullName: 'Monkey D. Luffy',
-          character: 'Captain'
-        ),
-        Cast(
-            fullName: 'Tony Tony Chopper',
-            character: 'Doctor'
-        )
+        Cast(fullName: 'Monkey D. Luffy', character: 'Captain'),
+        Cast(fullName: 'Tony Tony Chopper', character: 'Doctor'),
       ],
-    )
+    ),
   );
 
   provideDummy<Result<MovieDetail>>(result);
-  when(movieDetailUseCase.getMovieDetailById(any)).thenAnswer((_) async => result);
+  when(
+    movieDetailUseCase.getMovieDetailById(any),
+  ).thenAnswer((_) async => result);
 
   var viewModel = MovieDetailViewModel(
     movieDetailUseCase: movieDetailUseCase,

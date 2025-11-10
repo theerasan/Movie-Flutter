@@ -22,76 +22,72 @@ import 'config/test_config.dart';
 import 'config/test_devices.dart';
 import 'movie_list_snapshot_test.mocks.dart';
 
-@GenerateMocks(<Type>[
-  MovieListUseCase,
-  MovieFavoriteUseCase,
-  SearchMovieListUseCase,
+@GenerateNiceMocks([
+  MockSpec<MovieListUseCase>(),
+  MockSpec<MovieFavoriteUseCase>(),
+  MockSpec<SearchMovieListUseCase>(),
 ])
 void main() {
   testGoldens('Movie List Screen', (tester) async {
     final viewModel = await _givenGetListOfMovie(true);
     final viewModel2 = await _givenGetListOfMovie(false);
-    viewModel2.appBarState.state= MovieListAppBarState.searchBar;
+    viewModel2.appBarState.state = MovieListAppBarState.searchBar;
 
     await loadAppFonts();
 
     final builder = DeviceBuilder()
-      ..overrideDevicesForAllScenarios(
-        devices: devices,
-      )
+      ..overrideDevicesForAllScenarios(devices: devices)
       ..addScenario(
         name: 'Movie List Default State',
         widget: getTestApp(MovieListScreen(viewModel: viewModel)),
       )
       ..addScenario(
         name: 'Movie List Default Search State',
-        widget: getTestApp(MovieListScreen(viewModel: viewModel2))
-      )
-    ;
+        widget: getTestApp(MovieListScreen(viewModel: viewModel2)),
+      );
 
     await tester.pumpDeviceBuilder(builder);
     await screenMatchesGolden(tester, 'movie_list');
   });
 }
 
-
-
 Future<MovieListViewModel> _givenGetListOfMovie(bool hasMovie) async {
-
   final movieListUseCase = MockMovieListUseCase();
   final movieFavoriteUseCase = MockMovieFavoriteUseCase();
   final searchMovieListUseCase = MockSearchMovieListUseCase();
   final result = Result.success(
     MoviePageData(
-      movies: (hasMovie) ? [
-        Movie(
-          id: 1,
-          title: "Titanic",
-          posterUrl: null,
-          isFavorite: true,
-          rating: 4.5,
-          releaseDate: '1997-12-26',
-          isAdult: false,
-        ),
-        Movie(
-          id: 2,
-          title: "Inception",
-          posterUrl: null,
-          isFavorite: false,
-          rating: 4.5,
-          releaseDate: '1997-12-26',
-          isAdult: true,
-        ),
-        Movie(
-          id: 3,
-          title: "Final destination: BLOOD LINE",
-          posterUrl: null,
-          isFavorite: false,
-          rating: 4.5,
-          releaseDate: '1997-12-26',
-          isAdult: false,
-        ),
-      ] : [],
+      movies: (hasMovie)
+          ? [
+              Movie(
+                id: 1,
+                title: "Titanic",
+                posterUrl: null,
+                isFavorite: true,
+                rating: 4.5,
+                releaseDate: '1997-12-26',
+                isAdult: false,
+              ),
+              Movie(
+                id: 2,
+                title: "Inception",
+                posterUrl: null,
+                isFavorite: false,
+                rating: 4.5,
+                releaseDate: '1997-12-26',
+                isAdult: true,
+              ),
+              Movie(
+                id: 3,
+                title: "Final destination: BLOOD LINE",
+                posterUrl: null,
+                isFavorite: false,
+                rating: 4.5,
+                releaseDate: '1997-12-26',
+                isAdult: false,
+              ),
+            ]
+          : [],
       page: 1,
       maxPage: 2,
     ),

@@ -32,6 +32,9 @@ class LocalMovieService implements MovieService {
 
   @override
   Future<MovieDetailDTO> getMovieDetailById(int id) async {
+    if (id < 0) {
+      throw Exception('Movie not found');
+    }
     final localData = await rootBundle.loadString(Assets.movieDetail);
     return MovieDetailDTO.fromJson(jsonDecode(localData));
   }

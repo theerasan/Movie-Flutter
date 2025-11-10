@@ -5,13 +5,13 @@ import 'package:popcorn/util/result.dart';
 import '../../../data/model/movie_list/movie_list_dto.dart';
 import '../../../data/repository/movie_repository.dart';
 import '../../../data/storage/favorite_storage.dart';
-import '../../mapper/movie_dto_to_movie_page_data_mapper.dart';
+import '../../mapper/movie_list_dto_to_movie_page_data_mapper.dart';
 import '../../model/movie.dart';
 
 class SearchMovieListUseCaseImpl extends SearchMovieListUseCase {
   final MovieRepository repo;
   final FavoriteStorage favoriteStorage;
-  final MovieDTOToMoviePageDataMapper mapper;
+  final MovieListDTOToMoviePageDataMapper mapper;
 
   final List<Movie> _movies = [];
   var _page = 1;

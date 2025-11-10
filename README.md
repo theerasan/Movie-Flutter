@@ -29,6 +29,7 @@ A Flutter showcase project that demonstrates building a modern, responsive movie
 ---
 
 ## ⚙️ Prerequisite
+### API Token
 This application uses **The Movie Database (TMDb) API**.
 To get started, visit the [TMDb Developer Portal](https://developer.themoviedb.org/docs/getting-started) and obtain an `API token`.
 Once you have your token, update the API_TOKEN value in:.
@@ -39,7 +40,16 @@ popcorn/lib/data/services/service_config.dart
 abstract final class ServiceConfig {
   static const apiToken = ''; // update the api token here
 }
+
 ```
+
+### Generating an HTML Report:
+Install lcov on your system (e.g., brew install lcov on macOS). This tools allow to generate the html for code coverage report.
+```bash
+$ brew install lcov
+$ genhtml coverage/lcov.info -o coverage/html
+```
+
 ---
 ## 📁 Project Structure
 ![architecture.png](readme_assets/architecture.png)
@@ -115,7 +125,13 @@ $ flutter test --update-goldens
 This test also runs a **golden test** to verify the widget’s appearance against the reference _golden image_.
 ```bash 
 $ cd popcorn
-$ flutter test
+$ flutter test --coverage
+```
+#### Generate test coverage files
+```bash 
+$ cd popcorn
+$ lcov --remove coverage/lcov.info 'lib/routing/*' 'lib/l10n/*' 'lib/data/model/*.g.dart' 'lib/data/model/*.freezed.dart' 'lib/data/services' -o coverage/filtered_lcov.info
+$ genhtml coverage/filtered_lcov.info -o coverage/html
 ```
 
 ### Integration Tests
@@ -136,6 +152,8 @@ Code formatting to automatically format Dart/Flutter code.
 ```bash
 $ cd popcorn
 $ dart format lib
+$ dart format test
+$ dart format integration_test
 ```
 ### Analyze code
 Code analyze to enforce consistent coding style
