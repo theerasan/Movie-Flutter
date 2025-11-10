@@ -24,6 +24,7 @@ A Flutter showcase project that demonstrates building a modern, responsive movie
 - 📄 Specification: [Notion](https://www.notion.so/Flutter-Movie-Showcase-App-Detailed-Specification-2a7a844fb942803fbf1adb65582bd98b)
 - 👨‍🔬 Test Case: [Notion](https://www.notion.so/Test-cases-2a7a844fb94280f0b2f3ddfd72b799c8?)
 - 🎬 Sprint Board: [Linear](https://linear.app/popcorn-flutter/team/POP/all) (Invite Only)
+- 🌟 Area of Improvement: [Notion](https://www.notion.so/Improvement-2a7a844fb94280518d29edd00d061710) 
 - 👨🏻‍💻 My profile: [Drive](https://docs.google.com/document/d/1PjG_kUpry4AqWKVEw0VV02HCih3igUJII3NR1A8qXlI/)
 ---
 
