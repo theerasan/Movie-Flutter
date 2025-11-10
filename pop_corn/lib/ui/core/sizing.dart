@@ -13,6 +13,7 @@ abstract final class AppSizing {
   static const xxl = 24.0;
   static const coverSmall = 155.0;
   static const coverLarge = 275.0;
+  static const errorImageSize = 200.0;
 }
 
 abstract final class BoxSizing {

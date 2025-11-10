@@ -81,6 +81,21 @@ abstract final class AppTheme {
     ),
   );
 
+  static final _elevateButtonTheme = ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: WidgetStateProperty.all(AppColors.info),
+      foregroundColor: WidgetStateProperty.all(AppColors.black1.withAlpha(200)),
+      overlayColor: WidgetStateProperty.all(AppColors.black1.withAlpha(50)),
+      textStyle: WidgetStateProperty.all(TextStyle(
+        fontSize: 18,
+        fontWeight:
+        FontWeight.w600,
+        fontFamily: 'Montserrat',
+        color: AppColors.white1),
+      ),
+    ),
+  );
+
   static const _inputDecorationTheme = InputDecorationTheme(
     hintStyle: TextStyle(
       // grey3 works for both light and dark themes
@@ -101,6 +116,7 @@ abstract final class AppTheme {
     inputDecorationTheme: _inputDecorationTheme,
     appBarTheme: _appBarLightTheme,
     progressIndicatorTheme: _progressIndicatorTheme,
+    elevatedButtonTheme: _elevateButtonTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -110,5 +126,6 @@ abstract final class AppTheme {
     inputDecorationTheme: _inputDecorationTheme,
     appBarTheme: _appBarDarkTheme,
     progressIndicatorTheme: _progressIndicatorTheme,
+    elevatedButtonTheme: _elevateButtonTheme,
   );
 }

@@ -13,4 +13,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get search => 'Search... ';
+
+  @override
+  String get movie_detail_cast => 'Cast';
+
+  @override
+  String get movie_detail_overview => 'Overview';
+
+  @override
+  String get general_error_message =>
+      'Something went wrong please try again...';
+
+  @override
+  String get general_error_button => 'Retry';
+
+  @override
+  String get empty_movie_list => 'There is no movie to show...';
 }

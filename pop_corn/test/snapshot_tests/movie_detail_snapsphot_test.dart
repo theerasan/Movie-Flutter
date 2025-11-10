@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:http/http.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pop_corn/domain/model/cast.dart';
@@ -13,6 +14,7 @@ import 'package:pop_corn/util/result.dart';
 
 import '../config/test_devices.dart';
 import 'movie_detail_snapsphot_test.mocks.dart';
+import 'test_config.dart';
 
 @GenerateMocks(<Type>[
   MovieDetailUseCase,
@@ -30,13 +32,7 @@ void main() {
         devices: devices,
       )
       ..addScenario(
-        widget: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: ThemeMode.system,
-          home: Scaffold(body: MovieDetailScreen(viewModel: viewModel, id: 1)),
-        )
+        widget: getTestApp(MovieDetailScreen(viewModel: viewModel, id: 1))
       )
     ;
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../../ui/core/sizing.dart';
 
 class MovieDetailBody extends StatelessWidget {
@@ -15,7 +16,7 @@ class MovieDetailBody extends StatelessWidget {
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text("Overview", style: Theme.of(context).textTheme.titleMedium,),
+            Text(AppLocalizations.of(context)!.movie_detail_overview, style: Theme.of(context).textTheme.titleMedium,),
             BoxSizing.m,
             Text(overview, style: Theme.of(context).textTheme.bodyMedium,)
           ]

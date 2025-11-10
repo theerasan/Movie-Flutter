@@ -11,6 +11,7 @@ import 'package:pop_corn/domain/model/movie.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pop_corn/domain/model/movie_page_data.dart';
+import 'package:pop_corn/l10n/app_localizations.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_screen.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_state.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
@@ -22,6 +23,7 @@ import 'package:pop_corn/util/result.dart';
 
 import '../config/test_devices.dart';
 import 'movie_list_snapshot_test.mocks.dart';
+import 'test_config.dart';
 
 @GenerateMocks(<Type>[
   MovieListUseCase,
@@ -30,8 +32,8 @@ import 'movie_list_snapshot_test.mocks.dart';
 ])
 void main() {
   testGoldens('Movie List Screen', (tester) async {
-    final viewModel = await _givenGetListOfMovie();
-    final viewModel2 = viewModel;
+    final viewModel = await _givenGetListOfMovie(true);
+    final viewModel2 = await _givenGetListOfMovie(false);
     viewModel2.appBarState.state= MovieListAppBarState.SEARCH_BAR;
 
     await loadAppFonts();
@@ -42,23 +44,11 @@ void main() {
       )
       ..addScenario(
         name: 'Movie List Default State',
-        widget: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: ThemeMode.system,
-          home: Scaffold(body: MovieListScreen(viewModel: viewModel)),
-        ),
+        widget: getTestApp(MovieListScreen(viewModel: viewModel)),
       )
       ..addScenario(
         name: 'Movie List Default Search State',
-        widget: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: ThemeMode.system,
-          home: Scaffold(body: MovieListScreen(viewModel: viewModel2)),
-        ),
+        widget: getTestApp(MovieListScreen(viewModel: viewModel2))
       )
     ;
 
@@ -69,14 +59,14 @@ void main() {
 
 
 
-Future<MovieListViewModel> _givenGetListOfMovie() async {
+Future<MovieListViewModel> _givenGetListOfMovie(bool hasMovie) async {
 
   final movieListUseCase = MockMovieListUseCase();
   final movieFavoriteUseCase = MockMovieFavoriteUseCase();
   final searchMovieListUseCase = MockSearchMovieListUseCase();
   final result = Result.success(
     MoviePageData(
-      movies: [
+      movies: (hasMovie) ? [
         Movie(
           id: 1,
           title: "Titanic",
@@ -104,7 +94,7 @@ Future<MovieListViewModel> _givenGetListOfMovie() async {
           releaseDate: '1997-12-26',
           isAdult: false,
         ),
-      ],
+      ] : [],
       page: 1,
       maxPage: 2,
     ),

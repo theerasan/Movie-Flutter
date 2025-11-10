@@ -1,4 +1,9 @@
 {
   "app_name": "Popcorn",
-  "search": "Search... "
+  "search": "Search... ",
+  "movie_detail_cast": "Cast",
+  "movie_detail_overview": "Overview",
+  "general_error_message": "Something went wrong please try again...",
+  "general_error_button": "Retry",
+  "empty_movie_list": "There is no movie to show..."
 }

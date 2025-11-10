@@ -13,4 +13,19 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get search => 'ค้นหา...';
+
+  @override
+  String get movie_detail_cast => 'นักแสดง';
+
+  @override
+  String get movie_detail_overview => 'เรื่องย่อ';
+
+  @override
+  String get general_error_message => 'มีบางอย่างผิดพลาดโปรดลองอีกครั้ง...';
+
+  @override
+  String get general_error_button => 'ลองอีกครั้ง';
+
+  @override
+  String get empty_movie_list => 'ไม่มีภาพยนต์ที่ค้นหา...';
 }
