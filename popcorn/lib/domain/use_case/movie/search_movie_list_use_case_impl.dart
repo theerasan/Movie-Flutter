@@ -26,16 +26,21 @@ class SearchMovieListUseCaseImpl extends SearchMovieListUseCase {
 
   @override
   Future<Result<MoviePageData>> getMovies(String query) async {
-    if (_query != query) {
+    final clear = (_query != query);
+    if (clear) {
       _page = 1;
-      _movies.clear();
     }
-    _query = query;
 
     var data = await Future.wait([
       repo.searchMovies(query, _page),
       favoriteStorage.getFavorite(),
     ]);
+
+    if (clear) {
+      _movies.clear();
+    }
+
+    _query = query;
 
     var result = data[0] as Result<MovieListDTO>;
     var favorites = data[1] as List<String>;
