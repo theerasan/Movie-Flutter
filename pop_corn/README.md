@@ -2,6 +2,15 @@
 
 A new Flutter project.
 
+## Prerequisite
+This application use TheMovieDB api, please go to [this website](https://developer.themoviedb.org/docs/getting-started) and get the api token.
+Once receive the api token please update the API token in `pop_corn/lib/data/services/service_config.dart`
+```dart
+abstract final class ServiceConfig {
+  static const apiToken = ''; // update the api token here
+}
+```
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
