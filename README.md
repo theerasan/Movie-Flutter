@@ -113,6 +113,18 @@ $ flutter run --target lib/main_staging.dart
 ```
 ---
 ## 🧪 Test the Project
+![code_coverage_report.png](readme_assets/code_coverage_report.png)
+
+This project follows the Test Pyramid principle — it contains a majority of unit tests, along with comprehensive widget and golden tests, and only a few targeted integration tests to cover end-to-end scenarios.
+Current test coverage is displayed in the image above.
+
+### Unit test
+This test also runs a **golden test** to verify the widget’s appearance against the reference _golden image_.
+```bash 
+$ cd popcorn
+$ flutter test --coverage
+```
+
 ### Golden test
 Golden tests in Flutter help ensure visual consistency by comparing the rendered UI against reference images, known as golden images.
 
@@ -121,12 +133,7 @@ Golden tests in Flutter help ensure visual consistency by comparing the rendered
 $ cd popcorn
 $ flutter test --update-goldens
 ```
-### Unit test
-This test also runs a **golden test** to verify the widget’s appearance against the reference _golden image_.
-```bash 
-$ cd popcorn
-$ flutter test --coverage
-```
+
 #### Generate test coverage files
 ```bash 
 $ cd popcorn
@@ -141,6 +148,22 @@ The integration tests use the **development environment** and do not require a n
 ```bash
 cd popcorn
 $ flutter test integration_test
+```
+### Test for Specific Cases
+##### Unit Test
+```bash
+$ cd popcorn
+$ flutter test test/unit_test/
+```
+##### Snapshot Test/Golden Test
+```bash
+$ cd popcorn
+$ flutter test test/golden_test/
+```
+##### Widget Test
+```bash
+$ cd popcorn
+$ flutter test test/widget_test/
 ```
 ---
 
