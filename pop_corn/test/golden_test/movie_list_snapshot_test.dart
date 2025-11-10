@@ -21,9 +21,9 @@ import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/search_movie_list_use_case.dart';
 import 'package:pop_corn/util/result.dart';
 
-import '../config/test_devices.dart';
+import 'config/test_config.dart';
+import 'config/test_devices.dart';
 import 'movie_list_snapshot_test.mocks.dart';
-import 'test_config.dart';
 
 @GenerateMocks(<Type>[
   MovieListUseCase,

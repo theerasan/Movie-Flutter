@@ -60,6 +60,8 @@ dev_dependencies:
   freezed: ^3.2.3
   golden_toolkit: ^0.15.0
   mockito: ^5.5.1
+  integration_test:
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
