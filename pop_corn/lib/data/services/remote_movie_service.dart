@@ -4,17 +4,16 @@ import 'package:pop_corn/data/model/movie_detail/movie_detail_dto.dart';
 import 'package:pop_corn/data/model/movie_list/movie_list_dto.dart';
 import 'package:pop_corn/data/services/movie_service.dart';
 import 'package:http/http.dart' as http;
+import 'package:pop_corn/data/services/service_config.dart';
 
 class RemoteMovieService implements MovieService {
   // TMDb API constants
   static const String _baseUrl = 'https://api.themoviedb.org/3';
-  final String _accessToken =
-      'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTUyZjUzNjdlMGEzY2JhODZhYTA3MTc3OTA2MDIwMSIsIm5iZiI6MTczNDA1Njk2OS4wOTYsInN1YiI6IjY3NWI5YzA5ZjFiZjdhNjBkZmY5YzE5MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7HIaaELwE_YZI--6E3ndwkwMl0mqprOC-Qq66H77zdY';
 
   // Get request headers with authorization
   Map<String, String> _getHeaders() {
     return {
-      'Authorization': 'Bearer $_accessToken',
+      'Authorization': 'Bearer ${ServiceConfig.apiToken}',
       'accept': 'application/json',
     };
   }
