@@ -77,9 +77,10 @@ class MovieListViewModel extends ChangeNotifier {
 
   void search(String query) {
     if (query.isNotEmpty) {
-      if (!query.startsWith(appBarState.query)) {
-        lceElement.clearResult();
+      if (query.startsWith(appBarState.query)) {
+        lceElement.showLoading();
       } else {
+        lceElement.clearResult();
         lceElement.showLoading();
       }
       appBarState.query = query;
