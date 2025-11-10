@@ -10,15 +10,15 @@ class LCEElement<T> extends ChangeNotifier {
   bool get error => _error;
   T? get result => _result;
 
-  void update(T result) {
+  Future<void> update(T result) async {
     _result = result;
     _loading = false;
     _error = false;
     notifyListeners();
   }
 
-  void updateResult(Future<Result<T>> future) {
-    future
+  Future<void> updateResult(Future<Result<T>> future) async {
+    return future
         .then((result) {
           switch (result) {
             case Success<T>():

@@ -22,7 +22,7 @@ void main() {
     final viewModel = _givenGetMovieDetail();
     await loadAppFonts();
 
-    viewModel.setId = 1;
+    viewModel.setId(1);
 
     final builder = DeviceBuilder()
       ..overrideDevicesForAllScenarios(devices: devices)
