@@ -30,7 +30,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      widget.viewModel.setId = widget.id;
+      widget.viewModel.setId(widget.id);
       _scrollController.addListener(_onScroll);
     });
   }

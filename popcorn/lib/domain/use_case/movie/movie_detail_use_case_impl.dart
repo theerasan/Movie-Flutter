@@ -20,21 +20,25 @@ class MovieDetailUseCaseImpl extends MovieDetailUseCase {
 
   @override
   Future<Result<MovieDetail>> getMovieDetailById(int id) async {
-    final result = await Future.wait([
+    return _loadMovieDetailById(id);
+  }
+
+  Future<Result<MovieDetail>> _loadMovieDetailById(int id) async {
+    final data = await Future.wait([
       repo.getMovieDetailById(id),
       favoriteStorage.getFavorite(),
     ]);
 
-    var movieDetail = result[0] as Result<MovieDetailDTO>;
-    var favorites = result[1] as List<String>;
+    var result = data[0] as Result<MovieDetailDTO>;
+    var favorites = data[1] as List<String>;
 
-    switch (movieDetail) {
-      case Success():
-        final isFavorite = favorites.contains(movieDetail.data.id.toString());
-        final data = mapper.map(movieDetail.data, isFavorite);
-        return Result.success(data);
-      case Error():
-        return Result.error(movieDetail.error);
+    switch (result) {
+      case Success<MovieDetailDTO>():
+        final isFavorite = favorites.contains(result.data.id.toString());
+        final mapped = mapper.map(result.data, isFavorite);
+        return Result.success(mapped);
+      case Error<MovieDetailDTO>():
+        return Result.error(result.error);
     }
   }
 }
