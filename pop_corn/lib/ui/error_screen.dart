@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pop_corn/ui/core/sizing.dart';
 
 import 'core/error_action.dart';
 
 class ErrorScreen extends StatelessWidget {
-  ErrorScreen({
+  const ErrorScreen({
     super.key,
     required this.errorMessage,
     required this.imagePath,
@@ -14,7 +13,7 @@ class ErrorScreen extends StatelessWidget {
 
   final String? errorMessage;
   final String imagePath;
-  ErrorAction? action;
+  final ErrorAction? action;
 
   @override
   Widget build(BuildContext context) {

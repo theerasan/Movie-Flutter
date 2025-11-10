@@ -5,17 +5,14 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:pop_corn/domain/model/movie.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pop_corn/domain/model/movie_page_data.dart';
-import 'package:pop_corn/l10n/app_localizations.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_screen.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_state.dart';
 import 'package:pop_corn/presentation/movie_list/movie_list_viewmodel.dart';
-import 'package:pop_corn/ui/core/theme/theme.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_list_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/search_movie_list_use_case.dart';
@@ -34,7 +31,7 @@ void main() {
   testGoldens('Movie List Screen', (tester) async {
     final viewModel = await _givenGetListOfMovie(true);
     final viewModel2 = await _givenGetListOfMovie(false);
-    viewModel2.appBarState.state= MovieListAppBarState.SEARCH_BAR;
+    viewModel2.appBarState.state= MovieListAppBarState.searchBar;
 
     await loadAppFonts();
 

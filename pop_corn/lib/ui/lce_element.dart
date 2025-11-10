@@ -7,9 +7,9 @@ class LCEElement<T> extends ChangeNotifier {
   bool _error = false;
   T? _result;
 
-  get loading => _loading;
-  get error => _error;
-  get result => _result;
+  bool get loading => _loading;
+  bool get error => _error;
+  T? get result => _result;
 
   void update(T result) {
     _result = result;
@@ -25,7 +25,6 @@ class LCEElement<T> extends ChangeNotifier {
           update(result.data);
           break;
         case Error<T>():
-          print('error in update result');
           _showError();
           break;
       }

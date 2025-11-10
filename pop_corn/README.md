@@ -32,6 +32,13 @@ $ cd popcorn
 $ flutter run --target lib/main_staging.dart
 ```
 
+## Development Aspect
+### Analyze code
+```bash
+$ cd popcorn
+$ flutter analyze
+```
+
 ### Run build runner to create mock/json
 ```bash
 $ cd popcorn

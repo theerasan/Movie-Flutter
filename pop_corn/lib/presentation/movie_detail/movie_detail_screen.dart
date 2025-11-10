@@ -62,7 +62,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           actions: (lce.result != null) ? [
             IconButton(
               onPressed: () {
-                widget.viewModel.onClickFavorite(lce.result);
+                widget.viewModel.onClickFavorite(lce.result!);
               },
               icon: ListenableBuilder(listenable: lce, builder: (context, _) {
                 return Icon(

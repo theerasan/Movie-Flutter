@@ -7,6 +7,6 @@ class MovieListState {
 }
 
 enum MovieListAppBarState {
-  TITLE_BAR,
-  SEARCH_BAR
+  titleBar,
+  searchBar
 }

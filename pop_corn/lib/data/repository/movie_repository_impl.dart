@@ -25,7 +25,6 @@ class MovieRepositoryImpl implements MovieRepository {
       final result = await service.searchMovies(query, page);
       return Result.success(result);
     } on Exception catch (error) {
-      print("error in repo ${error.toString()}");
       return Result.error(error);
     }
   }

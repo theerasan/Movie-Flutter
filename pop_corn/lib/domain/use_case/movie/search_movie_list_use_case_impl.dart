@@ -49,7 +49,6 @@ class SearchMovieListUseCaseImpl extends SearchMovieListUseCase {
             movies: _movies
         ));
       case Error<MovieListDTO>():
-        print('error in use case');
         return Result.error(result.error);
     }
   }

@@ -1,4 +1,3 @@
-import 'package:http/http.dart';
 import 'package:pop_corn/data/model/movie_list/movie_list_dto.dart';
 import 'package:pop_corn/data/repository/movie_repository.dart';
 import 'package:pop_corn/data/storage/favorite_storage.dart';
@@ -56,7 +55,6 @@ class MovieListUseCaseImpl implements MovieListUseCase {
             movies: _movies
         ));
       case Error<MovieListDTO>():
-        print('error in use case');
         return Result.error(result.error);
     }
   }

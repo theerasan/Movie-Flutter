@@ -45,7 +45,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
 
   AppBar _getAppBarState(MovieListAppBarState state) {
     switch (state) {
-      case MovieListAppBarState.TITLE_BAR:
+      case MovieListAppBarState.titleBar:
         return AppBar(
           title: Text(AppLocalizations.of(context)!.app_name),
           centerTitle: true,
@@ -56,7 +56,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
             ),
           ],
         );
-      case MovieListAppBarState.SEARCH_BAR:
+      case MovieListAppBarState.searchBar:
         final TextEditingController searchController = TextEditingController(
           text: widget.viewModel.appBarState.query,
         );

@@ -66,11 +66,9 @@ class RemoteMovieService implements MovieService {
       try {
         return MovieListDTO.fromJson(jsonDecode(response.body));
       } catch (e) {
-        print('error in search service mapping' + e.toString());
         throw Exception('Failed to load movies');
       }
     } else {
-      print('error in search service');
       throw Exception('Failed to load movies');
     }
   }

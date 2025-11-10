@@ -1,5 +1,4 @@
 
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pop_corn/data/model/movie_detail/cast_dto.dart';
 
