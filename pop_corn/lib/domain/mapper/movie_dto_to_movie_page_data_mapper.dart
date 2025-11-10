@@ -12,15 +12,21 @@ class MovieDTOToMoviePageDataMapper {
     return MoviePageData(
       page: dto.page,
       maxPage: dto.lastPage,
-      movies: dto.movies.map((m) => Movie(
-        id: m.id,
-        title: m.title,
-        posterUrl: (m.posterPath != null) ? '${config.posterBaseUrl}${m.posterPath}' : null,
-        isFavorite: favoriteList.contains(m.id.toString()),
-        rating: m.voteAverage,
-        releaseDate: m.releaseDate,
-        isAdult: m.adult,
-      )).toList()
+      movies: dto.movies
+          .map(
+            (m) => Movie(
+              id: m.id,
+              title: m.title,
+              posterUrl: (m.posterPath != null)
+                  ? '${config.posterBaseUrl}${m.posterPath}'
+                  : null,
+              isFavorite: favoriteList.contains(m.id.toString()),
+              rating: m.voteAverage,
+              releaseDate: m.releaseDate,
+              isAdult: m.adult,
+            ),
+          )
+          .toList(),
     );
   }
 }

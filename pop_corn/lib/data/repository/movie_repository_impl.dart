@@ -5,7 +5,6 @@ import 'package:pop_corn/data/services/movie_service.dart';
 import 'package:pop_corn/util/result.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
-
   final MovieService service;
   const MovieRepositoryImpl({required this.service});
 
@@ -25,7 +24,6 @@ class MovieRepositoryImpl implements MovieRepository {
       final result = await service.searchMovies(query, page);
       return Result.success(result);
     } on Exception catch (error) {
-      print("error in repo ${error.toString()}");
       return Result.error(error);
     }
   }

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 abstract final class AppTheme {
-
   static final _textTheme = const TextTheme(
     headlineLarge: TextStyle(
       fontSize: 32,
@@ -86,12 +85,13 @@ abstract final class AppTheme {
       backgroundColor: WidgetStateProperty.all(AppColors.info),
       foregroundColor: WidgetStateProperty.all(AppColors.black1.withAlpha(200)),
       overlayColor: WidgetStateProperty.all(AppColors.black1.withAlpha(50)),
-      textStyle: WidgetStateProperty.all(TextStyle(
-        fontSize: 18,
-        fontWeight:
-        FontWeight.w600,
-        fontFamily: 'Montserrat',
-        color: AppColors.white1),
+      textStyle: WidgetStateProperty.all(
+        TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          fontFamily: 'Montserrat',
+          color: AppColors.white1,
+        ),
       ),
     ),
   );
@@ -106,7 +106,7 @@ abstract final class AppTheme {
   );
 
   static const _progressIndicatorTheme = ProgressIndicatorThemeData(
-    color: AppColors.info
+    color: AppColors.info,
   );
 
   static ThemeData lightTheme = ThemeData(

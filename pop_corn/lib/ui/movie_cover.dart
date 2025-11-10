@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 class MovieCover extends StatelessWidget {
-
   final String? path;
   final String placeholder;
   final double? height;
@@ -12,7 +11,7 @@ class MovieCover extends StatelessWidget {
     required this.path,
     required this.placeholder,
     this.width,
-    this.height
+    this.height,
   });
 
   @override

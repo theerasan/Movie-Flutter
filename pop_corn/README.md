@@ -32,16 +32,22 @@ $ cd popcorn
 $ flutter run --target lib/main_staging.dart
 ```
 
-### Run build runner to create mock/json
-```bash
+## Test the Project
+### Golden test capture new images
+```bash 
 $ cd popcorn
-$ dart run build_runner build
+$ flutter test --update-goldens
+```
+### Unit test (including golden test)
+```bash 
+$ cd popcorn
+$ flutter test
 ```
 
-## Integration Tests
+### Integration Tests
 
 Integration tests must be run from the `popcorn` directory.
-*Make sure you run emulator on your device*
+**Make sure you run emulator on your device**
 
 **Integration tests with local data**
 
@@ -50,3 +56,21 @@ cd popcorn
 $ flutter test integration_test
 ```
 
+
+## Development Aspect
+### Format Code
+```bash
+$ cd popcorn
+$ dart format lib
+```
+### Analyze code
+```bash
+$ cd popcorn
+$ flutter analyze
+```
+
+### Run build runner to create mock/json
+```bash
+$ cd popcorn
+$ dart run build_runner build
+```

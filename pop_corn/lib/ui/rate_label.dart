@@ -3,7 +3,6 @@ import 'package:pop_corn/ui/core/sizing.dart';
 import 'package:pop_corn/ui/core/theme/colors.dart';
 
 class RateLabel extends StatelessWidget {
-
   final bool isAdult;
 
   const RateLabel({super.key, required this.isAdult});
@@ -18,20 +17,21 @@ class RateLabel extends StatelessWidget {
     }
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-          color: color,
-          width: 1.5,
-        ),
+        border: Border.all(color: color, width: 1.5),
         borderRadius: BorderRadius.circular(5),
       ),
       child: Padding(
-        padding: EdgeInsetsGeometry.symmetric(vertical: 0, horizontal: AppSizing.xs),
+        padding: EdgeInsetsGeometry.symmetric(
+          vertical: 0,
+          horizontal: AppSizing.xs,
+        ),
         child: Text(
           rateText,
-          style: Theme.of(context).textTheme.labelMedium?.copyWith(color: color),
+          style: Theme.of(
+            context,
+          ).textTheme.labelMedium?.copyWith(color: color),
         ),
       ),
     );
   }
-
 }

@@ -9,8 +9,9 @@ abstract class CastDTO with _$CastDTO {
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'name') required String name,
     @JsonKey(name: 'profile_path') required String? profilePath,
-    @JsonKey(name: 'character') required String character
+    @JsonKey(name: 'character') required String character,
   }) = _CastDTO;
 
-  factory CastDTO.fromJson(Map<String, dynamic> json) => _$CastDTOFromJson(json);
+  factory CastDTO.fromJson(Map<String, dynamic> json) =>
+      _$CastDTOFromJson(json);
 }

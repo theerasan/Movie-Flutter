@@ -2,7 +2,6 @@ import 'package:pop_corn/data/storage/favorite_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FavoriteSharePrefStorage extends FavoriteStorage {
-
   late final String _key = '_favorite';
 
   // Make Storage as Singleton
@@ -18,7 +17,7 @@ class FavoriteSharePrefStorage extends FavoriteStorage {
   Future<bool> addToFavorite(num id) async {
     var result = await Future.wait([
       SharedPreferences.getInstance(),
-      getFavorite()
+      getFavorite(),
     ]);
     var instance = result[0] as SharedPreferences;
     var list = (result[1] as List<String>).toSet();
@@ -41,7 +40,7 @@ class FavoriteSharePrefStorage extends FavoriteStorage {
   Future<bool> removeFromFavorite(num id) async {
     var result = await Future.wait([
       SharedPreferences.getInstance(),
-      getFavorite()
+      getFavorite(),
     ]);
     var instance = result[0] as SharedPreferences;
     var list = result[1] as List<String>;

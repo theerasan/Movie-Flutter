@@ -17,16 +17,20 @@ class MovieDetailDTOToMovieDetailMapper {
       backdropUrl: '${config.backdropBaseUrl}${dto.backdropPath}',
       releaseDate: dto.releaseDate,
       isAdult: dto.adult,
-      casts: dto.credits.casts.map(
-        (c) => Cast(
-          fullName: c.name,
-          character: c.character,
-          avatarUrl: (c.profilePath != null) ? '${config.avatarBaseUrl}${c.profilePath}' : null,
-        )
-      ).toList(),
+      casts: dto.credits.casts
+          .map(
+            (c) => Cast(
+              fullName: c.name,
+              character: c.character,
+              avatarUrl: (c.profilePath != null)
+                  ? '${config.avatarBaseUrl}${c.profilePath}'
+                  : null,
+            ),
+          )
+          .toList(),
       voteRating: dto.voteAverage,
       mainGenre: dto.genres.first.name,
-      isFavorite: isFavorite
+      isFavorite: isFavorite,
     );
   }
 }

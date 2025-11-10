@@ -16,8 +16,8 @@ class GenericErrorScreen extends StatelessWidget {
       imagePath: 'images/general_error.png',
       action: ErrorAction(
         label: AppLocalizations.of(context)?.general_error_button,
-        onClick: onRetry,),
+        onClick: onRetry,
+      ),
     );
   }
-
 }

@@ -8,7 +8,6 @@ import 'package:pop_corn/data/model/movie_list/movie_list_dto.dart';
 import 'package:pop_corn/data/services/movie_service.dart';
 
 class LocalMovieService implements MovieService {
-
   static final MovieService _instance = LocalMovieService._internal();
 
   LocalMovieService._internal();

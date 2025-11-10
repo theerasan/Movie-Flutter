@@ -9,7 +9,6 @@ import '../../mapper/movie_dto_to_movie_page_data_mapper.dart';
 import '../../model/movie.dart';
 
 class SearchMovieListUseCaseImpl extends SearchMovieListUseCase {
-
   final MovieRepository repo;
   final FavoriteStorage favoriteStorage;
   final MovieDTOToMoviePageDataMapper mapper;
@@ -19,7 +18,11 @@ class SearchMovieListUseCaseImpl extends SearchMovieListUseCase {
   var _maxPage = 1;
   var _query = '';
 
-  SearchMovieListUseCaseImpl({required this.repo, required this.mapper, required this.favoriteStorage});
+  SearchMovieListUseCaseImpl({
+    required this.repo,
+    required this.mapper,
+    required this.favoriteStorage,
+  });
 
   @override
   Future<Result<MoviePageData>> getMovies(String query) async {
@@ -31,25 +34,22 @@ class SearchMovieListUseCaseImpl extends SearchMovieListUseCase {
 
     var data = await Future.wait([
       repo.searchMovies(query, _page),
-      favoriteStorage.getFavorite()
+      favoriteStorage.getFavorite(),
     ]);
 
     var result = data[0] as Result<MovieListDTO>;
     var favorites = data[1] as List<String>;
 
-    switch(result) {
+    switch (result) {
       case Success<MovieListDTO>():
         var data = mapper.map(result.data, favorites);
         _movies.addAll(data.movies);
         _page = data.page;
         _maxPage = data.maxPage;
-        return Result.success(MoviePageData(
-            page: _page,
-            maxPage: _maxPage,
-            movies: _movies
-        ));
+        return Result.success(
+          MoviePageData(page: _page, maxPage: _maxPage, movies: _movies),
+        );
       case Error<MovieListDTO>():
-        print('error in use case');
         return Result.error(result.error);
     }
   }
@@ -63,6 +63,4 @@ class SearchMovieListUseCaseImpl extends SearchMovieListUseCase {
 
     throw Exception('No more movie');
   }
-
-
 }

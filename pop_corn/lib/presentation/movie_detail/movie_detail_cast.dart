@@ -3,7 +3,6 @@ import 'package:pop_corn/domain/model/cast.dart';
 import 'package:pop_corn/ui/core/sizing.dart';
 
 class MovieDetailCast extends StatelessWidget {
-
   const MovieDetailCast({super.key, required this.cast});
 
   final Cast cast;
@@ -12,21 +11,23 @@ class MovieDetailCast extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsGeometry.symmetric(
-          horizontal: AppSizing.xxl,
-          vertical: AppSizing.s,
+        horizontal: AppSizing.xxl,
+        vertical: AppSizing.s,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
-          (cast.avatarUrl != null) ? CircleAvatar(
-            radius: 25,
-            foregroundImage: NetworkImage(cast.avatarUrl!),
-            backgroundImage: AssetImage('images/avatar_placeholder.png'),
-          ) : CircleAvatar(
-            radius: 25,
-            foregroundImage: AssetImage('images/avatar_placeholder.png'),
-          ),
+          (cast.avatarUrl != null)
+              ? CircleAvatar(
+                  radius: 25,
+                  foregroundImage: NetworkImage(cast.avatarUrl!),
+                  backgroundImage: AssetImage('images/avatar_placeholder.png'),
+                )
+              : CircleAvatar(
+                  radius: 25,
+                  foregroundImage: AssetImage('images/avatar_placeholder.png'),
+                ),
           BoxSizing.l,
           Expanded(
             child: Column(
@@ -37,7 +38,9 @@ class MovieDetailCast extends StatelessWidget {
                   cast.fullName,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 BoxSizing.xs,
                 Text(
@@ -45,7 +48,7 @@ class MovieDetailCast extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.labelSmall,
-                )
+                ),
               ],
             ),
           ),

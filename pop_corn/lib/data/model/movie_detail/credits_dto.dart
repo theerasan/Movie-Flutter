@@ -1,5 +1,3 @@
-
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pop_corn/data/model/movie_detail/cast_dto.dart';
 
@@ -12,5 +10,6 @@ abstract class CreditsDTO with _$CreditsDTO {
     @JsonKey(name: 'cast') required List<CastDTO> casts,
   }) = _CreditsDTO;
 
-  factory CreditsDTO.fromJson(Map<String, dynamic> json) => _$CreditsDTOFromJson(json);
+  factory CreditsDTO.fromJson(Map<String, dynamic> json) =>
+      _$CreditsDTOFromJson(json);
 }

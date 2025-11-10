@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pop_corn/domain/model/movie_page_data.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_list_use_case.dart';
@@ -10,19 +9,21 @@ import 'package:pop_corn/ui/lce_element.dart';
 import '../../domain/use_case/movie/search_movie_list_use_case.dart';
 
 class MovieListViewModel extends ChangeNotifier {
-
   final MovieListUseCase movieUseCase;
   final MovieFavoriteUseCase movieFavoriteUseCase;
   final SearchMovieListUseCase searchMovieListUseCase;
   LCEElement<MoviePageData> lceElement = LCEElement();
-  MovieListState appBarState = MovieListState(state: MovieListAppBarState.TITLE_BAR, query: "");
+  MovieListState appBarState = MovieListState(
+    state: MovieListAppBarState.titleBar,
+    query: "",
+  );
 
   bool isLoadMore = false;
 
   MovieListViewModel({
     required this.movieUseCase,
     required this.movieFavoriteUseCase,
-    required this.searchMovieListUseCase
+    required this.searchMovieListUseCase,
   });
 
   void onEnterScreen() {
@@ -35,10 +36,10 @@ class MovieListViewModel extends ChangeNotifier {
     if (pageData.hasNextPage()) {
       lceElement.showLoading();
       switch (appBarState.state) {
-        case MovieListAppBarState.TITLE_BAR:
+        case MovieListAppBarState.titleBar:
           lceElement.updateResult(movieUseCase.loadMoreMovies());
           break;
-        case MovieListAppBarState.SEARCH_BAR:
+        case MovieListAppBarState.searchBar:
           lceElement.updateResult(searchMovieListUseCase.loadMoreMovies());
           break;
       }
@@ -62,12 +63,12 @@ class MovieListViewModel extends ChangeNotifier {
   }
 
   void onClickSearch() {
-    appBarState.state = MovieListAppBarState.SEARCH_BAR;
+    appBarState.state = MovieListAppBarState.searchBar;
     notifyListeners();
   }
 
   void onClickCloseSearch() {
-    appBarState.state = MovieListAppBarState.TITLE_BAR;
+    appBarState.state = MovieListAppBarState.titleBar;
     appBarState.query = "";
     notifyListeners();
     lceElement.clearResult();
@@ -78,9 +79,9 @@ class MovieListViewModel extends ChangeNotifier {
     if (query.isNotEmpty) {
       if (!query.startsWith(appBarState.query)) {
         lceElement.clearResult();
-     } else {
-       lceElement.showLoading();
-     }
+      } else {
+        lceElement.showLoading();
+      }
       appBarState.query = query;
       lceElement.updateResult(searchMovieListUseCase.getMovies(query));
     }

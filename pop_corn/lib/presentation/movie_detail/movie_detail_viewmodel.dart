@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:pop_corn/domain/model/cast.dart';
 import 'package:pop_corn/domain/model/movie_detail.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_detail_use_case.dart';
 import 'package:pop_corn/domain/use_case/movie/movie_favorite_use_case.dart';
@@ -11,7 +10,10 @@ class MovieDetailViewModel extends ChangeNotifier {
   final MovieDetailUseCase movieDetailUseCase;
   final LCEElement<MovieDetail> lceElement = LCEElement();
 
-  MovieDetailViewModel({required this.movieFavoriteUseCase, required this.movieDetailUseCase});
+  MovieDetailViewModel({
+    required this.movieFavoriteUseCase,
+    required this.movieDetailUseCase,
+  });
 
   int get getId {
     return _id;
