@@ -109,6 +109,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search... '**
   String get search;
+
+  /// No description provided for @movie_detail_cast.
+  ///
+  /// In en, this message translates to:
+  /// **'Cast'**
+  String get movie_detail_cast;
+
+  /// No description provided for @movie_detail_overview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get movie_detail_overview;
+
+  /// No description provided for @general_error_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong please try again...'**
+  String get general_error_message;
+
+  /// No description provided for @general_error_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get general_error_button;
+
+  /// No description provided for @empty_movie_list.
+  ///
+  /// In en, this message translates to:
+  /// **'There is no movie to show...'**
+  String get empty_movie_list;
 }
 
 class _AppLocalizationsDelegate

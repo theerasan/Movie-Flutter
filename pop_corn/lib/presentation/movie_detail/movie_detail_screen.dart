@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pop_corn/domain/model/movie_detail.dart';
+import 'package:pop_corn/l10n/app_localizations.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_body.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_cast.dart';
 import 'package:pop_corn/presentation/movie_detail/movie_detail_header.dart';
@@ -8,6 +9,7 @@ import 'package:pop_corn/ui/core/theme/colors.dart';
 import 'package:pop_corn/ui/lce_element.dart';
 
 import '../../ui/core/sizing.dart';
+import '../../ui/generic_error_screen.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   const MovieDetailScreen({super.key, required this.viewModel, required this.id});
@@ -89,12 +91,14 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
       } else if (column == 2) {
         return _doubleColumn(movie);
       } else {
-        return Text('non support layout');
+        return Center(
+          child: GenericErrorScreen(onRetry: widget.viewModel.onRetry)
+        );
       }
-    } else if (lce.error != null) {
-      return Text("error");
     }
-    return Text("error");
+    return Center(
+        child: GenericErrorScreen(onRetry: widget.viewModel.onRetry)
+    );
   }
 
   Widget _singleColumn(MovieDetail movie) {
@@ -108,7 +112,10 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
         BoxSizing.xxl,
         Padding(
           padding: EdgeInsetsGeometry.symmetric(horizontal: AppSizing.xxl),
-          child: Text("Cast", style: Theme.of(context).textTheme.titleMedium,),
+          child: Text(
+            AppLocalizations.of(context)!.movie_detail_cast,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ),
         BoxSizing.m,
         ...movie.casts.map((cast) =>
@@ -138,7 +145,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
               BoxSizing.xxl,
               Padding(
                 padding: EdgeInsetsGeometry.symmetric(horizontal: AppSizing.xxl),
-                child: Text("Cast", style: Theme.of(context).textTheme.titleMedium,),
+                child: Text(AppLocalizations.of(context)!.movie_detail_cast, style: Theme.of(context).textTheme.titleMedium,),
               ),
               BoxSizing.m,
               ...movie.casts.map((cast) =>

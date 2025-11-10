@@ -26,6 +26,7 @@ class MovieListViewModel extends ChangeNotifier {
   });
 
   void onEnterScreen() {
+    lceElement.clearResult();
     lceElement.updateResult(movieUseCase.getMovies());
   }
 

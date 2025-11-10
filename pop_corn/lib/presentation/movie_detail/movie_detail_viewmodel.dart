@@ -36,4 +36,8 @@ class MovieDetailViewModel extends ChangeNotifier {
     movie.isFavorite = !movie.isFavorite;
     lceElement.update(movie);
   }
+
+  void onRetry() {
+    _loadMovieDetail();
+  }
 }
