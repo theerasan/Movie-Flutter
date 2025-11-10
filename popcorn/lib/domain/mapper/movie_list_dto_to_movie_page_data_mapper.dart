@@ -3,10 +3,10 @@ import 'package:popcorn/data/model/movie_list/movie_list_dto.dart';
 import 'package:popcorn/domain/model/movie.dart';
 import 'package:popcorn/domain/model/movie_page_data.dart';
 
-class MovieDTOToMoviePageDataMapper {
+class MovieListDTOToMoviePageDataMapper {
   final AssetsUrlConfig config;
 
-  MovieDTOToMoviePageDataMapper({required this.config});
+  MovieListDTOToMoviePageDataMapper({required this.config});
 
   MoviePageData map(MovieListDTO dto, List<String> favoriteList) {
     return MoviePageData(

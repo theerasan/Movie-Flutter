@@ -34,10 +34,6 @@ import 'package:popcorn/util/result.dart' as _i4;
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockMovieListUseCase extends _i1.Mock implements _i2.MovieListUseCase {
-  MockMovieListUseCase() {
-    _i1.throwOnMissingStub(this);
-  }
-
   @override
   _i3.Future<_i4.Result<_i5.MoviePageData>> getMovies() =>
       (super.noSuchMethod(
@@ -48,6 +44,13 @@ class MockMovieListUseCase extends _i1.Mock implements _i2.MovieListUseCase {
                 Invocation.method(#getMovies, []),
               ),
             ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Result<_i5.MoviePageData>>.value(
+                  _i6.dummyValue<_i4.Result<_i5.MoviePageData>>(
+                    this,
+                    Invocation.method(#getMovies, []),
+                  ),
+                ),
           )
           as _i3.Future<_i4.Result<_i5.MoviePageData>>);
 
@@ -61,6 +64,13 @@ class MockMovieListUseCase extends _i1.Mock implements _i2.MovieListUseCase {
                 Invocation.method(#loadMoreMovies, []),
               ),
             ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Result<_i5.MoviePageData>>.value(
+                  _i6.dummyValue<_i4.Result<_i5.MoviePageData>>(
+                    this,
+                    Invocation.method(#loadMoreMovies, []),
+                  ),
+                ),
           )
           as _i3.Future<_i4.Result<_i5.MoviePageData>>);
 }
@@ -70,10 +80,6 @@ class MockMovieListUseCase extends _i1.Mock implements _i2.MovieListUseCase {
 /// See the documentation for Mockito's code generation for more information.
 class MockMovieFavoriteUseCase extends _i1.Mock
     implements _i7.MovieFavoriteUseCase {
-  MockMovieFavoriteUseCase() {
-    _i1.throwOnMissingStub(this);
-  }
-
   @override
   void addToFavorite(num? id) => super.noSuchMethod(
     Invocation.method(#addToFavorite, [id]),
@@ -91,6 +97,7 @@ class MockMovieFavoriteUseCase extends _i1.Mock
       (super.noSuchMethod(
             Invocation.method(#getFavoriteStatus, [id]),
             returnValue: _i3.Future<bool>.value(false),
+            returnValueForMissingStub: _i3.Future<bool>.value(false),
           )
           as _i3.Future<bool>);
 }
@@ -100,10 +107,6 @@ class MockMovieFavoriteUseCase extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockSearchMovieListUseCase extends _i1.Mock
     implements _i8.SearchMovieListUseCase {
-  MockSearchMovieListUseCase() {
-    _i1.throwOnMissingStub(this);
-  }
-
   @override
   _i3.Future<_i4.Result<_i5.MoviePageData>> getMovies(String? query) =>
       (super.noSuchMethod(
@@ -114,6 +117,13 @@ class MockSearchMovieListUseCase extends _i1.Mock
                 Invocation.method(#getMovies, [query]),
               ),
             ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Result<_i5.MoviePageData>>.value(
+                  _i6.dummyValue<_i4.Result<_i5.MoviePageData>>(
+                    this,
+                    Invocation.method(#getMovies, [query]),
+                  ),
+                ),
           )
           as _i3.Future<_i4.Result<_i5.MoviePageData>>);
 
@@ -127,6 +137,13 @@ class MockSearchMovieListUseCase extends _i1.Mock
                 Invocation.method(#loadMoreMovies, []),
               ),
             ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Result<_i5.MoviePageData>>.value(
+                  _i6.dummyValue<_i4.Result<_i5.MoviePageData>>(
+                    this,
+                    Invocation.method(#loadMoreMovies, []),
+                  ),
+                ),
           )
           as _i3.Future<_i4.Result<_i5.MoviePageData>>);
 }

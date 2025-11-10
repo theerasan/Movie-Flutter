@@ -10,7 +10,9 @@ import 'package:provider/provider.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   testWidgets('name', (tester) async {
-    await tester.pumpWidget(MultiProvider(providers: providersLocal, child: const PopcornApp()));
+    await tester.pumpWidget(
+      MultiProvider(providers: providersLocal, child: const PopcornApp()),
+    );
 
     await tester.pumpAndSettle();
     expect(find.byType(MovieListScreen), findsOneWidget);

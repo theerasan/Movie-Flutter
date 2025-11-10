@@ -34,10 +34,6 @@ import 'package:popcorn/util/result.dart' as _i4;
 /// See the documentation for Mockito's code generation for more information.
 class MockMovieDetailUseCase extends _i1.Mock
     implements _i2.MovieDetailUseCase {
-  MockMovieDetailUseCase() {
-    _i1.throwOnMissingStub(this);
-  }
-
   @override
   _i3.Future<_i4.Result<_i5.MovieDetail>> getMovieDetailById(int? id) =>
       (super.noSuchMethod(
@@ -48,6 +44,13 @@ class MockMovieDetailUseCase extends _i1.Mock
                 Invocation.method(#getMovieDetailById, [id]),
               ),
             ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Result<_i5.MovieDetail>>.value(
+                  _i6.dummyValue<_i4.Result<_i5.MovieDetail>>(
+                    this,
+                    Invocation.method(#getMovieDetailById, [id]),
+                  ),
+                ),
           )
           as _i3.Future<_i4.Result<_i5.MovieDetail>>);
 }
@@ -57,10 +60,6 @@ class MockMovieDetailUseCase extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockMovieFavoriteUseCase extends _i1.Mock
     implements _i7.MovieFavoriteUseCase {
-  MockMovieFavoriteUseCase() {
-    _i1.throwOnMissingStub(this);
-  }
-
   @override
   void addToFavorite(num? id) => super.noSuchMethod(
     Invocation.method(#addToFavorite, [id]),
@@ -78,6 +77,7 @@ class MockMovieFavoriteUseCase extends _i1.Mock
       (super.noSuchMethod(
             Invocation.method(#getFavoriteStatus, [id]),
             returnValue: _i3.Future<bool>.value(false),
+            returnValueForMissingStub: _i3.Future<bool>.value(false),
           )
           as _i3.Future<bool>);
 }

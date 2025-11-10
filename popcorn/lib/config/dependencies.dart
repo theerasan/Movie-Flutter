@@ -7,7 +7,7 @@ import 'package:popcorn/data/services/remote_movie_service.dart';
 import 'package:popcorn/data/storage/favorite_share_pref_storage.dart';
 import 'package:popcorn/data/storage/favorite_storage.dart';
 import 'package:popcorn/domain/mapper/movie_detail_dto_to_movie_detail_mapper.dart';
-import 'package:popcorn/domain/mapper/movie_dto_to_movie_page_data_mapper.dart';
+import 'package:popcorn/domain/mapper/movie_list_dto_to_movie_page_data_mapper.dart';
 import 'package:popcorn/domain/use_case/movie/movie_detail_use_case.dart';
 import 'package:popcorn/domain/use_case/movie/movie_detail_use_case_impl.dart';
 import 'package:popcorn/domain/use_case/movie/movie_favorite_use_case.dart';
@@ -23,16 +23,29 @@ import 'package:provider/single_child_widget.dart';
 import '../domain/use_case/movie/search_movie_list_use_case_impl.dart';
 
 /// Shared providers for all configurations.
-List<SingleChildWidget> _sharedProviders = [
-  Provider<FavoriteStorage>(create: (ctx) => FavoriteSharePrefStorage()),
+List<SingleChildWidget> _configProviders = [
   Provider(create: (ctx) => AssetsUrlConfig()),
-  Provider(create: (ctx) => MovieDTOToMoviePageDataMapper(config: ctx.read())),
+];
+
+List<SingleChildWidget> _storageProviders = [
+  Provider<FavoriteStorage>(create: (ctx) => FavoriteSharePrefStorage()),
+];
+List<SingleChildWidget> _mapperProviders = [
+  Provider(
+    create: (ctx) => MovieListDTOToMoviePageDataMapper(config: ctx.read()),
+  ),
   Provider(
     create: (ctx) => MovieDetailDTOToMovieDetailMapper(config: ctx.read()),
   ),
+];
+
+List<SingleChildWidget> _repoProviders = [
   Provider<MovieRepository>(
     create: (ctx) => MovieRepositoryImpl(service: ctx.read()),
   ),
+];
+
+List<SingleChildWidget> _useCaseProviders = [
   Provider<MovieListUseCase>(
     create: (ctx) => MovieListUseCaseImpl(
       repo: ctx.read(),
@@ -57,6 +70,9 @@ List<SingleChildWidget> _sharedProviders = [
   Provider<MovieFavoriteUseCase>(
     create: (ctx) => MovieFavoriteUseCaseImpl(storage: ctx.read()),
   ),
+];
+
+List<SingleChildWidget> _viewModelProviders = [
   ChangeNotifierProvider<MovieListViewModel>(
     create: (ctx) => MovieListViewModel(
       movieUseCase: ctx.read(),
@@ -70,6 +86,15 @@ List<SingleChildWidget> _sharedProviders = [
       movieDetailUseCase: ctx.read(),
     ),
   ),
+];
+
+List<SingleChildWidget> _sharedProviders = [
+  ..._configProviders,
+  ..._storageProviders,
+  ..._mapperProviders,
+  ..._repoProviders,
+  ..._useCaseProviders,
+  ..._viewModelProviders,
 ];
 
 /// Provide for remote
