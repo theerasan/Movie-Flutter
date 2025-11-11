@@ -29,7 +29,7 @@ A Flutter showcase project that demonstrates building a modern, responsive movie
 ---
 
 ## 🍿 Demo
-![demo](readme_assets/demo.mp4)
+![demo.mov](readme_assets/demo.mov)
 
 ---
 
