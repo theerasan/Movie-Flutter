@@ -28,6 +28,11 @@ A Flutter showcase project that demonstrates building a modern, responsive movie
 - 👨🏻‍💻 My profile: [Drive](https://docs.google.com/document/d/1PjG_kUpry4AqWKVEw0VV02HCih3igUJII3NR1A8qXlI/)
 ---
 
+## 🍿 Demo
+![demo](readme_assets/demo.mp4)
+
+---
+
 ## ⚙️ Prerequisite
 ### API Token
 This application uses **The Movie Database (TMDb) API**.
