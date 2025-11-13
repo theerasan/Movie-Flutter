@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:popcorn/domain/model/movie_detail.dart';
 import 'package:popcorn/presentation/movie_detail/movie_detail_viewmodel.dart';
-import 'package:popcorn/ui/core/theme/colors.dart';
-import 'package:popcorn/ui/lce_element.dart';
+import 'package:popcorn/ui/favorite_button.dart';
 
 import '../../ui/core/sizing.dart';
 import '../../ui/generic_error_screen.dart';
+import '../../ui/lce_element.dart';
 import 'movie_detail_double_column.dart';
 import 'movie_detail_single_column.dart';
 
@@ -63,31 +63,27 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
             surfaceTintColor: Colors.transparent,
             centerTitle: true,
             backgroundColor: bgColor,
-            actions: (lce.result != null)
-                ? [
-                    IconButton(
-                      onPressed: () {
-                        widget.viewModel.onClickFavorite(lce.result!);
-                      },
-                      icon: ListenableBuilder(
-                        listenable: lce,
-                        builder: (context, _) {
-                          return Icon(
-                            lce.result!.isFavorite
-                                ? Icons.favorite
-                                : Icons.favorite_border,
-                            color: AppColors.favColor,
-                          );
-                        },
-                      ),
-                    ),
-                  ]
-                : [],
+            actions: _getActionButtons(lce.result),
           ),
           body: _movieDetailBody(lce, column),
         );
       },
     );
+  }
+
+  List<FavoriteButton>? _getActionButtons(MovieDetail? detail) {
+    if (detail != null) {
+      return [
+        FavoriteButton(
+          isFavorite: detail.isFavorite,
+          onClickFavorite: () {
+            widget.viewModel.onClickFavorite(detail);
+          },
+        ),
+      ];
+    } else {
+      return null;
+    }
   }
 
   Widget _movieDetailBody(LCEElement<MovieDetail> lce, int column) {

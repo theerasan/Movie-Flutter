@@ -53,8 +53,8 @@ MovieDetailViewModel _givenGetMovieDetail() {
       isFavorite: true,
       isAdult: false,
       casts: [
-        Cast(fullName: 'Monkey D. Luffy', character: 'Captain'),
-        Cast(fullName: 'Tony Tony Chopper', character: 'Doctor'),
+        Cast(id: 1, fullName: 'Monkey D. Luffy', character: 'Captain'),
+        Cast(id: 2, fullName: 'Tony Tony Chopper', character: 'Doctor'),
       ],
     ),
   );

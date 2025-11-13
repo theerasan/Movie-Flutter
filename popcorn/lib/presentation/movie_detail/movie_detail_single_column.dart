@@ -35,7 +35,9 @@ class MovieDetailSingleColumn extends StatelessWidget {
           ),
         ),
         BoxSizing.m,
-        ...movie.casts.map((cast) => MovieDetailCast(cast: cast)),
+        ...movie.casts.map(
+          (cast) => MovieDetailCast(key: ValueKey(cast.id), cast: cast),
+        ),
         BoxSizing.xxl,
       ],
     );

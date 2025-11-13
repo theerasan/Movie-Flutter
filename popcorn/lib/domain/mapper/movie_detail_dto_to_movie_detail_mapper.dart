@@ -20,6 +20,7 @@ class MovieDetailDTOToMovieDetailMapper {
       casts: dto.credits.casts
           .map(
             (c) => Cast(
+              id: c.id,
               fullName: c.name,
               character: c.character,
               avatarUrl: (c.profilePath != null)

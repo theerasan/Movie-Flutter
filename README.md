@@ -235,5 +235,5 @@ $ dart run build_runner build
 Generate/update the l10n files.
 ```bash
 $ cd popcorn
-$  flutter gen-l10n
+$ flutter gen-l10n
 ```
